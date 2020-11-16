@@ -27,7 +27,7 @@ linkin_username:  Xuan Yang
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-theme-merlot
 plugins:
   - jekyll-feed
 
