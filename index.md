@@ -1,11 +1,19 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: home
+author: "Blue Cat"
+author_profile: true
 ---
-# This is Home
+# Hi, human
+## This is my playground
 
+```c++
+#include <iostream>
+
+int main() {
+    std::cout << "Welcome to my playground!" << std::endl;
+    return 0;
+}
+```
 ## Living Room
 ## Bedroom
 ## Kichen
