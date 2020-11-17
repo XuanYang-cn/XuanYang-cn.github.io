@@ -1,4 +1,20 @@
 # main links
 main:
-  - title: "About Blue Cat"
+  - title: "BLOGS"
+    url: /year-archive/
+  - title: "CATEGORIES"
+    children:
+    url: /categories/
+  - title: "ABOUT BLUE CAT"
     url: /about/
+      
+# catogires links
+cats:
+  - title: Categories
+    children:
+      - title: "Blue Cat"
+        url: /categories/bluecat/
+
+      - title: "CMake"
+        url: /categories/cmake/
+  

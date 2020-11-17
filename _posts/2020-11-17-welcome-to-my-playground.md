@@ -1,9 +1,9 @@
 ---
 layout: single
 title:  "Welcome to My Site!"
-date:   2020-11-13 20:39:39 +0800
-categories: other
-
+categories: "BlueCat"
+author: "Blue Cat"
+excerpt: "The human thinks she owns the page, ho, I'm so kind ;)"
 ---
 
 ```c++

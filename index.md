@@ -1,9 +1,12 @@
 ---
+excerpt: "cookies..."
+title: "Hi, human"
 layout: home
 author: "Blue Cat"
 author_profile: true
+header:
+  overlay_color: '#333' 
 ---
-# Hi, human
 ## This is my playground
 
 ```c++
