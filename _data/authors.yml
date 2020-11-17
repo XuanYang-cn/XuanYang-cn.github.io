@@ -13,7 +13,7 @@ Yang Xuan:
 Blue Cat:
   name        : "Blue Cat"
   bio         : "I want more cookies!"
-  avatar      : "/assets/images/bio-photo-2.jpg"
+  avatar      : "/assets/images/bio-bluecat-1.jpeg"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
