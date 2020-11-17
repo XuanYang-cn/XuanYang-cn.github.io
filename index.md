@@ -5,7 +5,7 @@ layout: home
 author: "Blue Cat"
 author_profile: true
 header:
-  overlay_color: '#333' 
+  overlay_image: /assets/images/hi-humans-bluecat-1.jpeg 
 ---
 ## This is my playground
 
