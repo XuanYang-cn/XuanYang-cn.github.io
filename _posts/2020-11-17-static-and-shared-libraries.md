@@ -8,11 +8,33 @@ excerpt: "The difference between static libraries and shared libraries."
 
 # 静态库和动态库
 
+静态库和动态库的区别，本质上是静态链接和动态链接的区别。那么什么是链接？什么又是静态链接和动态链接呢？本文将由浅入深，逐步解析静态库和动态库的区别。
+
 ## `gcc hello.c` 隐藏的过程
 
-helloworld 程序 -> gcc -> 可执行的 a.out
+```c
+// hello.c
+#include <stdio.h>
 
-【图片：编译的两步】
+int main() {
+  printf("Hello World!\n");
+  return 0;
+}
+```
+
+相信大家对上面的 C 语言程序 `hello.c` 都非常熟悉了，想要在命令行获得可执行文件我们还需要对这个文件进行编译。在 Linux 中，使用 GCC 来编译 `hello.c` 非常简单：
+
+```shell
+$ gcc hello.c
+$ ./a.out
+Hello World!
+```
+
+`gcc` 可以将 C 语言源文件编译成可执行文件，这个看上去很简单的过程其实隐藏了很多步骤。事实上，上述过程可以分解成 4 个步骤， 分别是**预处理（Prepressing）**、**编译（Compilation）**、 **汇编（Assembly）**、 和**链接（Linking）**。 
+
+本文着重点在链接，所以链接之前的三个步骤在本文里被统称为编译。于是上述过程可以粗略分为两步：编译和链接。
+
+<img src="../assets/images/compile.png" style="zoom:50%;" />{: .align-center}
 
 这个过程粗略来讲分为两步：编译（Compilation）和链接（Linking）。首先编译器将 hello.c 编译成目标文件 hello.o， 然后链接器将 hello.o 与其他目标文件和库链接形成可执行文件 a.out
 
