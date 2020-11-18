@@ -34,7 +34,7 @@ Hello World!
 
 本文着重点在链接，所以链接之前的三个步骤在本文里被统称为编译。于是上述过程可以粗略分为两步：编译和链接。
 
-<img src="../assets/images/compile.png" style="zoom:50%;" />{: .align-center}
+<img src="/assets/images/compile.png" style="zoom:75%;" />{: .align-center}
 
 这个过程粗略来讲分为两步：编译（Compilation）和链接（Linking）。首先编译器将 hello.c 编译成目标文件 hello.o， 然后链接器将 hello.o 与其他目标文件和库链接形成可执行文件 a.out
 
