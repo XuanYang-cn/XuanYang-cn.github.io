@@ -1,7 +1,7 @@
 ---
 layout: single
 title:  "Etcd01: Run Etcd with Docker"
-categories: "etcd"
+categories: etcd docker
 author: "Yang Xuan"
 excerpt: "How to run etcd."
 ---
