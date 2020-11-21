@@ -58,8 +58,8 @@ After we write compose file, we can run `docker-compose` in the `docker-compose.
 ```shell
 $ docker-compose up -d
 ```
-- `up` meas to start all containers in the compose file.
-- `-d` means to starts these docker containers in the background.
+- `up` means to start all containers in the compose file.
+- `-d` means to start these docker containers in the background.
 
 If we want to stop the docker we've started, we can use `docker-compose down`, the container will be automaticly deleted, and we can safely `re-up` the compose file.
 ```shell
