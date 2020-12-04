@@ -25,3 +25,22 @@ echo $a
 - `read`
 - `echo`
 - `printf`
+
+```shell
+function __func1__() {
+    echo "$1"
+    return
+}
+
+__func1__ "Hellofunction"
+
+a=11
+if [[ $a -gt 10 ]];then
+    echo "${a} > 10"
+elif [[ $a -eq 10 ]];then
+    echo "${a} = 10"
+else
+    echo "${a} < 10"
+fi
+
+```
