@@ -3,3 +3,4 @@ _site
 .jekyll-metadata
 *.sw[po]
 .DS_Store
+public
