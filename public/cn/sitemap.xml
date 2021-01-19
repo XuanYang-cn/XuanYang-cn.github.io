@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>xuanyang-cn.github.io/cn/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="xuanyang-cn.github.io/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="xuanyang-cn.github.io/cn/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>xuanyang-cn.github.io/cn/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="xuanyang-cn.github.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="xuanyang-cn.github.io/cn/"
+                />
+  </url>
+  
+  <url>
+    <loc>xuanyang-cn.github.io/cn/series/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="xuanyang-cn.github.io/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="xuanyang-cn.github.io/cn/series/"
+                />
+  </url>
+  
+  <url>
+    <loc>xuanyang-cn.github.io/cn/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="xuanyang-cn.github.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="xuanyang-cn.github.io/cn/tags/"
+                />
+  </url>
+  
+</urlset>
