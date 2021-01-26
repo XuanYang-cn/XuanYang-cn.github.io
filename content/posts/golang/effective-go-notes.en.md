@@ -67,11 +67,57 @@ Another short example is `once.Do; once.Do(setup)` reads well and would not be i
 Long names don't automatically make things mor readable. **A helpful doc comment can often be more valueable than
 extra long name**
 
-### Getters
+### 3.2 Getters name
 
-```
+```go
 owner := obj.Owner() // Getter
 if owner != user {
     obj.SetOwner(user) // Setter
+}
+```
+
+### 3.3 Interface names
+
+By convention, one-method interfaces are named by the method name pus an `-er` suffix or similar modification 
+to construct an agent noun: `Reader`, `Writer`,`Formatter`, `CloseNotifier` etc. Conversely, if your type
+implements a method with the same meaning as a method on a well-known type, give it the same name and signature;
+call your string-converter method `String` not `ToString`.
+
+### 3.4 MixedCaps
+
+The convention in Go is to use `MixedCaps` or `mixedCaps` rather than underscores to write multiworld names.
+
+## 4 Semicolons
+
+**Like C, Go's formal grammar uses semicolons to terminate statements**, but unlike in C, those semicolons do not
+appear in the source. Instead the lexer uses a simple rule to insert semicolons automatically as it scans,
+so the input text is mostly free of them.
+
+The rule is: if the last token before a newline is an identifier(which includes words like `int` and `float64`),
+a basic literal such as a number or string constant, or one of the tokens
+```go
+break continue fallthrough return ++ -- ) }
+```
+the lexer always inserts a semicolon after the token. This could be summarized as, "if the newline comes after
+a token that could end a statement, insert a semicolon"
+
+A semicolon can also be omitted immediately before a closing brace, so a statement such as
+```go
+go func() {for { dst <- <-src } }()
+```
+needs noe semicolons.
+
+One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure
+(`if`,`for`,`switch`, or `select`) on the next line. If you do, a semicolon will be inserted before the brace.
+```go
+// Write like this
+if i < f(){
+    g()
+}
+
+// Not like this
+if i < f() // wrong!
+{          // wrong!
+    g()
 }
 ```
