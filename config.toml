@@ -166,3 +166,11 @@ disableHugoGeneratorInject = false
     identifier = "posts"
     name       = "Posts"
     url        = "posts/"
+  [[menu.main]]
+    identifier = "categories"
+    name       = "Categories"
+    url        = "categories/"
+  [[menu.main]]
+    identifier = "tags"
+    name       = "Tags"
+    url        = "tags/"
