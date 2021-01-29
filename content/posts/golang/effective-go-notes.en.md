@@ -2,6 +2,7 @@
 title: "Effective Go Notes"
 date: 2021-01-25T16:37:14+08:00
 draft: true
+toc: true
 categories:
   - notes
 tags:
@@ -121,3 +122,71 @@ if i < f() // wrong!
     g()
 }
 ```
+
+## 5 Control structures
+
+### 5.1 if
+There is no `do` or `while` loop, only a slightly generalized `for`, `switch` and `select`.
+
+A simple `if` looks like this:
+```go
+if x > 0 {
+    return y
+}
+```
+Mandatory braces encourage writing simple `if` statements on multiple lines.
+
+```go
+if err := file.Chmod(0664); err != nil {
+    log.Print(err)
+    return err
+}
+```
+
+This is an example of a common situation where code must guard against a sequence of error conditions. The
+code reads well if the successful flow of control runs down the page, eliminating error cases as they arise.
+Sinc error cases tend to end in return statements, the resulting code needs no `else` statements.
+
+```go
+f, err := os.Open(name)
+if err != nil {
+    return err
+}
+
+d, err := f.Stat()
+if err != nil {
+    f.Close()
+    return err
+}
+codeUsing(f, d)
+```
+
+### 5.2 Redeclaration and reassignment
+```go
+f, err := os.Open(name)
+```
+This statement declares two variables, `f` and `err`. A few lines later, the call to `f.Stat` reads,
+```go
+d, err := f.Stat()
+```
+Which looks as if it declares `d` and `err`, though, that `err` appears in both statements. This duplication
+is leagl: `err` is declared by the first statement, but only *re-assigned* in the second.
+
+In a `:=` declaration a variable `v` may appear even if it has already been declared, provided:
+- this declaration is in the same scope as the existing declaration of `v` (if `v` is already declared in an
+outer scope, the declaration will create a new variabe **&**)
+- the corresponding value int the intitialization is assignable to `v`
+- there is at least one other variable that is created by the declaration. 
+
+**&**: Note that in GO the scope of function parameters and return values is the same
+
+## 6 Functions
+## 7 Data
+## 8 Initialization
+## 9 Methods
+## 10 Interfaces and other types
+## 11 The blank identifier
+## 12 Embedding
+## 13 Concurrency
+## 14 Errors
+## 15 A web server
