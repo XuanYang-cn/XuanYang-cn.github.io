@@ -180,6 +180,8 @@ outer scope, the declaration will create a new variabe **&**)
 
 **&**: Note that in GO the scope of function parameters and return values is the same
 
+## 6 For
+
 ## 6 Functions
 ## 7 Data
 ## 8 Initialization
