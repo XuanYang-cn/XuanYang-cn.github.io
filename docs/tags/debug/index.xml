@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>debug on Hello Friend</title>
+    <link>https://xuanyang-cn.github.io/tags/debug/</link>
+    <description>Recent content in debug on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 18 Feb 2021 15:34:42 +0800</lastBuildDate><atom:link href="https://xuanyang-cn.github.io/tags/debug/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Delve Hand Book</title>
+      <link>https://xuanyang-cn.github.io/posts/2021/02/delve-hand-book/</link>
+      <pubDate>Thu, 18 Feb 2021 15:34:42 +0800</pubDate>
+      
+      <guid>https://xuanyang-cn.github.io/posts/2021/02/delve-hand-book/</guid>
+      <description>Launch a session dlv debug works like go run, it will build an run a GO package
+dlv exec will start a seesion with a precompiled binary, in order to properly debug a binary, it shoud be compiled with optimizations disablesd, eg. with -gcflags=&amp;quot;all=-N -l&amp;quot;
+dlv attach will attach to a PID of a runnig Go binary
+Delve commands in a debugging session print, p
+whatis will print the datatype of an expression</description>
+    </item>
+    
+  </channel>
+</rss>

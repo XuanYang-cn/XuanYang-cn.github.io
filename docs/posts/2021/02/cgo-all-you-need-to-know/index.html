@@ -1,26 +1,155 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Posts on Hello Friend</title>
-        <link>https://xuanyang-cn.github.io/posts/</link>
-        <description>Recent content in Posts on Hello Friend</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 23 Feb 2021 16:05:20 +0800</lastBuildDate>
-        <atom:link href="https://xuanyang-cn.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-        
-        <item>
-            <title>Cgo: All You Need to Know</title>
-            <link>https://xuanyang-cn.github.io/posts/2021/02/cgo-all-you-need-to-know/</link>
-            <pubDate>Tue, 23 Feb 2021 16:05:20 +0800</pubDate>
-            
-            <guid>https://xuanyang-cn.github.io/posts/2021/02/cgo-all-you-need-to-know/</guid>
-            <description>Cgo Intro Cgo 让 GO 可以调用 C 的代码。
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Goose ">
+<meta name="description" content="Cgo Intro Cgo 让 GO 可以调用 C 的代码。
 接下来就用一个简单的例子来介绍 Cgo 的用法。
 下面 GO 的 rand 包提供了两个方法 Random 和 Seed， 它们分别调用了 C 的 random 和 srandom 方法。
 package rand /* #include &amp;lt;stdlib.h&amp;gt; */ import &amp;#34;C&amp;#34; func Random() int { return int(C.random()) } func Seed(i int) { C.srandom(C.uint(i)) } // ref@https://blog.golang.org/cgo 从 import 语句来看，rand 包引入了 &amp;quot;C&amp;quot;， 但是你会发现标准 Go library 里并没有 C 这个库。这是因为 C 是一个伪包 (pesudo-package)，是一个可以被 cgo 解析的特殊名字，用来确定代码里 C 的命名空间。
-rand 包用到 C 的地方有 4 个：C.</description>
-            <content type="html"><![CDATA[<h2 id="cgo-intro">Cgo Intro</h2>
+rand 包用到 C 的地方有 4 个：C." />
+<meta name="keywords" content=", cgo" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://xuanyang-cn.github.io/posts/2021/02/cgo-all-you-need-to-know/" />
+
+
+    <title>
+        
+            Cgo: All You Need to Know :: Hello Friend  — Hello Friend
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://xuanyang-cn.github.io/main.min.5dcefbf8102eb536dd3e2de53ffebfa58599ab2435c241a0db81728a5e015f2e.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://xuanyang-cn.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://xuanyang-cn.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://xuanyang-cn.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://xuanyang-cn.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://xuanyang-cn.github.io/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="https://xuanyang-cn.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+<meta itemprop="name" content="Cgo: All You Need to Know">
+<meta itemprop="description" content="Cgo Intro Cgo 让 GO 可以调用 C 的代码。
+接下来就用一个简单的例子来介绍 Cgo 的用法。
+下面 GO 的 rand 包提供了两个方法 Random 和 Seed， 它们分别调用了 C 的 random 和 srandom 方法。
+package rand /* #include &lt;stdlib.h&gt; */ import &#34;C&#34; func Random() int { return int(C.random()) } func Seed(i int) { C.srandom(C.uint(i)) } // ref@https://blog.golang.org/cgo 从 import 语句来看，rand 包引入了 &quot;C&quot;， 但是你会发现标准 Go library 里并没有 C 这个库。这是因为 C 是一个伪包 (pesudo-package)，是一个可以被 cgo 解析的特殊名字，用来确定代码里 C 的命名空间。
+rand 包用到 C 的地方有 4 个：C.">
+<meta itemprop="datePublished" content="2021-02-23T16:05:20+08:00" />
+<meta itemprop="dateModified" content="2021-02-23T16:05:20+08:00" />
+<meta itemprop="wordCount" content="380">
+<meta itemprop="image" content="https://xuanyang-cn.github.io"/>
+
+
+
+<meta itemprop="keywords" content="cgo," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xuanyang-cn.github.io"/>
+
+<meta name="twitter:title" content="Cgo: All You Need to Know"/>
+<meta name="twitter:description" content="Cgo Intro Cgo 让 GO 可以调用 C 的代码。
+接下来就用一个简单的例子来介绍 Cgo 的用法。
+下面 GO 的 rand 包提供了两个方法 Random 和 Seed， 它们分别调用了 C 的 random 和 srandom 方法。
+package rand /* #include &lt;stdlib.h&gt; */ import &#34;C&#34; func Random() int { return int(C.random()) } func Seed(i int) { C.srandom(C.uint(i)) } // ref@https://blog.golang.org/cgo 从 import 语句来看，rand 包引入了 &quot;C&quot;， 但是你会发现标准 Go library 里并没有 C 这个库。这是因为 C 是一个伪包 (pesudo-package)，是一个可以被 cgo 解析的特殊名字，用来确定代码里 C 的命名空间。
+rand 包用到 C 的地方有 4 个：C."/>
+
+
+
+    <meta property="article:section" content="golang" />
+
+
+
+    <meta property="article:published_time" content="2021-02-23 16:05:20 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://xuanyang-cn.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/goose</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#e59866;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://xuanyang-cn.github.io/about/">About Me</a></li><li><a href="https://xuanyang-cn.github.io/categories/">Categories</a></li><li><a href="https://xuanyang-cn.github.io/posts/">Posts</a></li><li><a href="https://xuanyang-cn.github.io/tags/">Tags</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>2 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title">
+                <a href="https://xuanyang-cn.github.io/posts/2021/02/cgo-all-you-need-to-know/">Cgo: All You Need to Know</a>
+            </h1>
+
+            
+
+            <div class="post-content">
+                <h2 id="cgo-intro">Cgo Intro</h2>
 <p>Cgo 让 GO 可以调用 C 的代码。</p>
 <p>接下来就用一个简单的例子来介绍 Cgo 的用法。</p>
 <p>下面 GO 的 <code>rand</code> 包提供了两个方法 <code>Random</code> 和 <code>Seed</code>， 它们分别调用了 C 的 <code>random</code> 和 <code>srandom</code> 方法。</p>
@@ -111,66 +240,80 @@ rand 包用到 C 的地方有 4 个：C.</description>
 <h2 id="references">References</h2>
 <p>[1] <a href="https://blog.golang.org/cgo">https://blog.golang.org/cgo</a>. <em>C? Go? Cgo!</em> Andrew Gerrand. 17 March 2017.</p>
 <p>[2] <a href="https://golang.org/cmd/cgo/">https://golang.org/cmd/cgo/</a>. Cgo official doc. Go 1.16.</p>
-]]></content>
-        </item>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://xuanyang-cn.github.io/tags/cgo">cgo</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>380 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2021-02-23 16:05</p>
+        </div>
+
         
-        <item>
-            <title>Delve Hand Book</title>
-            <link>https://xuanyang-cn.github.io/posts/2021/02/delve-hand-book/</link>
-            <pubDate>Thu, 18 Feb 2021 15:34:42 +0800</pubDate>
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+
+                    
+                        <span class="button next">
+                            <a href="https://xuanyang-cn.github.io/posts/2021/02/delve-hand-book/">
+                                <span class="button__text">Delve Hand Book</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+        
+    </main>
+
+            </div>
+
             
-            <guid>https://xuanyang-cn.github.io/posts/2021/02/delve-hand-book/</guid>
-            <description>Launch a session dlv debug works like go run, it will build an run a GO package
-dlv exec will start a seesion with a precompiled binary, in order to properly debug a binary, it shoud be compiled with optimizations disablesd, eg. with -gcflags=&amp;quot;all=-N -l&amp;quot;
-dlv attach will attach to a PID of a runnig Go binary
-Delve commands in a debugging session print, p
-whatis will print the datatype of an expression</description>
-            <content type="html"><![CDATA[<h2 id="launch-a-session">Launch a session</h2>
-<p><strong><code>dlv debug</code></strong> works like <code>go run</code>, it will build an run a GO package</p>
-<p><strong><code>dlv exec</code></strong> will start a seesion with a precompiled binary, in order to properly debug a binary,
-it shoud be compiled with optimizations disablesd, eg. with <code>-gcflags=&quot;all=-N -l&quot;</code></p>
-<p><strong><code>dlv attach</code></strong> will attach to a PID of a runnig Go binary</p>
-<h2 id="delve-commands-in-a-debugging-session">Delve commands in a debugging session</h2>
-<p><strong><code>print, p</code></strong></p>
-<p><strong><code>whatis</code></strong> will print the datatype of an expression</p>
-<p><strong><code>locals</code></strong> will print all variables in the current execution step</p>
-<p><strong><code>args</code></strong> will print the current fucntion&rsquo;s arguments</p>
-<p><strong><code>vars</code></strong> will print the avaliable package variables</p>
-<p><strong><code>funcs</code></strong> will print the avaliable functions</p>
-<p><strong><code>types</code></strong> will print the avaliable types</p>
-<p><strong><code>list</code></strong> display the code around the current execution step or a specific linespec.</p>
-<h2 id="breakpoints">Breakpoints</h2>
-<p><strong><code>break, b</code></strong>:</p>
-<ul>
-<li>Break at a specific line, sucn as <code>break main.go:15</code></li>
-<li>Break at a relative point int a file <code>break +5</code></li>
-<li>Whenever a function is called or defined, as <code>break main.myfunc</code></li>
-</ul>
-<p><strong><code>breakpoints, bp</code></strong>: display all breakpoints along with their IDs.</p>
-<p><strong><code>condition, cond</code></strong>: set smarter stop conditions and not halt execution in a specific line, but whenever a
-given condition is met.</p>
-<p><strong><code>clear</code></strong> and <strong><code>clear all</code></strong> can be used to clear a specific or all breakpoints.</p>
-<p><strong><code>trace</code></strong>: a breakpoint that doesn&rsquo;t halt execution, but print message whenever eht execution passes
-through that point</p>
-<h2 id="move-one-step-at-a-time">Move one step at a time!</h2>
-<p><strong><code>continue, c</code></strong> runs until the next breakpoint or program termination</p>
-<p><strong><code>next, n</code></strong> N steps over N source lines, staying int the same function</p>
-<p><strong><code>step, s</code></strong> performs a single step forward in the application. If the next step is another fucntion,
-it will descent to its call.</p>
-<p><strong><code>stepout, so</code></strong> steps out of the current function</p>
-<p><strong><code>restart</code></strong> restart the debugging session, but keeps breakpoints and conditions</p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>My First Post</title>
-            <link>https://xuanyang-cn.github.io/posts/2021/01/my-first-post/</link>
-            <pubDate>Mon, 18 Jan 2021 14:32:11 +0800</pubDate>
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
             
-            <guid>https://xuanyang-cn.github.io/posts/2021/01/my-first-post/</guid>
-            <description></description>
-            <content type="html"><![CDATA[]]></content>
-        </item>
+                <span><a href="https://xuanyang-cn.github.io">Goose</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="https://xuanyang-cn.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            
+            
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
         
-    </channel>
-</rss>
+
+
+
+
+<script type="text/javascript" src="https://xuanyang-cn.github.io/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
+
+
+
+    </body>
+</html>
