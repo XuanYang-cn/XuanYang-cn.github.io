@@ -46,6 +46,15 @@ whatis will print the datatype of an expression</description>
     </item>
     
     <item>
+      <title></title>
+      <link>https://xuanyang-cn.github.io/about/</link>
+      <pubDate>Tue, 19 Jan 2021 10:19:24 +0800</pubDate>
+      
+      <guid>https://xuanyang-cn.github.io/about/</guid>
+      <description>#include &amp;lt;iostream&amp;gt; int main() { std::cout &amp;lt;&amp;lt; &amp;#34;Nothing is perfect, &amp;#34; &amp;lt;&amp;lt; &amp;#34;we&amp;#39;re just running out of time.&amp;#34; &amp;lt;&amp;lt; std::endl; return 0; } What to do next?   Vim Intro (en) Vim Intro (zn) set vim environment in docker (en, zh) Linux Command Line Valgrind Cgo  </description>
+    </item>
+    
+    <item>
       <title>My First Post</title>
       <link>https://xuanyang-cn.github.io/posts/2021/01/my-first-post/</link>
       <pubDate>Mon, 18 Jan 2021 14:32:11 +0800</pubDate>
