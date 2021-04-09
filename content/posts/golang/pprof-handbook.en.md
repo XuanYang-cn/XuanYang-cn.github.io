@@ -1,13 +1,15 @@
 ---
 title: "Go pprof Ref"
 date: 2021-03-26T14:52:08+08:00
-draft: true
+draft: false
 toc: false
 images:
 categories:
   - golang
+  - memleak
 tags:
   - pprof
+  - tool
 ---
 
 ## GCTRACE
@@ -47,13 +49,27 @@ go func(){
     fmt.Println(http.ListenAndServe("localhost:9876", nil))
 }()
 ```
-Open `https://127.0.0.1:9876/debug/pprof` in web browser.
+Open `http://127.0.0.1:9876/debug/pprof` in web browser.
 ## Exam pprof in web browser
 Mostly, we are concerned about `goroutine` and `heap` and cpu `profile`.
 
-`curl -s`
-we can download 2 file and compare them by `go toll pprof -base a.heap b.heap`
-### Goroutinue
-### Heap
-### Profile
+```shell
+$ curl -s http://127.0.0.1:9876/debug/pprof/heap > first.heap
 
+# sometime later
+$ curl -s http://127.0.0.1:9876/debug/pprof/heap > second.heap
+```
+
+we can compare them by
+```
+go tool pprof -base first.heap second.heap
+```
+
+We can also look at a 30-second CPU profile
+```
+go tool pprof http://127.0.0.1:9876/debug/pprof/profile?seconds=30
+```
+**reference**
+
+    [1] [The Go Blog: Profiling Go Programs](https://blog.golang.org/pprof)
+    [2] [Go http pprof doc](https://golang.org/pkg/net/http/pprof/)
