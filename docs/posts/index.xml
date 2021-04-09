@@ -6,8 +6,64 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 23 Feb 2021 16:05:20 +0800</lastBuildDate>
+        <lastBuildDate>Fri, 26 Mar 2021 14:52:08 +0800</lastBuildDate>
         <atom:link href="https://xuanyang-cn.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Go pprof Ref</title>
+            <link>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</link>
+            <pubDate>Fri, 26 Mar 2021 14:52:08 +0800</pubDate>
+            
+            <guid>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</guid>
+            <description>GCTRACE  gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause. The format of this line is subject to change. Currently, it is:
+  gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&amp;gt;#-&amp;gt;# MB, # MB goal, # P where the fields are as follows:
+ gc # the GC number, incremented at each GC @#s time in seconds since program start #% percentage of time spent in GC since program start #+.</description>
+            <content type="html"><![CDATA[<h2 id="gctrace">GCTRACE</h2>
+<blockquote>
+<p>gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard
+error at each collection, summarizing the amount of memory collected and the
+length of the pause. The format of this line is subject to change.
+Currently, it is:</p>
+</blockquote>
+<pre><code>    gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&gt;#-&gt;# MB, # MB goal, # P
+</code></pre><p>where the fields are as follows:</p>
+<pre><code>    gc #        the GC number, incremented at each GC
+    @#s         time in seconds since program start
+    #%          percentage of time spent in GC since program start
+    #+...+#     wall-clock/CPU times for the phases of the GC
+    #-&gt;#-&gt;# MB  heap size at GC start, at GC end, and live heap
+    # MB goal   goal heap size
+    # P         number of processors used
+</code></pre><p>Change environment variable <code>GODEBUG='gctrace=1'</code>, then Go will output gc log to stdout.</p>
+<pre><code>gc 21 @8.223s 0% 0.032+3.0+0.12ms clock, 1.6+2.8/14/10+4.0 ms cpu, 87-&gt;88-&gt;45 MB, 89 MB goal, 24 P
+</code></pre><h2 id="pprof-listen-to-a-port">pprof listen to a port</h2>
+<p>Add these lines in program.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;net/http/pprof&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+)
+
+<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>(){
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;localhost:9876&#34;</span>, <span style="color:#66d9ef">nil</span>))
+}()
+</code></pre></div><p>Open <code>http://127.0.0.1:9876/debug/pprof</code> in web browser.</p>
+<h2 id="exam-pprof-in-web-browser">Exam pprof in web browser</h2>
+<p>Mostly, we are concerned about <code>goroutine</code> and <code>heap</code> and cpu <code>profile</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; first.heap
+
+<span style="color:#75715e"># sometime later</span>
+$ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; second.heap
+</code></pre></div><p>we can compare them by</p>
+<pre><code>go tool pprof -base first.heap second.heap
+</code></pre><p>We can also look at a 30-second CPU profile</p>
+<pre><code>go tool pprof http://127.0.0.1:9876/debug/pprof/profile?seconds=30
+</code></pre><p><strong>reference</strong></p>
+<pre><code>[1] [The Go Blog: Profiling Go Programs](https://blog.golang.org/pprof)
+[2] [Go http pprof doc](https://golang.org/pkg/net/http/pprof/)
+</code></pre>
+]]></content>
+        </item>
         
         <item>
             <title>Cgo: All You Need to Know</title>
