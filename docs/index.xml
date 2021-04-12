@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 26 Mar 2021 14:52:08 +0800</lastBuildDate><atom:link href="https://xuanyang-cn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Apr 2021 19:34:27 +0800</lastBuildDate><atom:link href="https://xuanyang-cn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim Intro</title>
+      <link>https://xuanyang-cn.github.io/posts/2021/04/vim-intro/</link>
+      <pubDate>Mon, 12 Apr 2021 19:34:27 +0800</pubDate>
+      
+      <guid>https://xuanyang-cn.github.io/posts/2021/04/vim-intro/</guid>
+      <description>This article:
+ Assumes you already have some vim experiences. Won&amp;rsquo;t be step-by-step tutorial. Will explain what is happening when you edit ~/.vimrc.  Why VIM？  Better understanding of project structures Better understanding of everything Lightweight Multi-language support Addictive All open-source(except some great but awful plugins) Show off  Why Not VIM?  Learning curve is steep.  Lots of shortcuts to remember Lots of plug-ins to learn. If you don&amp;rsquo;t know it thoroughly, you&amp;rsquo;ll make a mess of yourself.</description>
+    </item>
+    
     <item>
       <title>Go pprof Ref</title>
       <link>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</link>

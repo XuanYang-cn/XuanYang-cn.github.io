@@ -17,7 +17,7 @@ int main() {
 ## What to do next?
 ---
 
- - [ ] Vim Intro (en)
+ - [x] Vim Intro (en)
  - [ ] Vim Intro (zn)
  - [ ] set vim environment in docker (en, zh)
  - [ ] Linux Command Line
