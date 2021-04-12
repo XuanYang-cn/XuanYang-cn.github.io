@@ -1,5 +1,5 @@
 ---
-title: "Vim Intro"
+TITLE: "How To Configure Vim"
 date: 2021-04-12T19:34:27+08:00
 draft: false
 toc: true
