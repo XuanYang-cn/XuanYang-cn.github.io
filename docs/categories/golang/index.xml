@@ -16,7 +16,7 @@
       <guid>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</guid>
       <description>GCTRACE  gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause. The format of this line is subject to change. Currently, it is:
   gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&amp;gt;#-&amp;gt;# MB, # MB goal, # P where the fields are as follows:
- gc # the GC number, incremented at each GC @#s time in seconds since program start #% percentage of time spent in GC since program start #+.</description>
+ gc # the GC number, incremented at each GC@#s time in seconds since program start#% percentage of time spent in GC since program start#+.</description>
     </item>
     
     <item>
@@ -28,8 +28,7 @@
       <description>Cgo Intro Cgo 让 GO 可以调用 C 的代码。
 接下来就用一个简单的例子来介绍 Cgo 的用法。
 下面 GO 的 rand 包提供了两个方法 Random 和 Seed， 它们分别调用了 C 的 random 和 srandom 方法。
-package rand /* #include &amp;lt;stdlib.h&amp;gt; */ import &amp;#34;C&amp;#34; func Random() int { return int(C.random()) } func Seed(i int) { C.srandom(C.uint(i)) } // ref@https://blog.golang.org/cgo 从 import 语句来看，rand 包引入了 &amp;quot;C&amp;quot;， 但是你会发现标准 Go library 里并没有 C 这个库。这是因为 C 是一个伪包 (pesudo-package)，是一个可以被 cgo 解析的特殊名字，用来确定代码里 C 的命名空间。
-rand 包用到 C 的地方有 4 个：C.</description>
+package rand  /* #include &amp;lt;stdlib.h&amp;gt; */ import &amp;#34;C&amp;#34;  func Random() int {  return int(C.random()) }  func Seed(i int) {  C.srandom(C.uint(i)) } // ref@https://blog.golang.org/cgo 从 import 语句来看，rand 包引入了 &amp;quot;C&amp;quot;， 但是你会发现标准 Go library 里并没有 C 这个库。这是因为 C 是一个伪包 (pesudo-package)，是一个可以被 cgo 解析的特殊名字，用来确定代码里 C 的命名空间。</description>
     </item>
     
     <item>

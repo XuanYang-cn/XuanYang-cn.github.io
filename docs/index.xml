@@ -7,7 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 12 Apr 2021 19:34:27 +0800</lastBuildDate><atom:link href="https://xuanyang-cn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Mar 2022 12:35:00 +0800</lastBuildDate><atom:link href="https://xuanyang-cn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clean Code 1: Names</title>
+      <link>https://xuanyang-cn.github.io/posts/2022/03/clean-code-1-names/</link>
+      <pubDate>Sat, 26 Mar 2022 12:35:00 +0800</pubDate>
+      
+      <guid>https://xuanyang-cn.github.io/posts/2022/03/clean-code-1-names/</guid>
+      <description>If we all checked-in our code a little cleaner than when we checked it out, the code simply could not rot.
+ Clean Code 1: Names 1. Choose your name thoughtfully. 2. Communicate your intent. Intervals! (a, b) open [a, b] closed (a, b] open left [a, b) open right 3. Avoid Disinformation. 4. Pronounceable Names.  Methods: verb Classes: noun Boolean: isEnough Enum: adjective  5. Avoid Encodings. // Avoid psz int *pszBasket 6.</description>
+    </item>
+    
+    <item>
+      <title>WiscKey 论文阅读笔记</title>
+      <link>https://xuanyang-cn.github.io/posts/2022/03/wisckey-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 26 Mar 2022 12:30:00 +0800</pubDate>
+      
+      <guid>https://xuanyang-cn.github.io/posts/2022/03/wisckey-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</guid>
+      <description>WiscKey 论文阅读笔记 WiscKey: Separating Keys from Values in SSD-conscious Storage
+1. 资源 论文：
+ Lanyue Lu, Thanumalayan Sankaranarayana Pillai, Andrea C. Arpaci-Dusseau, and Remzi H. Arpaci-Dusseau. 2016. WiscKey: Separating keys from values in SSD-conscious storage. In Proceedings of the 14th USENIX Conference on File and Storage Technologies (FAST’16). https://dl.acm.org/doi/pdf/10.1145/3033273 Lanyue Lu, Thanumalayan Sankaranarayana Pillai, Hariharan Gopalakrishnan, Andrea C. Arpaci- Dusseau, and Remzi H. Arpaci-Dusseau. 2017. WiscKey: Separating keys from values in SSD-conscious storage.</description>
+    </item>
+    
     <item>
       <title>How To Configure Vim</title>
       <link>https://xuanyang-cn.github.io/posts/2021/04/how-to-configure-vim/</link>
@@ -26,7 +47,7 @@
       <guid>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</guid>
       <description>GCTRACE  gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause. The format of this line is subject to change. Currently, it is:
   gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&amp;gt;#-&amp;gt;# MB, # MB goal, # P where the fields are as follows:
- gc # the GC number, incremented at each GC @#s time in seconds since program start #% percentage of time spent in GC since program start #+.</description>
+ gc # the GC number, incremented at each GC@#s time in seconds since program start#% percentage of time spent in GC since program start#+.</description>
     </item>
     
     <item>
@@ -38,8 +59,7 @@
       <description>Cgo Intro Cgo 让 GO 可以调用 C 的代码。
 接下来就用一个简单的例子来介绍 Cgo 的用法。
 下面 GO 的 rand 包提供了两个方法 Random 和 Seed， 它们分别调用了 C 的 random 和 srandom 方法。
-package rand /* #include &amp;lt;stdlib.h&amp;gt; */ import &amp;#34;C&amp;#34; func Random() int { return int(C.random()) } func Seed(i int) { C.srandom(C.uint(i)) } // ref@https://blog.golang.org/cgo 从 import 语句来看，rand 包引入了 &amp;quot;C&amp;quot;， 但是你会发现标准 Go library 里并没有 C 这个库。这是因为 C 是一个伪包 (pesudo-package)，是一个可以被 cgo 解析的特殊名字，用来确定代码里 C 的命名空间。
-rand 包用到 C 的地方有 4 个：C.</description>
+package rand  /* #include &amp;lt;stdlib.h&amp;gt; */ import &amp;#34;C&amp;#34;  func Random() int {  return int(C.random()) }  func Seed(i int) {  C.srandom(C.uint(i)) } // ref@https://blog.golang.org/cgo 从 import 语句来看，rand 包引入了 &amp;quot;C&amp;quot;， 但是你会发现标准 Go library 里并没有 C 这个库。这是因为 C 是一个伪包 (pesudo-package)，是一个可以被 cgo 解析的特殊名字，用来确定代码里 C 的命名空间。</description>
     </item>
     
     <item>
@@ -61,7 +81,7 @@ whatis will print the datatype of an expression</description>
       <pubDate>Tue, 19 Jan 2021 10:19:24 +0800</pubDate>
       
       <guid>https://xuanyang-cn.github.io/about/</guid>
-      <description>#include &amp;lt;iostream&amp;gt; int main() { std::cout &amp;lt;&amp;lt; &amp;#34;Nothing is perfect, &amp;#34; &amp;lt;&amp;lt; &amp;#34;we&amp;#39;re just running out of time.&amp;#34; &amp;lt;&amp;lt; std::endl; return 0; } What to do next?   Vim Intro (en) Vim Intro (zn) set vim environment in docker (en, zh) Linux Command Line Valgrind Cgo  </description>
+      <description>#include &amp;lt;iostream&amp;gt; int main() {  std::cout &amp;lt;&amp;lt; &amp;#34;Nothing is perfect, &amp;#34;  &amp;lt;&amp;lt; &amp;#34;we&amp;#39;re just running out of time.&amp;#34; &amp;lt;&amp;lt; std::endl;  return 0; } What to do next?   Vim Intro (en) Vim Intro (zn) set vim environment in docker (en, zh) Linux Command Line Valgrind Cgo  </description>
     </item>
     
     <item>
