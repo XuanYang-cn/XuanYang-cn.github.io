@@ -16,7 +16,7 @@
       <guid>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</guid>
       <description>GCTRACE  gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause. The format of this line is subject to change. Currently, it is:
   gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&amp;gt;#-&amp;gt;# MB, # MB goal, # P where the fields are as follows:
- gc # the GC number, incremented at each GC@#s time in seconds since program start#% percentage of time spent in GC since program start#+.</description>
+ gc # the GC number, incremented at each GC @#s time in seconds since program start #% percentage of time spent in GC since program start #+.</description>
     </item>
     
     <item>

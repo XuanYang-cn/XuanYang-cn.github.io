@@ -27,8 +27,7 @@
 
 
 
-<link rel="stylesheet" href="https://xuanyang-cn.github.io/main.d7bdd8ee18bfbf4c605488a7e5b1b92cd980dfeed2bdaeab4dd5e931a7a78bc0.css">
-
+<link rel="stylesheet" href="https://xuanyang-cn.github.io/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
@@ -36,26 +35,18 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://xuanyang-cn.github.io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://xuanyang-cn.github.io/favicon-16x16.png">
     <link rel="manifest" href="https://xuanyang-cn.github.io/site.webmanifest">
-    <link rel="mask-icon" href="https://xuanyang-cn.github.io/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="mask-icon" href="https://xuanyang-cn.github.io/safari-pinned-tab.svg" color="">
     <link rel="shortcut icon" href="https://xuanyang-cn.github.io/favicon.ico">
-    <meta name="msapplication-TileColor" content="#1b1c1d">
-    <meta name="theme-color" content="#1b1c1d">
-
+    <meta name="msapplication-TileColor" content="">
 
 
 <meta itemprop="name" content="Go pprof Ref">
 <meta itemprop="description" content="GCTRACE  gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause. The format of this line is subject to change. Currently, it is:
   gc # @#s #%: #&#43;#&#43;# ms clock, #&#43;#/#/#&#43;# ms cpu, #-&gt;#-&gt;# MB, # MB goal, # P where the fields are as follows:
- gc # the GC number, incremented at each GC @#s time in seconds since program start #% percentage of time spent in GC since program start #&#43;.">
-<meta itemprop="datePublished" content="2021-03-26T14:52:08+08:00" />
+ gc # the GC number, incremented at each GC @#s time in seconds since program start #% percentage of time spent in GC since program start #&#43;."><meta itemprop="datePublished" content="2021-03-26T14:52:08+08:00" />
 <meta itemprop="dateModified" content="2021-03-26T14:52:08+08:00" />
-<meta itemprop="wordCount" content="249">
-<meta itemprop="image" content="https://xuanyang-cn.github.io"/>
-
-
-
+<meta itemprop="wordCount" content="249"><meta itemprop="image" content="https://xuanyang-cn.github.io"/>
 <meta itemprop="keywords" content="pprof,tool," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xuanyang-cn.github.io"/>
 
@@ -72,10 +63,10 @@
   gc # @#s #%: #&#43;#&#43;# ms clock, #&#43;#/#/#&#43;# ms cpu, #-&gt;#-&gt;# MB, # MB goal, # P where the fields are as follows:
  gc # the GC number, incremented at each GC @#s time in seconds since program start #% percentage of time spent in GC since program start #&#43;." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/" />
-<meta property="og:image" content="https://xuanyang-cn.github.io"/>
+<meta property="og:url" content="https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/" /><meta property="og:image" content="https://xuanyang-cn.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-03-26T14:52:08+08:00" />
 <meta property="article:modified_time" content="2021-03-26T14:52:08+08:00" />
+
 
 
 
@@ -87,6 +78,8 @@
 
 
     <meta property="article:published_time" content="2021-03-26 14:52:08 &#43;0800 CST" />
+
+
 
 
 
@@ -163,6 +156,8 @@
 
       
 
+      
+
       <div class="post-content">
         <h2 id="gctrace">GCTRACE</h2>
 <blockquote>
@@ -171,9 +166,9 @@ error at each collection, summarizing the amount of memory collected and the
 length of the pause. The format of this line is subject to change.
 Currently, it is:</p>
 </blockquote>
-<pre><code>    gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&gt;#-&gt;# MB, # MB goal, # P
+<pre tabindex="0"><code>    gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&gt;#-&gt;# MB, # MB goal, # P
 </code></pre><p>where the fields are as follows:</p>
-<pre><code>    gc #        the GC number, incremented at each GC
+<pre tabindex="0"><code>    gc #        the GC number, incremented at each GC
     @#s         time in seconds since program start
     #%          percentage of time spent in GC since program start
     #+...+#     wall-clock/CPU times for the phases of the GC
@@ -181,29 +176,29 @@ Currently, it is:</p>
     # MB goal   goal heap size
     # P         number of processors used
 </code></pre><p>Change environment variable <code>GODEBUG='gctrace=1'</code>, then Go will output gc log to stdout.</p>
-<pre><code>gc 21 @8.223s 0% 0.032+3.0+0.12ms clock, 1.6+2.8/14/10+4.0 ms cpu, 87-&gt;88-&gt;45 MB, 89 MB goal, 24 P
+<pre tabindex="0"><code>gc 21 @8.223s 0% 0.032+3.0+0.12ms clock, 1.6+2.8/14/10+4.0 ms cpu, 87-&gt;88-&gt;45 MB, 89 MB goal, 24 P
 </code></pre><h2 id="pprof-listen-to-a-port">pprof listen to a port</h2>
 <p>Add these lines in program.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">import</span> (
-    <span style="color:#e6db74">&#34;fmt&#34;</span>
-    <span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;net/http/pprof&#34;</span>
-    <span style="color:#e6db74">&#34;net/http&#34;</span>
-)
-
-<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>(){
-    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;localhost:9876&#34;</span>, <span style="color:#66d9ef">nil</span>))
-}()
-</code></pre></div><p>Open <code>http://127.0.0.1:9876/debug/pprof</code> in web browser.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;net/http/pprof&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;net/http&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;localhost:9876&#34;</span>, <span style="color:#66d9ef">nil</span>))
+</span></span><span style="display:flex;"><span>}()
+</span></span></code></pre></div><p>Open <code>http://127.0.0.1:9876/debug/pprof</code> in web browser.</p>
 <h2 id="exam-pprof-in-web-browser">Exam pprof in web browser</h2>
 <p>Mostly, we are concerned about <code>goroutine</code> and <code>heap</code> and cpu <code>profile</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; first.heap
-
-<span style="color:#75715e"># sometime later</span>
-$ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; second.heap
-</code></pre></div><p>we can compare them by</p>
-<pre><code>go tool pprof -base first.heap second.heap
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; first.heap
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># sometime later</span>
+</span></span><span style="display:flex;"><span>$ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; second.heap
+</span></span></code></pre></div><p>we can compare them by</p>
+<pre tabindex="0"><code>go tool pprof -base first.heap second.heap
 </code></pre><p>We can also look at a 30-second CPU profile</p>
-<pre><code>go tool pprof http://127.0.0.1:9876/debug/pprof/profile?seconds=30
+<pre tabindex="0"><code>go tool pprof http://127.0.0.1:9876/debug/pprof/profile?seconds=30
 </code></pre><p><strong>reference</strong></p>
 <pre><code>[1] [The Go Blog: Profiling Go Programs](https://blog.golang.org/pprof)
 [2] [Go http pprof doc](https://golang.org/pkg/net/http/pprof/)
@@ -356,33 +351,29 @@ $ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; second.heap
       </div>
 
     
-      <div class="pagination">
-        <div class="pagination__title">
-          <span class="pagination__title-h"></span>
-          <hr />
-        </div>
+    <div class="pagination">
+        
 
         <div class="pagination__buttons">
-          
+            
             <span class="button previous">
-              <a href="https://xuanyang-cn.github.io/posts/2021/04/how-to-configure-vim/">
-                <span class="button__icon">←</span>
-                <span class="button__text">How To Configure Vim</span>
-              </a>
+                <a href="https://xuanyang-cn.github.io/posts/2021/04/how-to-configure-vim/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">How To Configure Vim</span>
+                </a>
             </span>
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="https://xuanyang-cn.github.io/posts/2021/02/cgo-all-you-need-to-know/">
-                <span class="button__text">Cgo: All You Need to Know</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="https://xuanyang-cn.github.io/posts/2021/02/cgo-all-you-need-to-know/">
+                    <span class="button__text">Cgo: All You Need to Know</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
 
     
@@ -395,19 +386,8 @@ $ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; second.heap
 
             
                 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2021</span>
-            <span><a href="https://xuanyang-cn.github.io">Goose</a></span>
-            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span><span><a href="https://xuanyang-cn.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>okey</span>
-            <span>dokey</span>
-          </div>
-    </div>
+    
+    
 </footer>
 
             
@@ -417,7 +397,7 @@ $ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; second.heap
 
 
 
-<script type="text/javascript" src="https://xuanyang-cn.github.io/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://xuanyang-cn.github.io/bundle.min.2d3d449fc0ff117f00ac91342a8f76cd5b710411d7a0254dbe75da3234d2f685d6a0c44cff60c414e90b6a149da8e4032c713c25e4e6838e2e3918dc0ad2e81c.js" integrity="sha512-LT1En8D/EX8ArJE0Ko92zVtxBBHXoCVNvnXaMjTS9oXWoMRM/2DEFOkLahSdqOQDLHE8JeTmg44uORjcCtLoHA=="></script>
 
 
 

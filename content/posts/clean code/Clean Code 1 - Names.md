@@ -1,7 +1,7 @@
 ---
 title: "Clean Code 1: Names"
 date: 2022-03-26T12:35:00+08:00
-draft: false
+draft: true
 categories:
   - clean code
 tags:

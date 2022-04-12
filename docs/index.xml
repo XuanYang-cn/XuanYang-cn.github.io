@@ -7,17 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 26 Mar 2022 12:35:00 +0800</lastBuildDate><atom:link href="https://xuanyang-cn.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Clean Code 1: Names</title>
-      <link>https://xuanyang-cn.github.io/posts/2022/03/clean-code-1-names/</link>
-      <pubDate>Sat, 26 Mar 2022 12:35:00 +0800</pubDate>
-      
-      <guid>https://xuanyang-cn.github.io/posts/2022/03/clean-code-1-names/</guid>
-      <description>If we all checked-in our code a little cleaner than when we checked it out, the code simply could not rot.
- Clean Code 1: Names 1. Choose your name thoughtfully. 2. Communicate your intent. Intervals! (a, b) open [a, b] closed (a, b] open left [a, b) open right 3. Avoid Disinformation. 4. Pronounceable Names.  Methods: verb Classes: noun Boolean: isEnough Enum: adjective  5. Avoid Encodings. // Avoid psz int *pszBasket 6.</description>
-    </item>
-    
+    <lastBuildDate>Sat, 26 Mar 2022 12:30:00 +0800</lastBuildDate><atom:link href="https://xuanyang-cn.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>WiscKey 论文阅读笔记</title>
       <link>https://xuanyang-cn.github.io/posts/2022/03/wisckey-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</link>
@@ -47,7 +37,7 @@
       <guid>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</guid>
       <description>GCTRACE  gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause. The format of this line is subject to change. Currently, it is:
   gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&amp;gt;#-&amp;gt;# MB, # MB goal, # P where the fields are as follows:
- gc # the GC number, incremented at each GC@#s time in seconds since program start#% percentage of time spent in GC since program start#+.</description>
+ gc # the GC number, incremented at each GC @#s time in seconds since program start #% percentage of time spent in GC since program start #+.</description>
     </item>
     
     <item>
