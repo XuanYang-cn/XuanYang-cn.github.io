@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 12 Apr 2021 19:34:27 +0800</lastBuildDate><atom:link href="https://xuanyang-cn.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Apr 2021 19:34:27 +0800</lastBuildDate>
+    
+	<atom:link href="https://xuanyang-cn.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>How To Configure Vim</title>
       <link>https://xuanyang-cn.github.io/posts/2021/04/how-to-configure-vim/</link>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Goose ">
+<meta name="description" content="The Basics of C&#43;&#43; C-Style Arrays
+ In c&#43;&#43;, it&amp;rsquo;s best to avoid C-style arrays and use Standard Library functionality, such as std::array and std::vector
+ int myArray[3]; int myArray[3] = {0}; // 0 can be dropped as {} int myArrya[] = {1, 2, 3, 4}; // The compiler creates an array of 4 elements  // c&#43;&#43;17 can use `std::size()` to calculate C-style array // #include &amp;lt;array&amp;gt; unsigned int arraySize = std::size(myArray); // before c&#43;&#43;17 unsigned int arraySize = sizeof(myArray) / sizeof(myArray[0]); std::array" />
+<meta name="keywords" content=", c&#43;&#43;" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://xuanyang-cn.github.io/posts/2022/04/the-basics-of-c-/" />
+
+
+    <title>
+        
+            The Basics of C&#43;&#43; :: Hello Friend  — Hello Friend
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://xuanyang-cn.github.io/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://xuanyang-cn.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://xuanyang-cn.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://xuanyang-cn.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://xuanyang-cn.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://xuanyang-cn.github.io/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://xuanyang-cn.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="The Basics of C&#43;&#43;">
+<meta itemprop="description" content="The Basics of C&#43;&#43; C-Style Arrays
+ In c&#43;&#43;, it&rsquo;s best to avoid C-style arrays and use Standard Library functionality, such as std::array and std::vector
+ int myArray[3]; int myArray[3] = {0}; // 0 can be dropped as {} int myArrya[] = {1, 2, 3, 4}; // The compiler creates an array of 4 elements  // c&#43;&#43;17 can use `std::size()` to calculate C-style array // #include &lt;array&gt; unsigned int arraySize = std::size(myArray); // before c&#43;&#43;17 unsigned int arraySize = sizeof(myArray) / sizeof(myArray[0]); std::array">
+<meta itemprop="datePublished" content="2022-04-23T11:19:04&#43;08:00" />
+<meta itemprop="dateModified" content="2022-04-23T11:19:04&#43;08:00" />
+<meta itemprop="wordCount" content="1144">
+<meta itemprop="image" content="https://xuanyang-cn.github.io"/>
+
+
+
+<meta itemprop="keywords" content="c&#43;&#43;," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xuanyang-cn.github.io"/>
+
+<meta name="twitter:title" content="The Basics of C&#43;&#43;"/>
+<meta name="twitter:description" content="The Basics of C&#43;&#43; C-Style Arrays
+ In c&#43;&#43;, it&rsquo;s best to avoid C-style arrays and use Standard Library functionality, such as std::array and std::vector
+ int myArray[3]; int myArray[3] = {0}; // 0 can be dropped as {} int myArrya[] = {1, 2, 3, 4}; // The compiler creates an array of 4 elements  // c&#43;&#43;17 can use `std::size()` to calculate C-style array // #include &lt;array&gt; unsigned int arraySize = std::size(myArray); // before c&#43;&#43;17 unsigned int arraySize = sizeof(myArray) / sizeof(myArray[0]); std::array"/>
+
+
+
+
+    <meta property="og:title" content="The Basics of C&#43;&#43;" />
+<meta property="og:description" content="The Basics of C&#43;&#43; C-Style Arrays
+ In c&#43;&#43;, it&rsquo;s best to avoid C-style arrays and use Standard Library functionality, such as std::array and std::vector
+ int myArray[3]; int myArray[3] = {0}; // 0 can be dropped as {} int myArrya[] = {1, 2, 3, 4}; // The compiler creates an array of 4 elements  // c&#43;&#43;17 can use `std::size()` to calculate C-style array // #include &lt;array&gt; unsigned int arraySize = std::size(myArray); // before c&#43;&#43;17 unsigned int arraySize = sizeof(myArray) / sizeof(myArray[0]); std::array" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xuanyang-cn.github.io/posts/2022/04/the-basics-of-c-/" />
+<meta property="og:image" content="https://xuanyang-cn.github.io"/>
+<meta property="article:published_time" content="2022-04-23T11:19:04+08:00" />
+<meta property="article:modified_time" content="2022-04-23T11:19:04+08:00" />
+
+
+
+
+    <meta property="article:section" content="c&#43;&#43;" />
+
+
+
+    <meta property="article:published_time" content="2022-04-23 11:19:04 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://xuanyang-cn.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd /home/goose</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#e59866;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://xuanyang-cn.github.io/about/">About Me</a></li><li><a href="https://xuanyang-cn.github.io/categories/">Categories</a></li><li><a href="https://xuanyang-cn.github.io/posts/">Posts</a></li><li><a href="https://xuanyang-cn.github.io/tags/">Tags</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        6 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://xuanyang-cn.github.io/posts/2022/04/the-basics-of-c-/">The Basics of C++</a>
+      </h1>
+
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <h2 id="the-basics-of-c">The Basics of C++</h2>
+<p><strong>C-Style Arrays</strong></p>
+<blockquote>
+<p>In c++, it&rsquo;s best to avoid C-style arrays and use Standard Library functionality, such as <code>std::array</code> and <code>std::vector</code></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> myArray[<span style="color:#ae81ff">3</span>];
+<span style="color:#66d9ef">int</span> myArray[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>}; <span style="color:#75715e">// 0 can be dropped as {}
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> myArrya[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>}; <span style="color:#75715e">// The compiler creates an array of 4 elements
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// c++17 can use `std::size()` to calculate C-style array
+</span><span style="color:#75715e">// #include &lt;array&gt;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> arraySize <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>size(myArray);
+
+<span style="color:#75715e">// before c++17
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> arraySize <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(myArray) <span style="color:#f92672">/</span> <span style="color:#66d9ef">sizeof</span>(myArray[<span style="color:#ae81ff">0</span>]);
+</code></pre></div><p><strong><code>std::array</code></strong></p>
+<p>A special type of fixed-size container, defined in the <code>&lt;array&gt;</code> header file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;array&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">// fixed-size
+</span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>array<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span> arr <span style="color:#f92672">=</span> {<span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">7</span>};
+std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Array size = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> arr.size() <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;2nd element = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> arr[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</code></pre></div><p><strong><code>std::vector</code></strong></p>
+<p>Non-fixed-size containers, declared in <code>&lt;vector&gt;</code> header file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> myVector <span style="color:#f92672">=</span> {<span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">12</span>};
+myVector.push_back(<span style="color:#ae81ff">33</span>);
+myVector.push_back(<span style="color:#ae81ff">44</span>);
+std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;1st element: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> myVecotor[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</code></pre></div><p><strong>Structured Bindings &ndash; C++17</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">std<span style="color:#f92672">::</span>array<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span> ,<span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span> values <span style="color:#f92672">=</span> {<span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">33</span>};
+<span style="color:#66d9ef">auto</span> [x, y, z] <span style="color:#f92672">=</span> values;
+
+<span style="color:#75715e">// also work with structures
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Point</span> {<span style="color:#66d9ef">double</span> mX, mY, mZ;};
+Point point;
+point.mX <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>; point.mY <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.0</span>; point.mZ <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.0</span>;
+<span style="color:#66d9ef">auto</span> [x, y, z] <span style="color:#f92672">=</span> point;
+</code></pre></div><p><strong>The Range-Based for Loop</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">std<span style="color:#f92672">::</span>array<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">4</span><span style="color:#f92672">&gt;</span> arr <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>};
+<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i : arr) {
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+}
+</code></pre></div><p><strong>Initializer Lists</strong>
+Defined in <code>&lt;initializer_list&gt;</code> header file and make it easy to write functions that can accept a variable number fo arguments.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;initializer_list&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">makeSum</span>(initializer_list<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> lst){
+    <span style="color:#66d9ef">int</span> total <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> v : lst) {
+        total <span style="color:#f92672">+=</span> v;
+    }
+    <span style="color:#66d9ef">return</span> total;
+}
+
+<span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> makeSum({<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>});
+<span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> makeSum({<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">60</span>});
+</code></pre></div><h2 id="diving-deeper-into-c">Diving Deeper Into C++</h2>
+<p><strong>Strings in C++</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+std<span style="color:#f92672">::</span>string myString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello World&#34;</span>
+
+std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The value of myString is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> myString <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The second letter is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> myString[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</code></pre></div><p><strong>Pointers and Dynamic memory</strong></p>
+<p>Memory in your C++ application is divided into two parts—the <em>stack</em> and the <em>heap</em>.</p>
+<p>You can put anything on the heap by explicitly allocating memory for it. But first, you need to declare a pointer.</p>
+<p><strong>Always avoiding using uninitialized pointer, you should always declare and initialize the pointer at the same time</strong>. You can initialize the pointer as nullptr.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> myIntegerPointer <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">myIntegerPointer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>; <span style="color:#75715e">// use new to allocate memory.
+</span><span style="color:#75715e"></span><span style="color:#f92672">*</span>myIntegerPointer <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>;      <span style="color:#75715e">// change the int in heap to 8, not the ponter
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">delete</span> myIntegerPointer;  	<span style="color:#75715e">// deallocate the memory at which the pointer pointed.
+</span><span style="color:#75715e"></span>myIntegerPointer <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>; <span style="color:#75715e">// set the pointer to nullptr to prevent the pointer from 
+</span><span style="color:#75715e"></span>														<span style="color:#75715e">//  being used after having deallocated the memory it points to.
+</span></code></pre></div><p>Pointers can point to stack memory</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>;
+<span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> aptr <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>a;
+</code></pre></div><blockquote>
+<p>Note: Make sure the pointer is valid (not uninitialized or nullptr) before its dereferenced.</p>
+</blockquote>
+<p>If you have a pointer to a structure, you can get its fields by dereferencing it by <code>*</code> and use the normal <code>.</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">Employee<span style="color:#f92672">*</span> anEmployee <span style="color:#f92672">=</span> getEmployee();
+std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> (<span style="color:#f92672">*</span>anEmployee).salary <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</code></pre></div><p>Or use <code>-&gt;</code> to do both dereference and field access</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> anEmployee<span style="color:#f92672">-&gt;</span>salary <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+
+<span style="color:#66d9ef">bool</span> isValidEmployee <span style="color:#f92672">=</span> (anEmployee <span style="color:#f92672">&amp;&amp;</span> anEmployee<span style="color:#f92672">-&gt;</span>salary <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>);
+<span style="color:#75715e">// or verbosely
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> isValidEmployee <span style="color:#f92672">=</span> (anEmployee <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span> <span style="color:#f92672">&amp;&amp;</span> anEmployee<span style="color:#f92672">-&gt;</span>salary <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>);
+</code></pre></div><p><strong>Dynamic Allocated Arrays</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> arraySize <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>;
+<span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> myArray <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[arraySize];
+
+<span style="color:#66d9ef">delete</span>[] myArray;
+myArray <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+</code></pre></div><blockquote>
+<p>Note: Avoid using <code>malloc()</code> and <code>free()</code> in C, instead, using <code>new</code>,<code>new[]</code>,<code>delete</code>, and <code>delete[]</code>.</p>
+</blockquote>
+<p><strong>Null Pointer Constant</strong></p>
+<p>Constant <code>NULL</code> problem: it&rsquo;s 0. The following will call the integer version, even if we&rsquo;re passing a NULL char*</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> str) {std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;char* version&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>(<span style="color:#66d9ef">int</span> i) {std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;integer version&#34;</span>}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+	func(NULL);
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>But <code>nullptr</code> solves the problem.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">func(<span style="color:#66d9ef">nullptr</span>);  <span style="color:#75715e">// calls the char* version
+</span></code></pre></div><p><strong>Smart Pointers</strong></p>
+<p>To avoid common memory problems, you should use <code>smart pointers</code> instead of raw C-style pointers.</p>
+<p>Defined in <code>&lt;memory&gt;</code> and inside <code>std</code> namespace.</p>
+<ul>
+<li><code>std::unique_ptr</code>: analogous to ordinary pointer, except that it automatically frees the memory or resources when it goes out of scope or is deleted. An <code>unique_ptr</code> has sole ownership of the object pointed to.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">auto</span> anEmployee <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_unique<span style="color:#f92672">&lt;</span>Employee<span style="color:#f92672">&gt;</span>(); <span style="color:#75715e">// since c++14
+</span><span style="color:#75715e"></span>unique_ptr<span style="color:#f92672">&lt;</span>Employee<span style="color:#f92672">&gt;</span> anEmployee(<span style="color:#66d9ef">new</span> Employee); <span style="color:#75715e">// before c++14
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">if</span> (anEmployee) {
+  	std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Salary: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> anEmployee<span style="color:#f92672">-&gt;</span>salary <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>cout; 
+}
+
+<span style="color:#66d9ef">auto</span> employees <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_unique<span style="color:#f92672">&lt;</span>Employee[]<span style="color:#f92672">&gt;</span>(<span style="color:#ae81ff">10</span>); <span style="color:#75715e">// C style Array
+</span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> employees[<span style="color:#ae81ff">0</span>].salary <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</code></pre></div><ul>
+<li><code>std::shared_ptr</code>: allows a distributed ownership of the data. Each time the <code>shard_ptr</code> is assigned, a reference count is incremented indicating there&rsquo;s one more owner of the data.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">auto</span> anEmployee <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>Employee<span style="color:#f92672">&gt;</span>();
+
+std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Employee[]<span style="color:#f92672">&gt;</span> employees(<span style="color:#66d9ef">new</span> Employee[<span style="color:#ae81ff">10</span>]); <span style="color:#75715e">// C style Array since C++17
+</span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Salary: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> employees[<span style="color:#ae81ff">0</span>].salary <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</code></pre></div><p><strong>The many uses of const</strong></p>
+<ol>
+<li><code>const</code> constants</li>
+<li><code>const</code> to protect parameters</li>
+</ol>
+<p>Cast a non-const variables to a <code>const</code> variables to avoid accident changes</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mysteryFunction</span>(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">*</span> someString){
+    <span style="color:#f92672">*</span>someString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Test&#34;</span>;  <span style="color:#75715e">// Will not compile.
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+    std<span style="color:#f92672">::</span>string myString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;The string&#34;</span>;
+    mysteryFunction(<span style="color:#f92672">&amp;</span>myString);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p><strong>References</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">42</span>;
+<span style="color:#66d9ef">int</span><span style="color:#f92672">&amp;</span> myRef <span style="color:#f92672">=</span> x;  <span style="color:#75715e">// actually a pointer to x
+</span></code></pre></div><p><strong>Pass by reference</strong></p>
+<p>Usually when you pass a variable to a functions, you&rsquo;re passing by <strong>value</strong>,  you could choose to <em>pass by reference</em> to enable to change the variable.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addOne</span>(<span style="color:#66d9ef">int</span> i) { <span style="color:#75715e">// pass by value
+</span><span style="color:#75715e"></span>   i<span style="color:#f92672">++</span>;
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addOne</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>i){ <span style="color:#75715e">// pass by reference actually can change the variable i
+</span><span style="color:#75715e"></span>  	i<span style="color:#f92672">++</span>;
+}
+</code></pre></div><p><strong>Pass by const reference</strong></p>
+<p>No copy and not allowed to change.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printString</span>(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> myString){
+  	std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> myString <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+  	std<span style="color:#f92672">::</span>string myString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello World&#34;</span>;
+  	printString(myString);
+  	printString(<span style="color:#e6db74">&#34;Hello World&#34;</span>);
+  	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p><strong>Type Inference</strong></p>
+<p>Type inference allows the compilers to automatically deduce the type of an expression</p>
+<ul>
+<li>The <code>auto</code> keyword</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">auto</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+<span style="color:#66d9ef">auto</span> result <span style="color:#f92672">=</span> getFoo();
+</code></pre></div><p>Using <code>auto</code> to deduce the type of an expression <strong>strips away reference and <code>const</code> qualifiers</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Test&#34;</span>;
+<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> 
+foo(){
+  	<span style="color:#66d9ef">return</span> message;
+}
+
+<span style="color:#66d9ef">auto</span> f1 <span style="color:#f92672">=</span> foo(); <span style="color:#75715e">// Because auto strips away reference and `const` qualifiers, f1 is of type `string`
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> f2 <span style="color:#f92672">=</span> foo();  <span style="color:#75715e">// f2 is of type const reference of string
+</span></code></pre></div><ul>
+<li>The <code>decltype</code> keyword</li>
+</ul>
+<p><code>decltype</code> takes an expression as argument, and computes the type of that argument.</p>
+<p><code>decltype</code> doesn&rsquo;t strip <code>const</code> and reference qualifiers.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+
+<span style="color:#66d9ef">decltype</span>(x) y <span style="color:#f92672">=</span> <span style="color:#ae81ff">456</span>;
+</code></pre></div><h2 id="uniform-initialization">UNIFORM INITIALIZATION</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">CircleStruct</span>{
+    <span style="color:#66d9ef">int</span> x, y;
+    <span style="color:#66d9ef">double</span> radius;
+};
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CircleClass</span>{
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    CircleClass(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y, <span style="color:#66d9ef">double</span> radius)
+        <span style="color:#f92672">:</span> mX(x), mY(y), mRadius(radius) {}
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> mX, mY;
+    <span style="color:#66d9ef">double</span> mRadius;
+};
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// Not uniform
+</span><span style="color:#75715e"></span>CircleStruct c1 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2.5</span>};
+CircleClass <span style="color:#a6e22e">c2</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2.5</span>); 
+
+<span style="color:#75715e">// Uniform
+</span><span style="color:#75715e"></span>CircleStruct c3 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2.5</span>};
+CircleClass c4 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2.5</span>};
+
+<span style="color:#75715e">// the use of euqal sign is optional
+</span><span style="color:#75715e"></span>CircleStruct c5{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2.5</span>};
+CircleClass c6{<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2.5</span>};
+
+<span style="color:#75715e">// Uniform initialization to perform zero initialization
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> a{}; <span style="color:#75715e">// a == 0
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// Uniform initialization prevents narrowing
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>(<span style="color:#66d9ef">int</span> i);
+
+<span style="color:#66d9ef">int</span> x<span style="color:#f92672">=</span>{<span style="color:#ae81ff">3.14</span>}; <span style="color:#75715e">// Error because of narrowing
+</span><span style="color:#75715e"></span>func({<span style="color:#ae81ff">3.14</span>}); <span style="color:#75715e">// Error because of narrowing
+</span><span style="color:#75715e"></span>  
+<span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> myArray <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>]{<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>};
+</code></pre></div>
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://xuanyang-cn.github.io/tags/c&#43;&#43;/">c&#43;&#43;</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://xuanyang-cn.github.io/categories/c&#43;&#43;/">c&#43;&#43;</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1144 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2022-04-23 11:19
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2022%2f04%2fthe-basics-of-c-%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2022%2f04%2fthe-basics-of-c-%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=The%20Basics%20of%20C%2b%2b&amp;caption=The%20Basics%20of%20C%2b%2b&amp;canonicalUrl=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2022%2f04%2fthe-basics-of-c-%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=The%20Basics%20of%20C%2b%2b&amp;body=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2022%2f04%2fthe-basics-of-c-%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2022%2f04%2fthe-basics-of-c-%2f&amp;media=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2022%2f04%2fthe-basics-of-c-%2f;description=The%20Basics%20of%20C%2b%2b" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2022%2f04%2fthe-basics-of-c-%2f&amp;title=The%20Basics%20of%20C%2b%2b&amp;summary=The%20Basics%20of%20C%2b%2b&amp;source=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2022%2f04%2fthe-basics-of-c-%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2022%2f04%2fthe-basics-of-c-%2f&amp;resubmit=true&amp;title=The%20Basics%20of%20C%2b%2b" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2022%2f04%2fthe-basics-of-c-%2f;title=The%20Basics%20of%20C%2b%2b" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=The%20Basics%20of%20C%2b%2b%20https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2022%2f04%2fthe-basics-of-c-%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2022%2f04%2fthe-basics-of-c-%2f&amp;t=The%20Basics%20of%20C%2b%2b" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=The%20Basics%20of%20C%2b%2b&amp;url=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2022%2f04%2fthe-basics-of-c-%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://xuanyang-cn.github.io/posts/2022/03/wisckey-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+                    <span class="button__text">WiscKey 论文阅读笔记</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://xuanyang-cn.github.io/bundle.min.ace63d93098bf623f7c286a9084a4c22bfc482944c734f87fe0b685c7c6c7fa0ad2edb028c3b4b60d3343720c8ab490b320ad7f8edf4f6e9a6b898fc529057a9.js" integrity="sha512-rOY9kwmL9iP3woapCEpMIr/EgpRMc0&#43;H/gtoXHxsf6CtLtsCjDtLYNM0NyDIq0kLMgrX&#43;O309ummuJj8UpBXqQ=="></script>
+
+
+
+    </body>
+</html>

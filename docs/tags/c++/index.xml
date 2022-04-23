@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>c&#43;&#43; on Hello Friend</title>
+    <link>https://xuanyang-cn.github.io/tags/c&#43;&#43;/</link>
+    <description>Recent content in c&#43;&#43; on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 23 Apr 2022 11:19:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://xuanyang-cn.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Basics of C&#43;&#43;</title>
+      <link>https://xuanyang-cn.github.io/posts/2022/04/the-basics-of-c-/</link>
+      <pubDate>Sat, 23 Apr 2022 11:19:04 +0800</pubDate>
+      
+      <guid>https://xuanyang-cn.github.io/posts/2022/04/the-basics-of-c-/</guid>
+      <description>The Basics of C++ C-Style Arrays
+ In c++, it&amp;rsquo;s best to avoid C-style arrays and use Standard Library functionality, such as std::array and std::vector
+ int myArray[3]; int myArray[3] = {0}; // 0 can be dropped as {} int myArrya[] = {1, 2, 3, 4}; // The compiler creates an array of 4 elements  // c++17 can use `std::size()` to calculate C-style array // #include &amp;lt;array&amp;gt; unsigned int arraySize = std::size(myArray); // before c++17 unsigned int arraySize = sizeof(myArray) / sizeof(myArray[0]); std::array</description>
+    </item>
+    
+  </channel>
+</rss>
