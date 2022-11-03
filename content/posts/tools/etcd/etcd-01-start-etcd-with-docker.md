@@ -4,8 +4,11 @@ date: 2021-01-19T10:12:49+08:00
 draft: true
 toc: false
 images:
+categories:
+  - tools
 tags:
   - etcd
+  - tool
 ---
 
 [Etcd](https://github.com/etcd-io/etcd) is a distributed reliable key-value store for the most critical data of a distributed system.

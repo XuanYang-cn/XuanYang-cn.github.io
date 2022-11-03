@@ -4,6 +4,8 @@ date: 2021-01-19T10:17:34+08:00
 draft: true
 toc: false
 images:
+categories:
+  - cloud
 tags:
   - aws
   - aws-s3

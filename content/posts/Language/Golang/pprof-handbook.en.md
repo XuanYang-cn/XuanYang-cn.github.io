@@ -5,9 +5,10 @@ draft: false
 toc: false
 images:
 categories:
-  - golang
-  - memleak
+  - language
 tags:
+  - memleak
+  - golang
   - pprof
   - tool
 ---

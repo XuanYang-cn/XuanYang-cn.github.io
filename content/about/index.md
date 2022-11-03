@@ -17,9 +17,7 @@ int main() {
 ## What to do next?
 ---
 
- - [x] Vim Intro (en)
- - [ ] Vim Intro (zn)
- - [ ] set vim environment in docker (en, zh)
- - [ ] Linux Command Line
- - [ ] Valgrind
- - [ ] Cgo
+|Article|Categories|Draft|
+|:-------|:----------:|:---:|
+|My vim configs|vim|Y|
+|Set work environment in docker|docker|N|

@@ -4,6 +4,8 @@ date: 2021-01-19T10:16:21+08:00
 draft: true
 toc: false
 images:
+categories:
+  - Operating System
 tags:
   - linux
 ---

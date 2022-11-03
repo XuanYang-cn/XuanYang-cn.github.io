@@ -3,8 +3,9 @@ title: "Delve Hand Book"
 date: 2021-02-18T15:34:42+08:00
 draft: false
 categories:
-  - golang
+  - language
 tags:
+  - golang
   - debug
   - tool
 ---

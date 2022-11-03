@@ -4,6 +4,8 @@ date: 2021-01-19T10:14:58+08:00
 draft: true
 toc: false
 images:
+categories:
+  - tools
 tags:
   - docker
   - docker-compose
@@ -35,7 +37,7 @@ services:
       - "2379:2379"
       - "2380:2380"
     command: >
-      /usr/local/bin/etcd                                                  
+      /usr/local/bin/etcd
       --name s1
       --data-dir /etcd-data
       --listen-client-urls http://0.0.0.0:2379

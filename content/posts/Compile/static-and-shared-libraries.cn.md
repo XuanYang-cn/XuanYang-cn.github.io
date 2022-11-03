@@ -4,6 +4,8 @@ date: 2021-01-18T20:08:32+08:00
 draft: true
 toc: false
 images:
+categories:
+  - compilation
 tags:
   - compilation
 ---
@@ -32,7 +34,7 @@ $ ./a.out
 Hello World!
 ```
 
-`gcc` 可以将 C 语言源文件编译成可执行文件，这个看上去很简单的过程其实隐藏了很多步骤。事实上，上述过程可以分解成 4 个步骤， 分别是**预处理（Prepressing）**、**编译（Compilation）**、 **汇编（Assembly）**、 和**链接（Linking）**。 
+`gcc` 可以将 C 语言源文件编译成可执行文件，这个看上去很简单的过程其实隐藏了很多步骤。事实上，上述过程可以分解成 4 个步骤， 分别是**预处理（Prepressing）**、**编译（Compilation）**、 **汇编（Assembly）**、 和**链接（Linking）**。
 
 本文着重点在链接，所以链接之前的三个步骤在本文里被统称为编译。于是上述过程可以粗略分为两步：编译和链接。
 

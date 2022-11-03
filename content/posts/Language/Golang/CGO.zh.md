@@ -3,9 +3,10 @@ title: "Cgo: All You Need to Know"
 date: 2021-02-23T16:05:20+08:00
 draft: false
 categories:
-  - golang
+  - language
 tags:
   - cgo
+  - golang
 ---
 
 ## Cgo Intro

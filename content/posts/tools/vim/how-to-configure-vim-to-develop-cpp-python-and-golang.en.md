@@ -5,7 +5,7 @@ draft: false
 toc: true
 images:
 categories:
-  - vim
+  - tools
 tags:
   - vim
 ---
