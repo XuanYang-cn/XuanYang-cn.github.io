@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://xuanyang-cn.github.io/categories/</loc>
-    <lastmod>2021-04-12T19:34:27+08:00</lastmod>
+    <lastmod>2022-03-26T12:35:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -15,11 +14,18 @@
                 hreflang="en"
                 href="https://xuanyang-cn.github.io/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/tags/clean-code/</loc>
+    <lastmod>2022-03-26T12:35:00+08:00</lastmod>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/categories/clean-code/</loc>
+    <lastmod>2022-03-26T12:35:00+08:00</lastmod>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/posts/2022/03/clean-code-1-names/</loc>
+    <lastmod>2022-03-26T12:35:00+08:00</lastmod>
+  </url><url>
     <loc>https://xuanyang-cn.github.io/</loc>
-    <lastmod>2021-04-12T19:34:27+08:00</lastmod>
+    <lastmod>2022-03-26T12:35:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -30,21 +36,12 @@
                 hreflang="en"
                 href="https://xuanyang-cn.github.io/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://xuanyang-cn.github.io/posts/2021/04/how-to-configure-vim/</loc>
-    <lastmod>2021-04-12T19:34:27+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://xuanyang-cn.github.io/posts/</loc>
-    <lastmod>2021-04-12T19:34:27+08:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-03-26T12:35:00+08:00</lastmod>
+  </url><url>
     <loc>https://xuanyang-cn.github.io/tags/</loc>
-    <lastmod>2021-04-12T19:34:27+08:00</lastmod>
+    <lastmod>2022-03-26T12:35:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -55,79 +52,57 @@
                 hreflang="en"
                 href="https://xuanyang-cn.github.io/tags/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/tags/notes/</loc>
+    <lastmod>2022-03-26T12:30:00+08:00</lastmod>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/categories/paperreading/</loc>
+    <lastmod>2022-03-26T12:30:00+08:00</lastmod>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/posts/2022/03/wisckey-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-03-26T12:30:00+08:00</lastmod>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/posts/2021/04/how-to-configure-vim/</loc>
+    <lastmod>2021-04-12T19:34:27+08:00</lastmod>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/categories/tools/</loc>
+    <lastmod>2021-04-12T19:34:27+08:00</lastmod>
+  </url><url>
     <loc>https://xuanyang-cn.github.io/tags/vim/</loc>
     <lastmod>2021-04-12T19:34:27+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xuanyang-cn.github.io/categories/vim/</loc>
-    <lastmod>2021-04-12T19:34:27+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</loc>
     <lastmod>2021-03-26T14:52:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xuanyang-cn.github.io/categories/golang/</loc>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/tags/golang/</loc>
     <lastmod>2021-03-26T14:52:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xuanyang-cn.github.io/categories/memleak/</loc>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/categories/language/</loc>
     <lastmod>2021-03-26T14:52:08+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/tags/memleak/</loc>
+    <lastmod>2021-03-26T14:52:08+08:00</lastmod>
+  </url><url>
     <loc>https://xuanyang-cn.github.io/tags/pprof/</loc>
     <lastmod>2021-03-26T14:52:08+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://xuanyang-cn.github.io/tags/tool/</loc>
     <lastmod>2021-03-26T14:52:08+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://xuanyang-cn.github.io/tags/cgo/</loc>
     <lastmod>2021-02-23T16:05:20+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://xuanyang-cn.github.io/posts/2021/02/cgo-all-you-need-to-know/</loc>
     <lastmod>2021-02-23T16:05:20+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://xuanyang-cn.github.io/tags/debug/</loc>
     <lastmod>2021-02-18T15:34:42+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://xuanyang-cn.github.io/posts/2021/02/delve-hand-book/</loc>
     <lastmod>2021-02-18T15:34:42+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://xuanyang-cn.github.io/about/</loc>
-    <lastmod>2021-01-19T10:19:24+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xuanyang-cn.github.io/posts/2021/01/my-first-post/</loc>
-    <lastmod>2021-01-18T14:32:11+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xuanyang-cn.github.io/tags/untagged/</loc>
-    <lastmod>2021-01-18T14:32:11+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://xuanyang-cn.github.io/series/</loc>
     <xhtml:link
                 rel="alternate"
@@ -140,5 +115,4 @@
                 href="https://xuanyang-cn.github.io/series/"
                 />
   </url>
-  
 </urlset>

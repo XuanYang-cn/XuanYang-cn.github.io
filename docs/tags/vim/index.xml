@@ -15,7 +15,7 @@
       
       <guid>https://xuanyang-cn.github.io/posts/2021/04/how-to-configure-vim/</guid>
       <description>This article:
- Assumes you already have some vim experiences. Won&amp;rsquo;t be step-by-step tutorial. Will explain what is happening when you edit ~/.vimrc.  Why VIM？  Better understanding of project structures Better understanding of everything Lightweight Multi-language support Addictive All open-source(except some great but awful plugins) Show off  Why Not VIM?  Learning curve is steep.  Lots of shortcuts to remember Lots of plug-ins to learn. If you don&amp;rsquo;t know it thoroughly, you&amp;rsquo;ll make a mess of yourself.</description>
+Assumes you already have some vim experiences. Won&amp;rsquo;t be step-by-step tutorial. Will explain what is happening when you edit ~/.vimrc. Why VIM？ Better understanding of project structures Better understanding of everything Lightweight Multi-language support Addictive All open-source(except some great but awful plugins) Show off Why Not VIM? Learning curve is steep. Lots of shortcuts to remember Lots of plug-ins to learn. If you don&amp;rsquo;t know it thoroughly, you&amp;rsquo;ll make a mess of yourself.</description>
     </item>
     
   </channel>

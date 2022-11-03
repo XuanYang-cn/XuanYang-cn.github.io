@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tools on Hello Friend</title>
+    <link>https://xuanyang-cn.github.io/categories/tools/</link>
+    <description>Recent content in tools on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 12 Apr 2021 19:34:27 +0800</lastBuildDate><atom:link href="https://xuanyang-cn.github.io/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How To Configure Vim</title>
+      <link>https://xuanyang-cn.github.io/posts/2021/04/how-to-configure-vim/</link>
+      <pubDate>Mon, 12 Apr 2021 19:34:27 +0800</pubDate>
+      
+      <guid>https://xuanyang-cn.github.io/posts/2021/04/how-to-configure-vim/</guid>
+      <description>This article:
+Assumes you already have some vim experiences. Won&amp;rsquo;t be step-by-step tutorial. Will explain what is happening when you edit ~/.vimrc. Why VIM？ Better understanding of project structures Better understanding of everything Lightweight Multi-language support Addictive All open-source(except some great but awful plugins) Show off Why Not VIM? Learning curve is steep. Lots of shortcuts to remember Lots of plug-ins to learn. If you don&amp;rsquo;t know it thoroughly, you&amp;rsquo;ll make a mess of yourself.</description>
+    </item>
+    
+  </channel>
+</rss>

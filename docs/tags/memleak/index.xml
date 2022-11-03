@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>memleak on Hello Friend</title>
+    <link>https://xuanyang-cn.github.io/tags/memleak/</link>
+    <description>Recent content in memleak on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 26 Mar 2021 14:52:08 +0800</lastBuildDate><atom:link href="https://xuanyang-cn.github.io/tags/memleak/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go pprof Ref</title>
+      <link>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</link>
+      <pubDate>Fri, 26 Mar 2021 14:52:08 +0800</pubDate>
+      
+      <guid>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</guid>
+      <description>GCTRACE gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause. The format of this line is subject to change. Currently, it is:
+gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&amp;gt;#-&amp;gt;# MB, # MB goal, # P where the fields are as follows:
+gc # the GC number, incremented at each GC @#s time in seconds since program start #% percentage of time spent in GC since program start #+.</description>
+    </item>
+    
+  </channel>
+</rss>

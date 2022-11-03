@@ -3,7 +3,7 @@ title: "WiscKey 论文阅读笔记"
 date: 2022-03-26T12:30:00+08:00
 draft: false
 categories:
-  - PaperReading
+  - paper reading
 tags:
   - notes
 ---

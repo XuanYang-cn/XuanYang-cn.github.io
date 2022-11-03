@@ -6,8 +6,124 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Mon, 12 Apr 2021 19:34:27 +0800</lastBuildDate>
+        <lastBuildDate>Sat, 26 Mar 2022 12:35:00 +0800</lastBuildDate>
         <atom:link href="https://xuanyang-cn.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Clean Code 1: Names</title>
+            <link>https://xuanyang-cn.github.io/posts/2022/03/clean-code-1-names/</link>
+            <pubDate>Sat, 26 Mar 2022 12:35:00 +0800</pubDate>
+            
+            <guid>https://xuanyang-cn.github.io/posts/2022/03/clean-code-1-names/</guid>
+            <description>If we all checked-in our code a little cleaner than when we checked it out, the code simply could not rot.
+Clean Code 1: Names 1. Choose your name thoughtfully. 2. Communicate your intent. Intervals! (a, b) open [a, b] closed (a, b] open left [a, b) open right 3. Avoid Disinformation. 4. Pronounceable Names. Methods: verb Classes: noun Boolean: isEnough Enum: adjective 5. Avoid Encodings. // Avoid psz int *pszBasket 6.</description>
+            <content type="html"><![CDATA[<blockquote>
+<p>If we all checked-in our code a little cleaner than when we checked it out, the code simply could not rot.</p>
+</blockquote>
+<h1 id="clean-code-1-names">Clean Code 1: Names</h1>
+<h2 id="1-choose-your-name-thoughtfully">1. Choose your name thoughtfully.</h2>
+<h2 id="2-communicate-your-intent">2. Communicate your intent.</h2>
+<pre tabindex="0"><code>Intervals!
+(a, b) open
+[a, b] closed
+(a, b] open left
+[a, b) open right
+</code></pre><h2 id="3-avoid-disinformation">3. Avoid Disinformation.</h2>
+<h2 id="4-pronounceable-names">4. Pronounceable Names.</h2>
+<ul>
+<li>Methods: verb</li>
+<li>Classes: noun</li>
+<li>Boolean: <em>isEnough</em></li>
+<li>Enum: adjective</li>
+</ul>
+<h2 id="5-avoid-encodings">5. Avoid Encodings.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// Avoid psz
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>pszBasket
+</span></span></code></pre></div><h2 id="6-choose-parts-of-speech-well">6. Choose Parts of Speech Well</h2>
+<blockquote>
+<p>Clean code always reads like well-written prose. —— Grady Booch</p>
+</blockquote>
+<h2 id="7-the-scope-rule">7. The Scope Rule.</h2>
+<ul>
+<li>Variable names: the shorter scope, the shorter name; the longer scope, the longer meaningful names.</li>
+<li>Method/Class names: the longer scope, the shorter name, like <code>Open</code>.</li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>WiscKey 论文阅读笔记</title>
+            <link>https://xuanyang-cn.github.io/posts/2022/03/wisckey-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</link>
+            <pubDate>Sat, 26 Mar 2022 12:30:00 +0800</pubDate>
+            
+            <guid>https://xuanyang-cn.github.io/posts/2022/03/wisckey-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</guid>
+            <description>WiscKey 论文阅读笔记 WiscKey: Separating Keys from Values in SSD-conscious Storage
+1. 资源 论文：
+Lanyue Lu, Thanumalayan Sankaranarayana Pillai, Andrea C. Arpaci-Dusseau, and Remzi H. Arpaci-Dusseau. 2016. WiscKey: Separating keys from values in SSD-conscious storage. In Proceedings of the 14th USENIX Conference on File and Storage Technologies (FAST’16). https://dl.acm.org/doi/pdf/10.1145/3033273 Lanyue Lu, Thanumalayan Sankaranarayana Pillai, Hariharan Gopalakrishnan, Andrea C. Arpaci- Dusseau, and Remzi H. Arpaci-Dusseau. 2017. WiscKey: Separating keys from values in SSD-conscious storage.</description>
+            <content type="html"><![CDATA[<h1 id="wisckey-论文阅读笔记">WiscKey 论文阅读笔记</h1>
+<p>WiscKey: Separating Keys from Values in SSD-conscious Storage</p>
+<h2 id="1-资源">1. 资源</h2>
+<p>论文：</p>
+<ul>
+<li>Lanyue Lu, Thanumalayan Sankaranarayana Pillai, Andrea C. Arpaci-Dusseau, and Remzi H. Arpaci-Dusseau. 2016. WiscKey: Separating keys from values in SSD-conscious storage. In <em>Proceedings of the 14th USENIX Conference on File and Storage Technologies (FAST’16)</em>. <a href="https://dl.acm.org/doi/pdf/10.1145/3033273">https://dl.acm.org/doi/pdf/10.1145/3033273</a></li>
+<li>Lanyue Lu, Thanumalayan Sankaranarayana Pillai, Hariharan Gopalakrishnan, Andrea C. Arpaci- Dusseau, and Remzi H. Arpaci-Dusseau. 2017. WiscKey: Separating keys from values in SSD-conscious storage. ACM Trans. Storage 13, 1, Article 5 (March 2017), 28 pages. <a href="https://www.usenix.org/system/files/conference/fast16/fast16-papers-lu.pdf">https://www.usenix.org/system/files/conference/fast16/fast16-papers-lu.pdf</a></li>
+</ul>
+<p><a href="http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/fast16/lu.mp3">fast2016 Conference 上演讲语音记录</a></p>
+<p><a href="https://www.usenix.org/sites/default/files/conference/protected-files/fast16_slides_lu.pdf">演讲幻灯片</a></p>
+<h2 id="2-论文总结">2. 论文总结</h2>
+<h3 id="21-the-problem">2.1 The problem</h3>
+<p>LevelDB</p>
+<ul>
+<li>写放大</li>
+<li>LevelDB 是为了 HDD 设计的，没有针对 SSD 的优化</li>
+</ul>
+<h3 id="22-the-solution">2.2 The solution</h3>
+<ul>
+<li>
+<p>基于 LevelDB 做优化。</p>
+</li>
+<li>
+<p>分离 key 和 value，使用 SSD 的特性。</p>
+<ul>
+<li>将 key 和 <strong>value 的地址</strong>存储在 LST-tree 中；将 key 和 value 存储在<strong>只能追加</strong>的 <code>value-log</code> 中。</li>
+<li>每次 load ，先追加到 <code>value-log</code>，再插入到 LSM-tree。</li>
+<li>每次 query，先从 LSM-tree 中找 key 和 value 的地址，然后在 <code>value-log</code> 中点查 value。</li>
+<li>range query 利用 SSD 多线程随机查询的性能优势。</li>
+<li>引入 GC 来解决更新和删除的问题，释放 <code>value-log</code> 的空间：从 <code>value-log</code> 头读，拿 Key 去 LST-tree 中查找，有效的话再追加到 <code>value-log</code> 末尾*</li>
+</ul>
+</li>
+</ul>
+<h3 id="23-pros-vs-cons-in-theory">2.3 Pros vs. Cons in theory</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>缩小 LSM-tree 大小, 从理论上减少 写放大</td>
+<td>每次 GC，没有更新或删除的数据还会被重新写一次，会增加一次写放大。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Range query 利用 SSD 多线程随机读不弱于顺序读的性能</td>
+<td>故障恢复难度增加</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-experiments">2.4 Experiments</h3>
+<ol>
+<li>测试 LevelDB 的读写放大。</li>
+<li>测试了 SSD 顺序读和随机读的性能。</li>
+<li>和 LevelDB 在 Load/Query/Range Query 的性能对比测试，写放大测试，测试平台是 LevelDB 的 microbenchmark。</li>
+<li>和 LevelDB、RocksDB 在 YCSB 上的测试。</li>
+</ol>
+]]></content>
+        </item>
         
         <item>
             <title>How To Configure Vim</title>
@@ -16,7 +132,7 @@
             
             <guid>https://xuanyang-cn.github.io/posts/2021/04/how-to-configure-vim/</guid>
             <description>This article:
- Assumes you already have some vim experiences. Won&amp;rsquo;t be step-by-step tutorial. Will explain what is happening when you edit ~/.vimrc.  Why VIM？  Better understanding of project structures Better understanding of everything Lightweight Multi-language support Addictive All open-source(except some great but awful plugins) Show off  Why Not VIM?  Learning curve is steep.  Lots of shortcuts to remember Lots of plug-ins to learn. If you don&amp;rsquo;t know it thoroughly, you&amp;rsquo;ll make a mess of yourself.</description>
+Assumes you already have some vim experiences. Won&amp;rsquo;t be step-by-step tutorial. Will explain what is happening when you edit ~/.vimrc. Why VIM？ Better understanding of project structures Better understanding of everything Lightweight Multi-language support Addictive All open-source(except some great but awful plugins) Show off Why Not VIM? Learning curve is steep. Lots of shortcuts to remember Lots of plug-ins to learn. If you don&amp;rsquo;t know it thoroughly, you&amp;rsquo;ll make a mess of yourself.</description>
             <content type="html"><![CDATA[<p>This article:</p>
 <ul>
 <li>Assumes you already have some vim experiences.</li>
@@ -50,11 +166,11 @@
 <h3 id="outside-of-vim">Outside of VIM</h3>
 <h4 id="1-download-vim-81-or-greater">1. Download vim 8.1 or greater</h4>
 <p>After installing vim, use this command to check vim&rsquo;s version. <code>vim &gt;= 8.2</code> is recommended</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ vim --version | grep Vi
-</code></pre></div><p>And it&rsquo;s recommended to have vim with <code>+python3</code> and <code>+clipboard</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ vim --version | grep python
-$ vim --version | grep clipboard
-</code></pre></div><h4 id="2-good-terminal-is-everything-beyond-vim">2. Good Terminal is everything beyond vim</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ vim --version | grep Vi
+</span></span></code></pre></div><p>And it&rsquo;s recommended to have vim with <code>+python3</code> and <code>+clipboard</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ vim --version | grep python
+</span></span><span style="display:flex;"><span>$ vim --version | grep clipboard
+</span></span></code></pre></div><h4 id="2-good-terminal-is-everything-beyond-vim">2. Good Terminal is everything beyond vim</h4>
 <p>Vim is a text editor, it&rsquo;s very hard to accomplish many things, such as visualization, step debug, auto build &amp; run etc.</p>
 <p>So we have to combine Terminal with vim to do such things. <strong>A good terminal is everything in scenarios beyond vim</strong>.</p>
 <p>To me, a usable terminal <strong>must</strong> be able to accomplish these features:</p>
@@ -74,20 +190,20 @@ $ vim --version | grep clipboard
 <p>For MacOS these could be accomplished by <code>iTerm2 + ZSH + On-My-Zsh</code> (Sadly iTerm2 will flush white line when full screen in Big Sur. According to iTerm2&rsquo;s issue, its Apple&rsquo;s bug and won&rsquo;t be fixed shortly. I&rsquo;ve tried a-lot but nothing&rsquo;ve changed, it&rsquo;s driving me crazy :(</p>
 <p>For Windows, I don&rsquo;t know.</p>
 <p>Status can be done by <a href="https://github.com/romkatv/powerlevel10k">powerlevel10k</a>(or <code>powerline</code> with <code>powerline fonts</code>). And the following 3 plugins will do the rest, git is a default and the last 2 are available on GitHub:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e"># in ~/.zshrc</span>
-plugins<span style="color:#f92672">=(</span>
-  git
-  zsh-syntax-highlighting
-  history-search-multi-word
-<span style="color:#f92672">)</span>
-</code></pre></div><h3 id="into-vim">Into VIM</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e"># in ~/.zshrc</span>
+</span></span><span style="display:flex;"><span>plugins<span style="color:#f92672">=(</span>
+</span></span><span style="display:flex;"><span>  git
+</span></span><span style="display:flex;"><span>  zsh-syntax-highlighting
+</span></span><span style="display:flex;"><span>  history-search-multi-word
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><h3 id="into-vim">Into VIM</h3>
 <h4 id="1--l0-never-used-vim-before">1.  L0 Never used vim before.</h4>
 <p>You can go through vim official <code>quickref</code> or 30-minute <code>tutor</code>(recommended),  then you are able to call
 yourself a newbie of vim.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#75715e">&#34; in vim buffer</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>:<span style="color:#a6e22e">h</span> <span style="color:#a6e22e">quickref</span><span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ vimtutor
-</code></pre></div><h4 id="2-l1-know-the-basic-operation-of-vim">2. L1 Know the basic operation of vim.</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#75715e">&#34; in vim buffer</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>:<span style="color:#a6e22e">h</span> <span style="color:#a6e22e">quickref</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ vimtutor
+</span></span></code></pre></div><h4 id="2-l1-know-the-basic-operation-of-vim">2. L1 Know the basic operation of vim.</h4>
 <p>Operation like <code>navigation</code>, <code>edit</code>, <code>save</code>, <code>visual</code>, <code>yank</code>, <code>paste</code> etc.</p>
 <p>Its time to understand text-object. Usually in this level, you are addicted to vim.</p>
 <p>Inner-word -&gt; iw</p>
@@ -118,91 +234,91 @@ it&rsquo;s no difference as using VSCode(Something sometimes works, but don&rsqu
 <li>Quick comment</li>
 </ul>
 <h3 id="2-vim-common-settings">2. Vim common settings</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#75715e">&#34; Don&#39;t act like vi</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">nocompatible</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
-</span><span style="color:#75715e">&#34; Center view on the search result</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> <span style="color:#a6e22e">n</span> <span style="color:#a6e22e">nzz</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> <span style="color:#a6e22e">N</span> <span style="color:#a6e22e">Nzz</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
-</span><span style="color:#75715e">&#34; Resize buffer</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;= :<span style="color:#a6e22e">res</span> +<span style="color:#ae81ff">10</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;- :<span style="color:#a6e22e">res</span> <span style="color:#ae81ff">-10</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;, :<span style="color:#a6e22e">vertical</span> <span style="color:#a6e22e">resize</span> <span style="color:#ae81ff">-10</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;. :<span style="color:#a6e22e">vertical</span> <span style="color:#a6e22e">resize</span> +<span style="color:#ae81ff">10</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
-</span><span style="color:#75715e">&#34; replace auto-pair, it&#39;s too agressive</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> (&lt;<span style="color:#a6e22e">CR</span>&gt; (&lt;<span style="color:#a6e22e">CR</span>&gt;)&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">O</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> {&lt;<span style="color:#a6e22e">CR</span>&gt; {&lt;<span style="color:#a6e22e">CR</span>&gt;}&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">O</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> [&lt;<span style="color:#a6e22e">CR</span>&gt; [&lt;<span style="color:#a6e22e">CR</span>&gt;]&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">O</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> {; {&lt;<span style="color:#a6e22e">CR</span>&gt;};&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">O</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> () ()&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> {} {}&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> [] []&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> <span style="color:#e6db74">&#34; &#34;</span>&#34;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> &lt; &lt;&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> <span style="color:#e6db74">&#34; &#34;</span>&#34;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
-</span><span style="color:#75715e">&#34; highlight search</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">hlsearch</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">F8</span>&gt; :<span style="color:#a6e22e">nohl</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> &lt;<span style="color:#a6e22e">F8</span>&gt; :<span style="color:#a6e22e">nohl</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#a6e22e">a</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">ignorecase</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">smartcase</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
-</span><span style="color:#75715e">&#34; important</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">backspace</span>=<span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">filetype</span> <span style="color:#a6e22e">plugin</span> <span style="color:#a6e22e">indent</span> <span style="color:#a6e22e">on</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">syntax</span> <span style="color:#a6e22e">on</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">nu</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">updatetime</span>=<span style="color:#ae81ff">100</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">expandtab</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">tabstop</span>=<span style="color:#ae81ff">4</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">shiftwidth</span>=<span style="color:#ae81ff">4</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
-</span><span style="color:#75715e">&#34; enable fold</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">foldenable</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">foldmethod</span>=<span style="color:#a6e22e">indent</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">foldlevel</span>=<span style="color:#ae81ff">99</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
-</span><span style="color:#75715e">&#34; set encoding</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">colorcolumn</span>=<span style="color:#ae81ff">110</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">highlight</span> <span style="color:#a6e22e">ColorColumn</span> <span style="color:#a6e22e">ctermbg</span>=<span style="color:#a6e22e">darkgray</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">encoding</span>=<span style="color:#a6e22e">utf</span><span style="color:#ae81ff">-8</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">termencoding</span>=<span style="color:#a6e22e">utf</span><span style="color:#ae81ff">-8</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">fileencoding</span>=<span style="color:#a6e22e">utf</span><span style="color:#ae81ff">-8</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
-</span><span style="color:#75715e">&#34;press F9 to fold/unfold code</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">F9</span>&gt; <span style="color:#a6e22e">za</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">vnoremap</span> &lt;<span style="color:#a6e22e">F9</span>&gt; <span style="color:#a6e22e">zf</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
-</span><span style="color:#75715e">&#34; split navigation</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">J</span>&gt; &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">W</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">J</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">K</span>&gt; &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">W</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">K</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">L</span>&gt; &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">W</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">L</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">H</span>&gt; &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">W</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">H</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
-</span><span style="color:#75715e">&#34; Only if vim is install with +clipboard</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;<span style="color:#a6e22e">y</span> &#34;*<span style="color:#a6e22e">y</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;<span style="color:#a6e22e">p</span> &#34;*<span style="color:#a6e22e">p</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;<span style="color:#a6e22e">Y</span> <span style="color:#75715e">&#34;+y</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;<span style="color:#a6e22e">P</span> <span style="color:#75715e">&#34;+p</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
-</span><span style="color:#75715e">&#34;search select</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">vnoremap</span> <span style="color:#e6db74">//</span> <span style="color:#a6e22e">y</span><span style="color:#e6db74">/\V&lt;C-R&gt;=escape(@&#34;,&#39;/</span>\&#39;)&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nnoremap</span> <span style="color:#e6db74">//</span> <span style="color:#a6e22e">yiw</span><span style="color:#e6db74">/\V&lt;C-R&gt;=escape(@&#34;,&#39;/</span>\&#39;)&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><h3 id="3-plug-manager-vim-plug">3. Plug manager <code>vim-plug</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#75715e">&#34; Don&#39;t act like vi</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">nocompatible</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Center view on the search result</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> <span style="color:#a6e22e">n</span> <span style="color:#a6e22e">nzz</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> <span style="color:#a6e22e">N</span> <span style="color:#a6e22e">Nzz</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Resize buffer</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;= :<span style="color:#a6e22e">res</span> +<span style="color:#ae81ff">10</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;- :<span style="color:#a6e22e">res</span> <span style="color:#ae81ff">-10</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;, :<span style="color:#a6e22e">vertical</span> <span style="color:#a6e22e">resize</span> <span style="color:#ae81ff">-10</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;. :<span style="color:#a6e22e">vertical</span> <span style="color:#a6e22e">resize</span> +<span style="color:#ae81ff">10</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; replace auto-pair, it&#39;s too agressive</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> (&lt;<span style="color:#a6e22e">CR</span>&gt; (&lt;<span style="color:#a6e22e">CR</span>&gt;)&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">O</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> {&lt;<span style="color:#a6e22e">CR</span>&gt; {&lt;<span style="color:#a6e22e">CR</span>&gt;}&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">O</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> [&lt;<span style="color:#a6e22e">CR</span>&gt; [&lt;<span style="color:#a6e22e">CR</span>&gt;]&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">O</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> {; {&lt;<span style="color:#a6e22e">CR</span>&gt;};&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">O</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> () ()&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> {} {}&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> [] []&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> <span style="color:#e6db74">&#34; &#34;</span>&#34;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> &lt; &lt;&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> <span style="color:#e6db74">&#34; &#34;</span>&#34;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">c</span>&gt;<span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; highlight search</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">hlsearch</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">F8</span>&gt; :<span style="color:#a6e22e">nohl</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">inoremap</span> &lt;<span style="color:#a6e22e">F8</span>&gt; :<span style="color:#a6e22e">nohl</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#a6e22e">a</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">ignorecase</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">smartcase</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; important</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">backspace</span>=<span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">filetype</span> <span style="color:#a6e22e">plugin</span> <span style="color:#a6e22e">indent</span> <span style="color:#a6e22e">on</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">syntax</span> <span style="color:#a6e22e">on</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">nu</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">updatetime</span>=<span style="color:#ae81ff">100</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">expandtab</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">tabstop</span>=<span style="color:#ae81ff">4</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">shiftwidth</span>=<span style="color:#ae81ff">4</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; enable fold</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">foldenable</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">foldmethod</span>=<span style="color:#a6e22e">indent</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">foldlevel</span>=<span style="color:#ae81ff">99</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; set encoding</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">colorcolumn</span>=<span style="color:#ae81ff">110</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">highlight</span> <span style="color:#a6e22e">ColorColumn</span> <span style="color:#a6e22e">ctermbg</span>=<span style="color:#a6e22e">darkgray</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">encoding</span>=<span style="color:#a6e22e">utf</span><span style="color:#ae81ff">-8</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">termencoding</span>=<span style="color:#a6e22e">utf</span><span style="color:#ae81ff">-8</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">fileencoding</span>=<span style="color:#a6e22e">utf</span><span style="color:#ae81ff">-8</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34;press F9 to fold/unfold code</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">F9</span>&gt; <span style="color:#a6e22e">za</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">vnoremap</span> &lt;<span style="color:#a6e22e">F9</span>&gt; <span style="color:#a6e22e">zf</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; split navigation</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">J</span>&gt; &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">W</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">J</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">K</span>&gt; &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">W</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">K</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">L</span>&gt; &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">W</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">L</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">H</span>&gt; &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">W</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">H</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Only if vim is install with +clipboard</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;<span style="color:#a6e22e">y</span> &#34;*<span style="color:#a6e22e">y</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;<span style="color:#a6e22e">p</span> &#34;*<span style="color:#a6e22e">p</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;<span style="color:#a6e22e">Y</span> <span style="color:#75715e">&#34;+y</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">Leader</span>&gt;<span style="color:#a6e22e">P</span> <span style="color:#75715e">&#34;+p</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34;search select</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">vnoremap</span> <span style="color:#e6db74">//</span> <span style="color:#a6e22e">y</span><span style="color:#e6db74">/\V&lt;C-R&gt;=escape(@&#34;,&#39;/</span>\&#39;)&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">nnoremap</span> <span style="color:#e6db74">//</span> <span style="color:#a6e22e">yiw</span><span style="color:#e6db74">/\V&lt;C-R&gt;=escape(@&#34;,&#39;/</span>\&#39;)&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><h3 id="3-plug-manager-vim-plug">3. Plug manager <code>vim-plug</code></h3>
 <p><a href="https://github.com/junegunn/vim-plug">vim-plug</a> <strong>fast, parellel</strong></p>
 <p>After installing vim-plug,  you can manage you plugins in <code>.vimrc</code>. All projects from GitHub can be plugins.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#75715e">&#34; in .vimrc</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">plug</span>#<span style="color:#a6e22e">begin</span>(<span style="color:#e6db74">&#39;~/.vim/plugged&#39;</span>)<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;username-of-github/projectname-of-github&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>...<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">plug</span>#<span style="color:#a6e22e">end</span>()<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#75715e">&#34; in .vimrc</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">plug</span>#<span style="color:#a6e22e">begin</span>(<span style="color:#e6db74">&#39;~/.vim/plugged&#39;</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;username-of-github/projectname-of-github&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>...<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">plug</span>#<span style="color:#a6e22e">end</span>()<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><ul>
 <li><code>:PlugInstall</code> clone the plugin projects down.</li>
 <li><code>:PlugClean</code> remove not using plugins</li>
 <li><code>:PlugUpdate</code> update plugins</li>
@@ -275,33 +391,33 @@ it&rsquo;s no difference as using VSCode(Something sometimes works, but don&rsqu
 <h3 id="1-youcompleteme">1. YouCompleteMe</h3>
 <p>Very difficult to compile, once it&rsquo;s compiled successfully,  it will take your develop experience of vim to the next level.</p>
 <p>And a little bit more effort to use of CPP, see the <a href="https://github.com/ycm-core/YouCompleteMe">official doc</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#75715e">&#34; YouCompleteMe</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_autoclose_preview_window_after_completion</span>=<span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_min_num_identifier_candidate_chars</span> = <span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_add_preview_to_completeopt</span> = <span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_show_diagnostics_ui</span> = <span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_server_log_level</span> = <span style="color:#e6db74">&#39;info&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_collect_identifiers_from_comments_and_strings</span> = <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_complete_in_strings</span> = <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_global_ycm_extra_conf</span> = <span style="color:#e6db74">&#39;~/.ycm_extra_conf.py&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_semantic_triggers</span> =  {<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#39;c,cpp,python,java,go,erlang,perl&#39;</span>: [<span style="color:#e6db74">&#39;re!\w{2}&#39;</span>],<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#39;cs,lua,javascript&#39;</span>: [<span style="color:#e6db74">&#39;re!\w{2}&#39;</span>],<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>            \ }<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_filetype_whitelist</span> = {<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;c&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;cpp&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;objc&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;go&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;python&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;sh&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;zsh&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;cmake&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;md&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;vim&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>            \ }<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">map</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">g</span>  :<span style="color:#a6e22e">YcmCompleter</span> <span style="color:#a6e22e">GoToDefinitionElseDeclaration</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><h3 id="2-leaderf--gtagshttpswwwgnuorgsoftwareglobalglobalhtml">2. LeaderF + <a href="https://www.gnu.org/software/global/global.html">gtags</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#75715e">&#34; YouCompleteMe</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_autoclose_preview_window_after_completion</span>=<span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_min_num_identifier_candidate_chars</span> = <span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_add_preview_to_completeopt</span> = <span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_show_diagnostics_ui</span> = <span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_server_log_level</span> = <span style="color:#e6db74">&#39;info&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_collect_identifiers_from_comments_and_strings</span> = <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_complete_in_strings</span> = <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_global_ycm_extra_conf</span> = <span style="color:#e6db74">&#39;~/.ycm_extra_conf.py&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_semantic_triggers</span> =  {<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#39;c,cpp,python,java,go,erlang,perl&#39;</span>: [<span style="color:#e6db74">&#39;re!\w{2}&#39;</span>],<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#39;cs,lua,javascript&#39;</span>: [<span style="color:#e6db74">&#39;re!\w{2}&#39;</span>],<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            \ }<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">ycm_filetype_whitelist</span> = {<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;c&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;cpp&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;objc&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;go&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;python&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;sh&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;zsh&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;cmake&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;md&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            \ <span style="color:#e6db74">&#34;vim&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            \ }<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">map</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">g</span>  :<span style="color:#a6e22e">YcmCompleter</span> <span style="color:#a6e22e">GoToDefinitionElseDeclaration</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><h3 id="2-leaderf--gtagshttpswwwgnuorgsoftwareglobalglobalhtml">2. LeaderF + <a href="https://www.gnu.org/software/global/global.html">gtags</a></h3>
 <p><a href="https://zhuanlan.zhihu.com/p/64842373">LeaderF+gtags</a> , gtags is also called GNU-global, originally supports 6 languages (C, C++, Yacc, Java, PHP4 and assembly.)</p>
 <p><strong>Why LeaderF + gtags?</strong></p>
 <ul>
@@ -319,91 +435,91 @@ it&rsquo;s no difference as using VSCode(Something sometimes works, but don&rsqu
 <p><a href="https://www.gnu.org/software/global/download.html">download link</a></p>
 <p>Briefly, Ubuntu will have to build by ourselves, MacOS can install via <code>brew install global</code></p>
 <h4 id="22-cp-usrlocalsharegtagsgtagsconf-globalrc">2.2 cp /usr/local/share/gtags/gtags.conf ~/.globalrc</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">man gtags.conf
-</code></pre></div><p>Using this to check <code>global</code>&rsquo;s config file searching order.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">GTAGS.CONF<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>                                                               File Formats Manual                                                               GTAGS.CONF<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>
-
-NAME
-       gtags.conf - configuration data <span style="color:#66d9ef">for</span> GNU GLOBAL
-
-SYNOPSIS
-       ´gtags.conf´
-       ´~/.globalrc´
-
-DESCRIPTION
-       ´gtags.conf´  has  configuration data <span style="color:#66d9ef">for</span> global<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>, gozilla<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>, gtags<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span> and htags<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>.
-       They look <span style="color:#66d9ef">for</span> the following files in this order, and read from the first one
-       that exists and is readable.
-
-       <span style="color:#f92672">(</span>1<span style="color:#f92672">)</span> --gtagsconf file
-
-       <span style="color:#f92672">(</span>2<span style="color:#f92672">)</span> $GTAGSCONF
-
-       <span style="color:#f92672">(</span>3<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>project root<span style="color:#f92672">]</span>/gtags.conf
-
-       <span style="color:#f92672">(</span>4<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>project root<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>objdir<span style="color:#f92672">]</span>/gtags.conf
-
-       <span style="color:#f92672">(</span>5<span style="color:#f92672">)</span> $HOME/.globalrc
-
-       <span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> /etc/gtags.conf
-
-       <span style="color:#f92672">(</span>7<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>sysconfdir<span style="color:#f92672">]</span>/gtags.conf
-</code></pre></div><h4 id="23-install-pygments-to-support-300-languages">2.3 Install pygments to support 300+ languages</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>man gtags.conf
+</span></span></code></pre></div><p>Using this to check <code>global</code>&rsquo;s config file searching order.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>GTAGS.CONF<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>                                                               File Formats Manual                                                               GTAGS.CONF<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NAME
+</span></span><span style="display:flex;"><span>       gtags.conf - configuration data <span style="color:#66d9ef">for</span> GNU GLOBAL
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SYNOPSIS
+</span></span><span style="display:flex;"><span>       ´gtags.conf´
+</span></span><span style="display:flex;"><span>       ´~/.globalrc´
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DESCRIPTION
+</span></span><span style="display:flex;"><span>       ´gtags.conf´  has  configuration data <span style="color:#66d9ef">for</span> global<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>, gozilla<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>, gtags<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span> and htags<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>       They look <span style="color:#66d9ef">for</span> the following files in this order, and read from the first one
+</span></span><span style="display:flex;"><span>       that exists and is readable.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">(</span>1<span style="color:#f92672">)</span> --gtagsconf file
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">(</span>2<span style="color:#f92672">)</span> $GTAGSCONF
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">(</span>3<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>project root<span style="color:#f92672">]</span>/gtags.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">(</span>4<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>project root<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>objdir<span style="color:#f92672">]</span>/gtags.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">(</span>5<span style="color:#f92672">)</span> $HOME/.globalrc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> /etc/gtags.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">(</span>7<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>sysconfdir<span style="color:#f92672">]</span>/gtags.conf
+</span></span></code></pre></div><h4 id="23-install-pygments-to-support-300-languages">2.3 Install pygments to support 300+ languages</h4>
 <ul>
 <li>Make sure your symlink <strong><code>python</code></strong> is pointed to <strong><code>python3</code></strong>, alias won&rsquo;t work. The recommended way is
 creating a python synmlink in a more priority search path than <code>/usr/bin/python</code>, like <code>/usr/local/bin</code>. You
 can check your system <code>$PATH</code> by</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ echo $PATH
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ echo $PATH
+</span></span></code></pre></div><ul>
 <li><code>python -m pip install pygments</code></li>
 <li>Test installation</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ export GTAGSLABEL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;pygments&#39;</span>
-
-<span style="color:#75715e"># It&#39;s recommended to do this in a small directory,</span>
-<span style="color:#75715e">#   because gtags will tag current directory recursively,</span>
-<span style="color:#75715e">#   and we don&#39;t want to tag our $HOME</span>
-$ gtags -v
-$ global -c
-</code></pre></div><h4 id="24-how-do-these-affect-vim">2.4 How do these affect vim?</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ export GTAGSLABEL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;pygments&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># It&#39;s recommended to do this in a small directory,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   because gtags will tag current directory recursively,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   and we don&#39;t want to tag our $HOME</span>
+</span></span><span style="display:flex;"><span>$ gtags -v
+</span></span><span style="display:flex;"><span>$ global -c
+</span></span></code></pre></div><h4 id="24-how-do-these-affect-vim">2.4 How do these affect vim?</h4>
 <p>First, add LeaderF plugin and <code>:PlugInstall</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;Yggdroot/LeaderF&#39;</span>, {<span style="color:#e6db74">&#39;do&#39;</span>: <span style="color:#e6db74">&#39;:LeaderfInstallCExtension&#39;</span>}<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><p>Then tune a little bit, ref <a href="https://github.com/Yggdroot/LeaderF">LeaderF</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#75715e">&#34; leaderf</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">&#34; cache in $HOME/.LfCache/gtags</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_GtagsAutoGenerate</span> = <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">&#34; let g:Lf_Gtagsconf = &#39;/usr/local/share/gtags/gtags.conf&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_Gtagslabel</span> = <span style="color:#e6db74">&#39;native-pygments&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">&#34;reference</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">fr</span> :&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">U</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">R</span>&gt;=<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Leaderf! gtags -r %s --auto-jump&#34;</span>, <span style="color:#a6e22e">expand</span>(<span style="color:#e6db74">&#34;&lt;cword&gt;&#34;</span>))&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">&#34;definition</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">fd</span> :&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">U</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">R</span>&gt;=<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Leaderf! gtags -d %s --auto-jump&#34;</span>, <span style="color:#a6e22e">expand</span>(<span style="color:#e6db74">&#34;&lt;cword&gt;&#34;</span>))&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">fo</span> :&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">U</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">R</span>&gt;=<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Leaderf! gtags --recall %s&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">fn</span> :&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">U</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">R</span>&gt;=<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Leaderf gtags --next %s&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">fp</span> :&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">U</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">R</span>&gt;=<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Leaderf gtags --previous %s&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_ShortcutF</span> = <span style="color:#e6db74">&#39;&lt;c-p&gt;&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">c</span>-<span style="color:#a6e22e">n</span>&gt; :<span style="color:#a6e22e">LeaderfMru</span>&lt;<span style="color:#a6e22e">cr</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">ff</span> :<span style="color:#a6e22e">LeaderfFunction</span>!&lt;<span style="color:#a6e22e">cr</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">fb</span> :<span style="color:#a6e22e">LeaderfBuffer</span>&lt;<span style="color:#a6e22e">cr</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_StlSeparator</span> = { <span style="color:#e6db74">&#39;left&#39;</span>: <span style="color:#e6db74">&#34;\ue0b0&#34;</span>, <span style="color:#e6db74">&#39;right&#39;</span>: <span style="color:#e6db74">&#34;\ue0b2&#34;</span>, <span style="color:#e6db74">&#39;font&#39;</span>: <span style="color:#e6db74">&#34;DejaVu Sans Mono for Powerline&#34;</span> }<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_RootMarkers</span> = [<span style="color:#e6db74">&#39;.project&#39;</span>, <span style="color:#e6db74">&#39;.root&#39;</span>, <span style="color:#e6db74">&#39;.svn&#39;</span>, <span style="color:#e6db74">&#39;.git&#39;</span>]<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_WorkingDirectoryMode</span> = <span style="color:#e6db74">&#39;Ac&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_WindowHeight</span> = <span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">30</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_ShowRelativePath</span> = <span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_HideHelp</span> = <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_PreviewResult</span> = {<span style="color:#e6db74">&#39;Function&#39;</span>:<span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;BufTag&#39;</span>:<span style="color:#ae81ff">0</span>}<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_WindowPosition</span> = <span style="color:#e6db74">&#39;popup&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_previewInPopup</span> = <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_ShowDevIcons</span> = <span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><h4 id="25-you-are-good-to-go">2.5 You are good to go.</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;Yggdroot/LeaderF&#39;</span>, {<span style="color:#e6db74">&#39;do&#39;</span>: <span style="color:#e6db74">&#39;:LeaderfInstallCExtension&#39;</span>}<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>Then tune a little bit, ref <a href="https://github.com/Yggdroot/LeaderF">LeaderF</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#75715e">&#34; leaderf</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">&#34; cache in $HOME/.LfCache/gtags</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_GtagsAutoGenerate</span> = <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">&#34; let g:Lf_Gtagsconf = &#39;/usr/local/share/gtags/gtags.conf&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_Gtagslabel</span> = <span style="color:#e6db74">&#39;native-pygments&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">&#34;reference</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">fr</span> :&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">U</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">R</span>&gt;=<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Leaderf! gtags -r %s --auto-jump&#34;</span>, <span style="color:#a6e22e">expand</span>(<span style="color:#e6db74">&#34;&lt;cword&gt;&#34;</span>))&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">&#34;definition</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">fd</span> :&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">U</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">R</span>&gt;=<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Leaderf! gtags -d %s --auto-jump&#34;</span>, <span style="color:#a6e22e">expand</span>(<span style="color:#e6db74">&#34;&lt;cword&gt;&#34;</span>))&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">fo</span> :&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">U</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">R</span>&gt;=<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Leaderf! gtags --recall %s&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">fn</span> :&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">U</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">R</span>&gt;=<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Leaderf gtags --next %s&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">fp</span> :&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">U</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">R</span>&gt;=<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Leaderf gtags --previous %s&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_ShortcutF</span> = <span style="color:#e6db74">&#39;&lt;c-p&gt;&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">c</span>-<span style="color:#a6e22e">n</span>&gt; :<span style="color:#a6e22e">LeaderfMru</span>&lt;<span style="color:#a6e22e">cr</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">ff</span> :<span style="color:#a6e22e">LeaderfFunction</span>!&lt;<span style="color:#a6e22e">cr</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> &lt;<span style="color:#a6e22e">leader</span>&gt;<span style="color:#a6e22e">fb</span> :<span style="color:#a6e22e">LeaderfBuffer</span>&lt;<span style="color:#a6e22e">cr</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_StlSeparator</span> = { <span style="color:#e6db74">&#39;left&#39;</span>: <span style="color:#e6db74">&#34;\ue0b0&#34;</span>, <span style="color:#e6db74">&#39;right&#39;</span>: <span style="color:#e6db74">&#34;\ue0b2&#34;</span>, <span style="color:#e6db74">&#39;font&#39;</span>: <span style="color:#e6db74">&#34;DejaVu Sans Mono for Powerline&#34;</span> }<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_RootMarkers</span> = [<span style="color:#e6db74">&#39;.project&#39;</span>, <span style="color:#e6db74">&#39;.root&#39;</span>, <span style="color:#e6db74">&#39;.svn&#39;</span>, <span style="color:#e6db74">&#39;.git&#39;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_WorkingDirectoryMode</span> = <span style="color:#e6db74">&#39;Ac&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_WindowHeight</span> = <span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">30</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_ShowRelativePath</span> = <span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_HideHelp</span> = <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_PreviewResult</span> = {<span style="color:#e6db74">&#39;Function&#39;</span>:<span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;BufTag&#39;</span>:<span style="color:#ae81ff">0</span>}<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_WindowPosition</span> = <span style="color:#e6db74">&#39;popup&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_previewInPopup</span> = <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">Lf_ShowDevIcons</span> = <span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><h4 id="25-you-are-good-to-go">2.5 You are good to go.</h4>
 <p>Go into your project root and type vim</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ vim
-</code></pre></div><p>Then you can check if tags are correctly generated by listing all tags,</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">:<span style="color:#a6e22e">Leaderf</span> <span style="color:#a6e22e">gtags</span><span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><p>If something like this popup, you are all good:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ vim
+</span></span></code></pre></div><p>Then you can check if tags are correctly generated by listing all tags,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span>:<span style="color:#a6e22e">Leaderf</span> <span style="color:#a6e22e">gtags</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>If something like this popup, you are all good:</p>
 
     <img src="/img/b.png"  class="center"  style="zoom:75%;"  />
 
@@ -411,23 +527,23 @@ $ global -c
 <p><strong>Wait &hellip; Why there are tags from CPP and third-party projects?</strong></p>
 <p>This is where <code>gtags.conf</code> or <code>~/.globalrc</code> makes an effort. We can open the <code>~/.globalrc</code> and set what directories  to skip. Or we can set project scope configs by placing a <code>gtags.conf</code> in our project root.</p>
 <p>The following is what I&rsquo;ve set. If you are developing CPP, the skip settings may be different.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">common:\     :skip=HTML/,HTML.pub/,tags,TAGS,ID,y.tab.c,y.tab.h,gtags.files,cscope.files,cscope.out,cscope.po.out,cscope.in.out,SCCS/,RCS/,CVS/,CVSROOT/,{arch}/,autom4te.cache/,*.or    ig,*.rej,*.bak,*~,#*#,*.swp,*.tmp,*_flymake.*,*_flymake,*.o,*.a,*.so,*.lo,*.zip,*.gz,*.bz2,*.xz,*.lzh,*.Z,*.tgz,*.min.js,*min.css,cmake_build/,cwrapper_build/,cwrapper_buil    d/,cwrapper_rocksdb_build/,githooks/,build/,scripts/,tools/,cwrapper/,internal/core/:
-</code></pre></div><p>If you find that <code>LeaderF</code> tags wrong directories, you are always able to <strong>remove the tags</strong> and <strong>update config files</strong> and <strong>re-tag</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>common:\     :skip=HTML/,HTML.pub/,tags,TAGS,ID,y.tab.c,y.tab.h,gtags.files,cscope.files,cscope.out,cscope.po.out,cscope.in.out,SCCS/,RCS/,CVS/,CVSROOT/,{arch}/,autom4te.cache/,*.or    ig,*.rej,*.bak,*~,#*#,*.swp,*.tmp,*_flymake.*,*_flymake,*.o,*.a,*.so,*.lo,*.zip,*.gz,*.bz2,*.xz,*.lzh,*.Z,*.tgz,*.min.js,*min.css,cmake_build/,cwrapper_build/,cwrapper_buil    d/,cwrapper_rocksdb_build/,githooks/,build/,scripts/,tools/,cwrapper/,internal/core/:
+</span></span></code></pre></div><p>If you find that <code>LeaderF</code> tags wrong directories, you are always able to <strong>remove the tags</strong> and <strong>update config files</strong> and <strong>re-tag</strong>.</p>
 <p>In vim</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">:<span style="color:#a6e22e">Leaderf</span> <span style="color:#a6e22e">gtags</span> --<span style="color:#a6e22e">remove</span><span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">:<span style="color:#a6e22e">Leaderf</span> <span style="color:#a6e22e">gtags</span> --<span style="color:#a6e22e">update</span><span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><h3 id="3-leaderf--ripgrep">3. LeaderF + ripgrep</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span>:<span style="color:#a6e22e">Leaderf</span> <span style="color:#a6e22e">gtags</span> --<span style="color:#a6e22e">remove</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span>:<span style="color:#a6e22e">Leaderf</span> <span style="color:#a6e22e">gtags</span> --<span style="color:#a6e22e">update</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><h3 id="3-leaderf--ripgrep">3. LeaderF + ripgrep</h3>
 <p><a href="https://zhuanlan.zhihu.com/p/54865001">LeaderF+ripgrep</a></p>
 <p><strong>Why ripgrep?</strong> Ref to this <a href="https://beyondgrep.com/feature-comparison/">comparison</a> and
 <a href="https://github.com/BurntSushi/ripgrep">benchmark</a> and a small test.</p>
 <p>Even you don&rsquo;t use vim, it&rsquo;s  still recommended to replace good old grep with ripgrep.</p>
 <p><strong>Why LeaderF + ripgrep?</strong>  Fastest grep plus jump, who else?</p>
 <p><strong>Tune LeaderF a little bit:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#75715e">&#34; search visually selected text literally</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">xnoremap</span> <span style="color:#a6e22e">gf</span> :&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">U</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">R</span>&gt;=<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Leaderf! rg -F -e %s &#34;</span>, <span style="color:#a6e22e">leaderf</span>#<span style="color:#a6e22e">Rg</span>#<span style="color:#a6e22e">visual</span>())&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> <span style="color:#a6e22e">ge</span> :<span style="color:#a6e22e">Leaderf</span>! <span style="color:#a6e22e">rg</span> -<span style="color:#a6e22e">F</span> -<span style="color:#a6e22e">e</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> <span style="color:#a6e22e">go</span> :&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">U</span>&gt;<span style="color:#a6e22e">Leaderf</span>! <span style="color:#a6e22e">rg</span> --<span style="color:#a6e22e">recall</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><p>If you are very familiar with rg, you can input by hands.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#75715e">&#34; search visually selected text literally</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">xnoremap</span> <span style="color:#a6e22e">gf</span> :&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">U</span>&gt;&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">R</span>&gt;=<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Leaderf! rg -F -e %s &#34;</span>, <span style="color:#a6e22e">leaderf</span>#<span style="color:#a6e22e">Rg</span>#<span style="color:#a6e22e">visual</span>())&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> <span style="color:#a6e22e">ge</span> :<span style="color:#a6e22e">Leaderf</span>! <span style="color:#a6e22e">rg</span> -<span style="color:#a6e22e">F</span> -<span style="color:#a6e22e">e</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">noremap</span> <span style="color:#a6e22e">go</span> :&lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">U</span>&gt;<span style="color:#a6e22e">Leaderf</span>! <span style="color:#a6e22e">rg</span> --<span style="color:#a6e22e">recall</span>&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>If you are very familiar with rg, you can input by hands.</p>
 ]]></content>
         </item>
         
@@ -437,9 +553,9 @@ $ global -c
             <pubDate>Fri, 26 Mar 2021 14:52:08 +0800</pubDate>
             
             <guid>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</guid>
-            <description>GCTRACE  gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause. The format of this line is subject to change. Currently, it is:
-  gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&amp;gt;#-&amp;gt;# MB, # MB goal, # P where the fields are as follows:
- gc # the GC number, incremented at each GC @#s time in seconds since program start #% percentage of time spent in GC since program start #+.</description>
+            <description>GCTRACE gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause. The format of this line is subject to change. Currently, it is:
+gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&amp;gt;#-&amp;gt;# MB, # MB goal, # P where the fields are as follows:
+gc # the GC number, incremented at each GC @#s time in seconds since program start #% percentage of time spent in GC since program start #+.</description>
             <content type="html"><![CDATA[<h2 id="gctrace">GCTRACE</h2>
 <blockquote>
 <p>gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard
@@ -447,9 +563,9 @@ error at each collection, summarizing the amount of memory collected and the
 length of the pause. The format of this line is subject to change.
 Currently, it is:</p>
 </blockquote>
-<pre><code>    gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&gt;#-&gt;# MB, # MB goal, # P
+<pre tabindex="0"><code>    gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&gt;#-&gt;# MB, # MB goal, # P
 </code></pre><p>where the fields are as follows:</p>
-<pre><code>    gc #        the GC number, incremented at each GC
+<pre tabindex="0"><code>    gc #        the GC number, incremented at each GC
     @#s         time in seconds since program start
     #%          percentage of time spent in GC since program start
     #+...+#     wall-clock/CPU times for the phases of the GC
@@ -457,29 +573,29 @@ Currently, it is:</p>
     # MB goal   goal heap size
     # P         number of processors used
 </code></pre><p>Change environment variable <code>GODEBUG='gctrace=1'</code>, then Go will output gc log to stdout.</p>
-<pre><code>gc 21 @8.223s 0% 0.032+3.0+0.12ms clock, 1.6+2.8/14/10+4.0 ms cpu, 87-&gt;88-&gt;45 MB, 89 MB goal, 24 P
+<pre tabindex="0"><code>gc 21 @8.223s 0% 0.032+3.0+0.12ms clock, 1.6+2.8/14/10+4.0 ms cpu, 87-&gt;88-&gt;45 MB, 89 MB goal, 24 P
 </code></pre><h2 id="pprof-listen-to-a-port">pprof listen to a port</h2>
 <p>Add these lines in program.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">import</span> (
-    <span style="color:#e6db74">&#34;fmt&#34;</span>
-    <span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;net/http/pprof&#34;</span>
-    <span style="color:#e6db74">&#34;net/http&#34;</span>
-)
-
-<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>(){
-    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;localhost:9876&#34;</span>, <span style="color:#66d9ef">nil</span>))
-}()
-</code></pre></div><p>Open <code>http://127.0.0.1:9876/debug/pprof</code> in web browser.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;net/http/pprof&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;net/http&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;localhost:9876&#34;</span>, <span style="color:#66d9ef">nil</span>))
+</span></span><span style="display:flex;"><span>}()
+</span></span></code></pre></div><p>Open <code>http://127.0.0.1:9876/debug/pprof</code> in web browser.</p>
 <h2 id="exam-pprof-in-web-browser">Exam pprof in web browser</h2>
 <p>Mostly, we are concerned about <code>goroutine</code> and <code>heap</code> and cpu <code>profile</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; first.heap
-
-<span style="color:#75715e"># sometime later</span>
-$ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; second.heap
-</code></pre></div><p>we can compare them by</p>
-<pre><code>go tool pprof -base first.heap second.heap
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; first.heap
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># sometime later</span>
+</span></span><span style="display:flex;"><span>$ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; second.heap
+</span></span></code></pre></div><p>we can compare them by</p>
+<pre tabindex="0"><code>go tool pprof -base first.heap second.heap
 </code></pre><p>We can also look at a 30-second CPU profile</p>
-<pre><code>go tool pprof http://127.0.0.1:9876/debug/pprof/profile?seconds=30
+<pre tabindex="0"><code>go tool pprof http://127.0.0.1:9876/debug/pprof/profile?seconds=30
 </code></pre><p><strong>reference</strong></p>
 <pre><code>[1] [The Go Blog: Profiling Go Programs](https://blog.golang.org/pprof)
 [2] [Go http pprof doc](https://golang.org/pkg/net/http/pprof/)
@@ -502,43 +618,43 @@ rand 包用到 C 的地方有 4 个：C.</description>
 <p>Cgo 让 GO 可以调用 C 的代码。</p>
 <p>接下来就用一个简单的例子来介绍 Cgo 的用法。</p>
 <p>下面 GO 的 <code>rand</code> 包提供了两个方法 <code>Random</code> 和 <code>Seed</code>， 它们分别调用了 C 的 <code>random</code> 和 <code>srandom</code> 方法。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">rand</span>
-
-<span style="color:#75715e">/*
-</span><span style="color:#75715e">#include &lt;stdlib.h&gt;
-</span><span style="color:#75715e">*/</span>
-<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;C&#34;</span>
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Random</span>() <span style="color:#66d9ef">int</span> {
-    <span style="color:#66d9ef">return</span> int(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">random</span>())
-}
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Seed</span>(<span style="color:#a6e22e">i</span> <span style="color:#66d9ef">int</span>) {
-    <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">srandom</span>(<span style="color:#a6e22e">C</span>.uint(<span style="color:#a6e22e">i</span>))
-}
-<span style="color:#75715e">// ref@https://blog.golang.org/cgo
-</span></code></pre></div><p>从 <code>import</code> 语句来看，<code>rand</code> 包引入了 <code>&quot;C&quot;</code>， 但是你会发现标准 Go library 里并没有 <code>C</code> 这个库。这是因为 <code>C</code> 是一个伪包 (pesudo-package)，是一个可以被 cgo 解析的特殊名字，用来确定代码里 C 的命名空间。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">rand</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include &lt;stdlib.h&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;C&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Random</span>() <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> int(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">random</span>())
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Seed</span>(<span style="color:#a6e22e">i</span> <span style="color:#66d9ef">int</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">srandom</span>(<span style="color:#a6e22e">C</span>.uint(<span style="color:#a6e22e">i</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ref@https://blog.golang.org/cgo
+</span></span></span></code></pre></div><p>从 <code>import</code> 语句来看，<code>rand</code> 包引入了 <code>&quot;C&quot;</code>， 但是你会发现标准 Go library 里并没有 <code>C</code> 这个库。这是因为 <code>C</code> 是一个伪包 (pesudo-package)，是一个可以被 cgo 解析的特殊名字，用来确定代码里 C 的命名空间。</p>
 <p><code>rand</code> 包用到 <code>C</code> 的地方有 4 个：<code>C.random</code>， <code>C.srandom</code>， <code>C.uint(i)</code> 以及 <code>import &quot;C&quot;</code>。</p>
 <p>其中，<code>Random()</code> 方法调用了 C 语言标准库的 <code>random()</code> 方法并返回了其返回值。在 C 语言中， <code>random()</code> 方法的返回值是 C 语言的 <code>long</code> （cgo 使用 <code>C.long</code> 来表示）类型，必须将它转换为 Go 语言的类型才能让包外的 Go 代码使用， 普通的 Go 类型转换即可：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Random</span>() <span style="color:#66d9ef">int</span> {
-  <span style="color:#66d9ef">return</span> int(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">random</span>())
-}
-</code></pre></div><p>一个功能相同但是能更清晰展示类型转换过程的代码如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Random</span>() <span style="color:#66d9ef">int</span> {
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">r</span> <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">long</span> = <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">random</span>()
-  <span style="color:#66d9ef">return</span> int(<span style="color:#a6e22e">r</span>)
-}
-</code></pre></div><p><code>Seed()</code> 方法则展示了相反的类型转换过程。它的输入是 Go 的 <code>int</code> 类型，需要转换成 C 的<code>unsigned int</code> （Cgo 通过 <code>C.uint</code> 来表示）类型，作为 C 的 <code>srandom()</code> 方法的参数传入。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Random</span>() <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> int(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">random</span>())
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>一个功能相同但是能更清晰展示类型转换过程的代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Random</span>() <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">r</span> <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">long</span> = <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">random</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> int(<span style="color:#a6e22e">r</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>Seed()</code> 方法则展示了相反的类型转换过程。它的输入是 Go 的 <code>int</code> 类型，需要转换成 C 的<code>unsigned int</code> （Cgo 通过 <code>C.uint</code> 来表示）类型，作为 C 的 <code>srandom()</code> 方法的参数传入。</p>
 <p>// TODO complete list of these numeric type names.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Seed</span>(<span style="color:#a6e22e">i</span> <span style="color:#66d9ef">int</span>) {
-  <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">srandom</span>(<span style="color:#a6e22e">C</span>.uint(<span style="color:#a6e22e">i</span>))
-}
-</code></pre></div><p>这段代码里还有一部分代码我们还没解释，那就是 <code>import</code> 语句上面的注释。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">/*
-</span><span style="color:#75715e">#include &lt;stdlib.h&gt;
-</span><span style="color:#75715e">*/</span>
-<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;C&#34;</span>
-</code></pre></div><p>Cgo 会读取这段注释：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Seed</span>(<span style="color:#a6e22e">i</span> <span style="color:#66d9ef">int</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">srandom</span>(<span style="color:#a6e22e">C</span>.uint(<span style="color:#a6e22e">i</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这段代码里还有一部分代码我们还没解释，那就是 <code>import</code> 语句上面的注释。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include &lt;stdlib.h&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;C&#34;</span>
+</span></span></code></pre></div><p>Cgo 会读取这段注释：</p>
 <ul>
 <li>以 <code>#cgo</code> + 空格开头的一行注释，Cgo 会删掉 <code>#cgo</code> 和空格，剩下的作为 Cgo 的配置保留。</li>
 <li>剩下的注释行会被当作编译 C 代码时的 header 来使用。</li>
@@ -547,26 +663,26 @@ rand 包用到 C 的地方有 4 个：C.</description>
 <h3 id="strings">Strings</h3>
 <p>和 Go 不同的是，C 的 String 是通过 <code>\0</code> 结尾的 char 数组来构成的。Go 和 C 的 String 类型互相转换是由 <code>C.CString()</code>，<code>C.GoString()</code> 和 <code>C.GoStringN()</code> 这几个方法来实现的，转换过程会拷贝 String 数据。</p>
 <p>下面这个例子的 <code>Print()</code> 方法调用了 C 的<code>stdio.h</code> 库里的 <code>fputs()</code> 来向标准输出写一个 String。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">print</span>
-
-<span style="color:#75715e">// #include &lt;stdio.h&gt;
-</span><span style="color:#75715e">// #include &lt;stdlib.h&gt;
-</span><span style="color:#75715e"></span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;C&#34;</span>
-<span style="color:#f92672">import</span> <span style="color:#a6e22e">unsafe</span>
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) {
-  <span style="color:#a6e22e">cs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">CString</span>(<span style="color:#a6e22e">s</span>)
-  <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">fputs</span>(<span style="color:#a6e22e">cs</span>, (<span style="color:#f92672">*</span><span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">FILE</span>)(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">stdout</span>))
-  <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">free</span>(<span style="color:#a6e22e">unsafe</span>.<span style="color:#a6e22e">Pointer</span>(<span style="color:#a6e22e">cs</span>))
-}
-</code></pre></div><p>Go 的内存管理器无法管理 C 分配的内存，因此当你用 <code>C.CString()</code> 来创建一个 C 的 String （或任何其他 C 的内存分配）时，你必须手动调用 <code>C.free()</code> 来释放这部分的内存。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">print</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// #include &lt;stdio.h&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// #include &lt;stdlib.h&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;C&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#a6e22e">unsafe</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">cs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">CString</span>(<span style="color:#a6e22e">s</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">fputs</span>(<span style="color:#a6e22e">cs</span>, (<span style="color:#f92672">*</span><span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">FILE</span>)(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">stdout</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">free</span>(<span style="color:#a6e22e">unsafe</span>.<span style="color:#a6e22e">Pointer</span>(<span style="color:#a6e22e">cs</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Go 的内存管理器无法管理 C 分配的内存，因此当你用 <code>C.CString()</code> 来创建一个 C 的 String （或任何其他 C 的内存分配）时，你必须手动调用 <code>C.free()</code> 来释放这部分的内存。</p>
 <p>调用 <code>C.CString()</code> 会返回一个指向 char 数组首地址的指针，所以在函数退出之前我们需要将它转换为 <code>unsafe.Pointer</code> 并且使用 <code>C.free()</code> 释放掉这部分内存。Cgo 的最佳实现中一般会在分配内存的地方立刻使用 <code>defer()</code> 来释放内存，如下面更新的代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) {
-  <span style="color:#a6e22e">cs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">CString</span>(<span style="color:#a6e22e">s</span>)
-  <span style="color:#66d9ef">defer</span>(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">free</span>(<span style="color:#a6e22e">unsafe</span>.<span style="color:#a6e22e">Pointer</span>(<span style="color:#a6e22e">cs</span>)))
-  <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">fputs</span>(<span style="color:#a6e22e">cs</span>, (<span style="color:#f92672">*</span><span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">FILE</span>)(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">stdout</span>))
-}
-</code></pre></div><h3 id="build-cgo-packages">Build Cgo packages</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">cs</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">CString</span>(<span style="color:#a6e22e">s</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defer</span>(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">free</span>(<span style="color:#a6e22e">unsafe</span>.<span style="color:#a6e22e">Pointer</span>(<span style="color:#a6e22e">cs</span>)))
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">fputs</span>(<span style="color:#a6e22e">cs</span>, (<span style="color:#f92672">*</span><span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">FILE</span>)(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">stdout</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="build-cgo-packages">Build Cgo packages</h3>
 <p>使用 <code>go build</code> 或 <code>go install</code> 就可以编译 Cgo 代码。当 Go 识别出引用了特殊的 <code>&quot;C&quot;</code> 时， 会自动使用 Cgo 来处理这些文件。</p>
 <h3 id="总结">总结</h3>
 <p>现在我们已经知道了一个正确的 Cgo 代码应该如何组织，Go 如何表示 C 的各种类型、方法，C 和 Go 的 String 类型如何互换，如何编译 Cgo 代码。</p>
@@ -638,16 +754,6 @@ it will descent to its call.</p>
 <p><strong><code>stepout, so</code></strong> steps out of the current function</p>
 <p><strong><code>restart</code></strong> restart the debugging session, but keeps breakpoints and conditions</p>
 ]]></content>
-        </item>
-        
-        <item>
-            <title>My First Post</title>
-            <link>https://xuanyang-cn.github.io/posts/2021/01/my-first-post/</link>
-            <pubDate>Mon, 18 Jan 2021 14:32:11 +0800</pubDate>
-            
-            <guid>https://xuanyang-cn.github.io/posts/2021/01/my-first-post/</guid>
-            <description></description>
-            <content type="html"><![CDATA[]]></content>
         </item>
         
     </channel>
