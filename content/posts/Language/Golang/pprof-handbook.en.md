@@ -6,6 +6,7 @@ toc: false
 images:
 categories:
   - language
+  - golang
 tags:
   - memleak
   - golang

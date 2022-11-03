@@ -6,8 +6,85 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 26 Mar 2022 12:35:00 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 03 Nov 2022 13:30:01 +0800</lastBuildDate>
         <atom:link href="https://xuanyang-cn.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Python Type Hints</title>
+            <link>https://xuanyang-cn.github.io/posts/2022/11/python-type-hints/</link>
+            <pubDate>Thu, 03 Nov 2022 13:30:01 +0800</pubDate>
+            
+            <guid>https://xuanyang-cn.github.io/posts/2022/11/python-type-hints/</guid>
+            <description>Note The Python runtime does not enforce function and variable type annotations. They can be used by third party tools such as type checkers, IDEs, linters, etc.
+Type hints help document the code Type hints improve IDEs and linters Type hints help you build and maintain a cleaner architecture. Generics denote expected types for container elements.
+from collections.abc import Sequence from typing import TypeVar T = TypeVar(&amp;#39;T&amp;#39;) # Declare type variable def first(l: Sequence[T]) -&amp;gt; T: # Generic function return l[0] Useful types in typing module typing.</description>
+            <content type="html"><![CDATA[<blockquote>
+<p>Note The Python runtime does not enforce function and variable type annotations.
+They can be used by third party tools such as type checkers, IDEs, linters, etc.</p>
+</blockquote>
+<ol>
+<li>Type hints help document the code</li>
+<li>Type hints improve IDEs and linters</li>
+<li>Type hints help you build and maintain a cleaner architecture.</li>
+</ol>
+<h2 id="generics">Generics</h2>
+<p>denote expected types for container elements.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> collections.abc <span style="color:#f92672">import</span> Sequence
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> typing <span style="color:#f92672">import</span> TypeVar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>T <span style="color:#f92672">=</span> TypeVar(<span style="color:#e6db74">&#39;T&#39;</span>)      <span style="color:#75715e"># Declare type variable</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">first</span>(l: Sequence[T]) <span style="color:#f92672">-&gt;</span> T:   <span style="color:#75715e"># Generic function</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> l[<span style="color:#ae81ff">0</span>]
+</span></span></code></pre></div><h2 id="useful-types-in-typing-module">Useful types in <code>typing</code> module</h2>
+<p><strong>typing.Any</strong></p>
+<p>A static type checker will treat every type as being compatible with Any and Any as being compatible with every type.</p>
+<p><strong>typing.NoReturn</strong></p>
+<p><strong>typing.TypeAlias (3.10)</strong></p>
+<p><strong>typing.Tuple</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> typing imporg Tuple
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Tuple[int, str, float]
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A type of tuple with three items with</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># the first item type int</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># the second item type str</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># the third item type float</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Tuple[int, <span style="color:#f92672">...</span>]
+</span></span><span style="display:flex;"><span>Tuple[()] <span style="color:#75715e"># empty tuple</span>
+</span></span></code></pre></div><p><strong>typing.Union</strong></p>
+<p><code>Union[X, Y]</code> is equivalent to <code>X | Y</code> and means either X or Y</p>
+<p><strong>typing.Optional</strong>
+<code>Optional[X]</code> is equal to <code>X | None</code> or <code>Union[X, None]</code></p>
+<p><strong>typing.Callable</strong>
+Callable type; <code>Callable[[int], str]</code> is a function of <code>(int) -&gt; str</code>.</p>
+<h2 id="some-examples-to-use-type-hints">Some examples to use type hints</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>name: str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Guido&#34;</span>
+</span></span><span style="display:flex;"><span>pi: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.142</span>
+</span></span><span style="display:flex;"><span>centered: bool <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>names: list <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;Guido&#34;</span>, <span style="color:#e6db74">&#34;Jukka&#34;</span>, <span style="color:#e6db74">&#34;Ivan&#34;</span>]
+</span></span><span style="display:flex;"><span>version: tuple <span style="color:#f92672">=</span> (<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>options: dict <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;centered&#34;</span>: <span style="color:#66d9ef">False</span>, <span style="color:#e6db74">&#34;capitalize&#34;</span>: <span style="color:#66d9ef">True</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> typing <span style="color:#f92672">import</span> Dict, List, Tuple
+</span></span><span style="display:flex;"><span>names: List[str] <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;Guido&#34;</span>, <span style="color:#e6db74">&#34;Jukka&#34;</span>, <span style="color:#e6db74">&#34;Ivan&#34;</span>]
+</span></span><span style="display:flex;"><span>version: Tuple[int, int, int] <span style="color:#f92672">=</span> (<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>options: Dict[str, bool] <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;centered&#34;</span>: <span style="color:#66d9ef">False</span>, <span style="color:#e6db74">&#34;capitalize&#34;</span>: <span style="color:#66d9ef">True</span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_deck</span>(shuffle: bool <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>) <span style="color:#f92672">-&gt;</span> List[Tuple[str, str]]:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Create a new deck of 52 cards&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    deck <span style="color:#f92672">=</span> [(s, r) <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> RANKS <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> SUITS]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> shuffle:
+</span></span><span style="display:flex;"><span>        random<span style="color:#f92672">.</span>shuffle(deck)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> deck
+</span></span></code></pre></div><p><strong>References:</strong></p>
+<p>[1] <a href="https://docs.python.org/3/library/typing.html">typing documentation</a>
+[2] <a href="https://realpython.com/python-type-checking/#pros-and-cons">typing instruction</a>
+[3] <a href="https://www.python.org/dev/peps/pep-0483/">PEP 483 The Theory of Type Hints</a>
+[4] <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484 Type Hints</a>
+[5] <a href="https://www.python.org/dev/peps/pep-0526/">PEP 526 Syntax for Variable Annotations</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Clean Code 1: Names</title>

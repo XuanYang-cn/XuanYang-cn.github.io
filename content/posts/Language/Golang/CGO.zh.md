@@ -3,6 +3,7 @@ title: "Cgo: All You Need to Know"
 date: 2021-02-23T16:05:20+08:00
 draft: false
 categories:
+  - golang
   - language
 tags:
   - cgo
@@ -10,7 +11,7 @@ tags:
 ---
 
 ## Cgo Intro
-Cgo 让 GO 可以调用 C 的代码。 
+Cgo 让 GO 可以调用 C 的代码。
 
 接下来就用一个简单的例子来介绍 Cgo 的用法。
 
@@ -126,7 +127,7 @@ func Print(s string) {
 1. C 能调用 GO 的方法吗？
 2. C 和 Go 如何传递指针？
 3. 我有一个纯 C 的大型项目，可以编译成为静态/动态库，那么我的 Go 如何使用 Cgo 调用这些库？
-4. 我没有 C 的项目，但是我有一个 C++ 的项目，那么我的 GO 项目能否/如何使用 Cgo 来调用这个 C++ 的库？ 
+4. 我没有 C 的项目，但是我有一个 C++ 的项目，那么我的 GO 项目能否/如何使用 Cgo 来调用这个 C++ 的库？
 5. Cgo 编译和链接的原理是什么？它是实现了一套 c 的编译器链接器还是直接使用的 gcc ？
 
 我在这里挖个坑，请期待接下来的本文的更新吧！
@@ -143,6 +144,6 @@ func Print(s string) {
 
 ## References
 
-[1] https://blog.golang.org/cgo. *C? Go? Cgo!* Andrew Gerrand. 17 March 2017. 
+[1] https://blog.golang.org/cgo. *C? Go? Cgo!* Andrew Gerrand. 17 March 2017.
 
 [2] https://golang.org/cmd/cgo/. Cgo official doc. Go 1.16.
