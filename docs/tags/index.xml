@@ -54,20 +54,11 @@
     </item>
     
     <item>
-      <title>memleak</title>
-      <link>https://xuanyang-cn.github.io/tags/memleak/</link>
+      <title>profiling</title>
+      <link>https://xuanyang-cn.github.io/tags/profiling/</link>
       <pubDate>Fri, 26 Mar 2021 14:52:08 +0800</pubDate>
       
-      <guid>https://xuanyang-cn.github.io/tags/memleak/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pprof</title>
-      <link>https://xuanyang-cn.github.io/tags/pprof/</link>
-      <pubDate>Fri, 26 Mar 2021 14:52:08 +0800</pubDate>
-      
-      <guid>https://xuanyang-cn.github.io/tags/pprof/</guid>
+      <guid>https://xuanyang-cn.github.io/tags/profiling/</guid>
       <description></description>
     </item>
     

@@ -51,14 +51,26 @@ Assumes you already have some vim experiences. Won&amp;rsquo;t be step-by-step t
     </item>
     
     <item>
-      <title>Go pprof Ref</title>
-      <link>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</link>
+      <title>GO Module</title>
+      <link>https://xuanyang-cn.github.io/posts/2021/03/go-module/</link>
       <pubDate>Fri, 26 Mar 2021 14:52:08 +0800</pubDate>
       
-      <guid>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</guid>
-      <description>GCTRACE gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause. The format of this line is subject to change. Currently, it is:
-gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&amp;gt;#-&amp;gt;# MB, # MB goal, # P where the fields are as follows:
-gc # the GC number, incremented at each GC @#s time in seconds since program start #% percentage of time spent in GC since program start #+.</description>
+      <guid>https://xuanyang-cn.github.io/posts/2021/03/go-module/</guid>
+      <description>Creating a new module // hello.go package hello func Hello() string { return &amp;#34;Hello, world.&amp;#34; } // hello_test.go package hello import &amp;#34;testing&amp;#34; func TestHello(t *testing.T){ want := &amp;#34;Hello, world.&amp;#34; if got := Hello(); got != want { t.Errorf(&amp;#34;Hello() = %q, want %q, got, want&amp;#34;) } } $ go test $ go mod init example.com/hello go mod init write a go.mod file.
+Adding a dependence package hello import &amp;#34;rsc.io/quote&amp;#34; func Hello() string { return quote.</description>
+    </item>
+    
+    <item>
+      <title>Go profiling tools</title>
+      <link>https://xuanyang-cn.github.io/posts/2021/03/go-profiling-tools/</link>
+      <pubDate>Fri, 26 Mar 2021 14:52:08 +0800</pubDate>
+      
+      <guid>https://xuanyang-cn.github.io/posts/2021/03/go-profiling-tools/</guid>
+      <description>How to profile in Go? How to choose tools for profiling? PProf: CPU, Mem, Goroutinue Blocking, Graphics, Goroutines, Mutexes
+Trace: Goroutine creation/blocking/unblocking, syscall enter/exit/block, GC-related events, changes of heap size, processor start/stop, etc.
+dlv: Single step debugging
+gdb: Single step debugging
+Basic Usages of Tools 1. GCTRACE gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause.</description>
     </item>
     
     <item>

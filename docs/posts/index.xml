@@ -625,15 +625,67 @@ can check your system <code>$PATH</code> by</li>
         </item>
         
         <item>
-            <title>Go pprof Ref</title>
-            <link>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</link>
+            <title>GO Module</title>
+            <link>https://xuanyang-cn.github.io/posts/2021/03/go-module/</link>
             <pubDate>Fri, 26 Mar 2021 14:52:08 +0800</pubDate>
             
-            <guid>https://xuanyang-cn.github.io/posts/2021/03/go-pprof-ref/</guid>
-            <description>GCTRACE gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause. The format of this line is subject to change. Currently, it is:
-gc # @#s #%: #+#+# ms clock, #+#/#/#+# ms cpu, #-&amp;gt;#-&amp;gt;# MB, # MB goal, # P where the fields are as follows:
-gc # the GC number, incremented at each GC @#s time in seconds since program start #% percentage of time spent in GC since program start #+.</description>
-            <content type="html"><![CDATA[<h2 id="gctrace">GCTRACE</h2>
+            <guid>https://xuanyang-cn.github.io/posts/2021/03/go-module/</guid>
+            <description>Creating a new module // hello.go package hello func Hello() string { return &amp;#34;Hello, world.&amp;#34; } // hello_test.go package hello import &amp;#34;testing&amp;#34; func TestHello(t *testing.T){ want := &amp;#34;Hello, world.&amp;#34; if got := Hello(); got != want { t.Errorf(&amp;#34;Hello() = %q, want %q, got, want&amp;#34;) } } $ go test $ go mod init example.com/hello go mod init write a go.mod file.
+Adding a dependence package hello import &amp;#34;rsc.io/quote&amp;#34; func Hello() string { return quote.</description>
+            <content type="html"><![CDATA[<h2 id="creating-a-new-module">Creating a new module</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// hello.go
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">hello</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Hello</span>() <span style="color:#66d9ef">string</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hello, world.&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// hello_test.go
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">hello</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;testing&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestHello</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">want</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;Hello, world.&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">got</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Hello</span>(); <span style="color:#a6e22e">got</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">want</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;Hello() = %q, want %q, got, want&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go test
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go mod init example.com/hello
+</span></span></code></pre></div><p><code>go mod init</code> write a <code>go.mod</code> file.</p>
+<h2 id="adding-a-dependence">Adding a dependence</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">hello</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;rsc.io/quote&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Hello</span>() <span style="color:#66d9ef">string</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quote</span>.<span style="color:#a6e22e">Hello</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go test
+</span></span></code></pre></div><p><code>go list -m</code> lists the current module and all its dependencies</p>
+<h2 id="upgrading-dependencies">Upgrading dependencies</h2>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Go profiling tools</title>
+            <link>https://xuanyang-cn.github.io/posts/2021/03/go-profiling-tools/</link>
+            <pubDate>Fri, 26 Mar 2021 14:52:08 +0800</pubDate>
+            
+            <guid>https://xuanyang-cn.github.io/posts/2021/03/go-profiling-tools/</guid>
+            <description>How to profile in Go? How to choose tools for profiling? PProf: CPU, Mem, Goroutinue Blocking, Graphics, Goroutines, Mutexes
+Trace: Goroutine creation/blocking/unblocking, syscall enter/exit/block, GC-related events, changes of heap size, processor start/stop, etc.
+dlv: Single step debugging
+gdb: Single step debugging
+Basic Usages of Tools 1. GCTRACE gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause.</description>
+            <content type="html"><![CDATA[<h1 id="how-to-profile-in-go">How to profile in Go?</h1>
+<h2 id="how-to-choose-tools-for-profiling">How to choose tools for profiling?</h2>
+<p><strong>PProf:</strong> CPU, Mem, Goroutinue Blocking, Graphics, Goroutines, Mutexes</p>
+<p><strong>Trace:</strong> Goroutine creation/blocking/unblocking, syscall enter/exit/block, GC-related events, changes of heap size, processor start/stop, etc.</p>
+<p><strong>dlv:</strong> Single step debugging</p>
+<p><strong>gdb:</strong> Single step debugging</p>
+<h2 id="basic-usages-of-tools">Basic Usages of Tools</h2>
+<h3 id="1-gctrace">1. GCTRACE</h3>
 <blockquote>
 <p>gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard
 error at each collection, summarizing the amount of memory collected and the
@@ -651,9 +703,55 @@ Currently, it is:</p>
     # P         number of processors used
 </code></pre><p>Change environment variable <code>GODEBUG='gctrace=1'</code>, then Go will output gc log to stdout.</p>
 <pre tabindex="0"><code>gc 21 @8.223s 0% 0.032+3.0+0.12ms clock, 1.6+2.8/14/10+4.0 ms cpu, 87-&gt;88-&gt;45 MB, 89 MB goal, 24 P
-</code></pre><h2 id="pprof-listen-to-a-port">pprof listen to a port</h2>
-<p>Add these lines in program.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</code></pre><h3 id="2-pprof">2. PProf</h3>
+<h4 id="1-how-to-generate-profiling-files">1. How to generate profiling files?</h4>
+<p><strong>For go unit tests, use gotest&rsquo;s standard <code>-cpuprofile</code> and <code>-memprofile</code> flags</strong></p>
+<p>See <a href="https://pkg.go.dev/cmd/go#hdr-Testing_flags">Testing flags</a></p>
+<p>For example, this will run unit tests matchs <code>BinlogIO</code> in package <code>datanode</code>
+and generate <code>datanode.test</code>, <code>cpu.prof</code> and <code>mem.prof</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>milvus/internal/datanode$ go test -cpuprofile cpu.prof -memprofile mem.prof -run BinlogIO
+</span></span></code></pre></div><p><strong>For a standalone program, use <code>runtime/pprof</code></strong></p>
+<p>To add equivalent profilling support to a standalone program, add the following codes into your main function[]</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ref@[3] https://pkg.go.dev/runtime/pprof#hdr-Profiling_a_Go_program
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cpuprofile</span> = <span style="color:#a6e22e">flag</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;cpuprofile&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;write cpu profile to `file`&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">memprofile</span> = <span style="color:#a6e22e">flag</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;memprofile&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;write memory profile to `file`&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">flag</span>.<span style="color:#a6e22e">Parse</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cpuprofile</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">f</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Create</span>(<span style="color:#f92672">*</span><span style="color:#a6e22e">cpuprofile</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;could not create CPU profile: &#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">f</span>.<span style="color:#a6e22e">Close</span>() <span style="color:#75715e">// error handling omitted for example
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pprof</span>.<span style="color:#a6e22e">StartCPUProfile</span>(<span style="color:#a6e22e">f</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;could not start CPU profile: &#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">pprof</span>.<span style="color:#a6e22e">StopCPUProfile</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ... rest of the program ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">memprofile</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">f</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Create</span>(<span style="color:#f92672">*</span><span style="color:#a6e22e">memprofile</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;could not create memory profile: &#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">f</span>.<span style="color:#a6e22e">Close</span>() <span style="color:#75715e">// error handling omitted for example
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">runtime</span>.<span style="color:#a6e22e">GC</span>() <span style="color:#75715e">// get up-to-date statistics
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pprof</span>.<span style="color:#a6e22e">WriteHeapProfile</span>(<span style="color:#a6e22e">f</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;could not write memory profile: &#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>For a long-running server, use <code>net/http/pprof</code></strong></p>
+<blockquote>
+<p>ref: <a href="https://pkg.go.dev/net/http/pprof">https://pkg.go.dev/net/http/pprof</a></p>
+</blockquote>
+<p>Adding these lines in your  main function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;net/http/pprof&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;net/http&#34;</span>
@@ -662,21 +760,98 @@ Currently, it is:</p>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>(){
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;localhost:9876&#34;</span>, <span style="color:#66d9ef">nil</span>))
 </span></span><span style="display:flex;"><span>}()
-</span></span></code></pre></div><p>Open <code>http://127.0.0.1:9876/debug/pprof</code> in web browser.</p>
-<h2 id="exam-pprof-in-web-browser">Exam pprof in web browser</h2>
-<p>Mostly, we are concerned about <code>goroutine</code> and <code>heap</code> and cpu <code>profile</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; first.heap
+</span></span></code></pre></div><p>Then use pprof tool to look at the heap profile:</p>
+<pre tabindex="0"><code>go tool pprof http://localhost:9876/debug/pprof/heap
+</code></pre><p>Or to look at a 30-second CPU profile:</p>
+<pre tabindex="0"><code>go tool pprof http://localhost:9876/debug/pprof/profile?seconds=30
+</code></pre><p>Or to look at the goroutine blocking profile, after calling <code>runtime.SetBolckProfileRate</code> in your program:</p>
+<pre tabindex="0"><code>go tool pprof http://localhost:9876/debug/pprof/block
+</code></pre><p>Or to look at the holders of contended mutexes, after calling <code>runtime.SetMutexProfileFraction</code> in your program:</p>
+<pre tabindex="0"><code>go tool pprof http://localhost:9876/debug/pprof/mutex
+</code></pre><p>The package also exports a handler that serves execution trace data fro the &ldquo;go tool trace&rdquo; command. To collect a
+5-second execution trace:</p>
+<pre tabindex="0"><code>wget -O trace.out http://localhost:9876/debug/pprof/trace?seconds=5
+go tool trace trace.out
+</code></pre><p>To view all avaliable profiles, open <code>http://localhost:9876/debug/pprof</code> in your browser.</p>
+<h4 id="2-how-to-use-the-generated-profiling-files">2. How to use the generated profiling files?</h4>
+<p><strong>Visulization:</strong></p>
+<p>This command uses <code>datanode.test</code> (binary) and <code>cpu.prof</code> (profiling file) to exam cpu profilings, and provides web
+interface and automaticaly opening a browser at <code>localhost:9999</code></p>
+<pre tabindex="0"><code>milvus/internal/datanode$ go tool pprof -http localhost:9999 datanode.test cpu.prof
+</code></pre><p>You are able to check everything on the browser, especially graphics, just click around</p>
+<p><strong>Command line:</strong></p>
+<p>This line will establish an interactive pprof shell</p>
+<pre tabindex="0"><code>milvus/internal/datanode$ go tool pprof datanode.test cpu.prof
+
+File: datanode.test
+Build ID: 3f1cb676163b24145d3945e5169154a6ce31813d
+Type: cpu
+Time: Dec 17, 2021 at 4:07pm (CST)
+Duration: 301.42ms, Total samples = 50ms (16.59%)
+Entering interactive mode (type &#34;help&#34; for commands, &#34;o&#34; for options)
+(pprof)
+</code></pre><p>Check top10 cum:</p>
+<pre tabindex="0"><code>(pprof) top10 -cum
+Showing nodes accounting for 20ms, 40.00% of 50ms total
+Showing top 10 nodes out of 23
+      flat  flat%   sum%        cum   cum%
+         0     0%     0%       50ms   100%  github.com/milvus-io/milvus/internal/datanode.(*binlogIO).genInsertBlobs
+         0     0%     0%       50ms   100%  github.com/milvus-io/milvus/internal/storage.(*InsertCodec).Serialize
+         0     0%     0%       50ms   100%  testing.tRunner
+         0     0%     0%       30ms 60.00%  encoding/json.(*encodeState).marshal
+         0     0%     0%       30ms 60.00%  encoding/json.(*encodeState).reflectValue
+         0     0%     0%       30ms 60.00%  encoding/json.Marshal
+      20ms 40.00% 40.00%       30ms 60.00%  encoding/json.compact
+         0     0% 40.00%       30ms 60.00%  encoding/json.marshalerEncoder
+         0     0% 40.00%       30ms 60.00%  encoding/json.ptrEncoder.encode
+         0     0% 40.00%       30ms 60.00%  encoding/json.structEncoder.encode
+</code></pre><p><strong>Comparation:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ curl -s http://localhost:9876/debug/pprof/heap &gt; first.heap
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># sometime later</span>
-</span></span><span style="display:flex;"><span>$ curl -s http://127.0.0.1:9876/debug/pprof/heap &gt; second.heap
-</span></span></code></pre></div><p>we can compare them by</p>
-<pre tabindex="0"><code>go tool pprof -base first.heap second.heap
-</code></pre><p>We can also look at a 30-second CPU profile</p>
-<pre tabindex="0"><code>go tool pprof http://127.0.0.1:9876/debug/pprof/profile?seconds=30
-</code></pre><p><strong>reference</strong></p>
-<pre><code>[1] [The Go Blog: Profiling Go Programs](https://blog.golang.org/pprof)
-[2] [Go http pprof doc](https://golang.org/pkg/net/http/pprof/)
-</code></pre>
+</span></span><span style="display:flex;"><span>$ curl -s http://localhost:9876/debug/pprof/heap &gt; second.heap
+</span></span></code></pre></div><p>Then you can compare them by:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>go tool pprof -base first.heap second.heap
+</span></span></code></pre></div><p>Please see <a href="https://github.com/google/pprof/blob/master/doc/README.md">pprof README</a> for more <code>pprof</code> details.</p>
+<h3 id="3-trace">3. Trace</h3>
+<h4 id="1-how-to-generate-trace-files">1. How to generate trace files?</h4>
+<p><strong><code>go test -trace</code></strong></p>
+<p>Genetage a trace file with <code>go test</code>:</p>
+<pre tabindex="0"><code>go test -trace trace.out pkg
+</code></pre><p><strong><code>runtime/trace.Start</code></strong></p>
+<p><strong><code>net/http/pprof package</code></strong>: see above.</p>
+<h4 id="2-how-to-use-trace-file">2. How to use trace file?</h4>
+<p>View trace in web browser(<strong>NOET: only tested on <code>Chrome/Chrominum</code></strong>):</p>
+<pre tabindex="0"><code>go tool trace trace.out
+</code></pre><p>Generate a pprof-like profile from the trace:</p>
+<pre tabindex="0"><code>go tool trace -pprof=TYPE trace.out &gt; TYPE.pprof
+</code></pre><p>Supported profile tyes are:</p>
+<pre tabindex="0"><code>- net: network blocking profile
+- sync: synchronization blocking profile
+- syscall: syscall blocking profile
+- sched: scheduler latency profile
+</code></pre><p>Then you can ues the pprof tool to analyze the profile:</p>
+<pre tabindex="0"><code>go tool pprof TYPE.pprof
+</code></pre><h3 id="4-dlv">4. dlv</h3>
+<blockquote>
+<p>ref: <a href="https://github.com/go-delve/delve">https://github.com/go-delve/delve</a></p>
+</blockquote>
+<p>Delve is a debugger for the Go programming language. The goal of the project is to provide a simple, full featured debugging tool for Go.</p>
+<h4 id="21-installation">2.1 Installation</h4>
+<p>ref <a href="https://github.com/go-delve/delve/tree/master/Documentation/installation">delve install</a></p>
+<h3 id="5-gdb">5. gdb</h3>
+<hr>
+<p><strong>References:</strong></p>
+<p>[1] Doc of go testing flags. <em><a href="https://pkg.go.dev/cmd/go#hdr-Testing_flags">https://pkg.go.dev/cmd/go#hdr-Testing_flags</a></em></p>
+<p>[2] Doc of <code>net/http/pprof</code>. <em><a href="https://pkg.go.dev/net/http/pprof">https://pkg.go.dev/net/http/pprof</a></em> <code>go doc net/http/pprof</code></p>
+<p>[3] Doc of <code>runtime/pprof</code>. <em><a href="https://pkg.go.dev/runtime">https://pkg.go.dev/runtime</a></em>. <code>go doc runtime/pprof</code></p>
+<p>[4] Full useage of tool <code>pprof</code>. <em><a href="https://github.com/google/pprof/blob/master/doc/README.md">https://github.com/google/pprof/blob/master/doc/README.md</a></em></p>
+<p>[5] Go blog: Profiling Go Programs. <em><a href="https://go.dev/blog/pprof">https://go.dev/blog/pprof</a></em></p>
+<p>[6] Doc of <code>cmd/trace</code>. <em><a href="https://pkg.go.dev/cmd/trace">https://pkg.go.dev/cmd/trace</a></em>. <code>go doc cmd/trace</code></p>
+<p>[7] Doc of <code>cmd/pprof</code>. <em><a href="https://pkg.go.dev/cmd/pprof">https://pkg.go.dev/cmd/pprof</a></em>. <code>go doc cmd/pprof</code></p>
+<p>[8] Doc of <code>runtime/trace</code>. <em><a href="https://pkg.go.dev/runtime/trace">https://pkg.go.dev/runtime/trace</a></em> <code>go doc runtim/trace</code></p>
+<p>[9] GopherCon 2017: An Introduction to go tool trace. <em><a href="https://about.sourcegraph.com/go/an-introduction-to-go-tool-trace-rhys-hiltner/">https://about.sourcegraph.com/go/an-introduction-to-go-tool-trace-rhys-hiltner/</a></em></p>
+<p>[10] GopherCon 2019: Two Go programs, three different profiling techniques, in 50 miniutes. <a href="https://about.sourcegraph.com/go/gophercon-2019-two-go-programs-three-different-profiling-techniques-in-50-minutes/">link</a>, <a href="https://www.youtube.com/watch?v=nok0aYiGiYA&amp;list=PL2ntRZ1ySWBdDyspRTNBIKES1Y-P__59_&amp;index=9">Youtube</a></p>
 ]]></content>
         </item>
         
