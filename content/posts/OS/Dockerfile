@@ -21,7 +21,7 @@ RUN echo "Installing Packages ..." \
 
 RUN echo "Installing working tools ..." \
         && apt-get update \
-        && apt-get install -y --no-install-recommends g++ gcc gfortran git make ccache python3 python3-dev python3-pip gdb gdbserver htop tig zsh vim language-pack-en xmodmap hugo
+        && apt-get install -y --no-install-recommends g++ gcc gfortran git make ccache python3 python3-dev python3-pip gdb gdbserver htop tig zsh vim language-pack-en xmodmap hugo ripgrep
 
 RUN update-locale
 
