@@ -15,21 +15,13 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN echo "Installing Packages ..." \
         && apt-get update \
         && apt-get install -y --no-install-recommends \
-            wget \
-            curl \
-            ca-certificates \
-            build-essential \
-            gnupg2 \
-            lcov libtool m4 autoconf automake libssl-dev zlib1g-dev \
-            libboost-all-dev \
-            libboost-program-options-dev libboost-system-dev libboost-filesystem-dev \
-            libboost-serialization-dev libboost-python-dev libboost-regex-dev \
-            libcurl4-openssl-dev \
-            libtbb-dev libzstd-dev libaio-dev uuid-dev libpulse-dev netcat iputils-ping liblapack3
+            wget curl ca-certificates build-essential gnupg2 lcov libtool m4 autoconf automake libssl-dev zlib1g-dev \
+            libboost-all-dev libboost-program-options-dev libboost-system-dev libboost-filesystem-dev libboost-serialization-dev libboost-python-dev libboost-regex-dev \
+            libcurl4-openssl-dev libtbb-dev libzstd-dev libaio-dev uuid-dev libpulse-dev netcat iputils-ping liblapack3 libblas-dev liblapack-dev
 
 RUN echo "Installing working tools ..." \
         && apt-get update \
-        && apt-get install -y --no-install-recommends g++ gcc gfortran git make ccache python3 python3-dev python3-pip gdb gdbserver htop tig zsh vim language-pack-en xmodmap
+        && apt-get install -y --no-install-recommends g++ gcc gfortran git make ccache python3 python3-dev python3-pip gdb gdbserver htop tig zsh vim language-pack-en xmodmap hugo
 
 RUN update-locale
 
@@ -41,6 +33,9 @@ RUN echo "Installing CMake ..." \
 
 RUN echo "Setting up zsh ..." \
         && chsh -s $(which zsh) && $SHELL --version \
+    && echo "Installing powerline and powerline-font ..." \
+        && pip install powerline-status \
+        && git clone https://github.com/powerline/fonts.git --depth=1 && cd fonts && ./install.sh && cd .. && rm -rf fonts \
     && echo "Setting up oh-my-zsh ..." \
         && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
         && wget -c "https://raw.githubusercontent.com/XuanYang-cn/Stones/master/vim/.zshrc_ubuntu" -O /root/.zshrc \
