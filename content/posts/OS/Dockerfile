@@ -30,7 +30,6 @@ RUN apt-get remove --purge -y && rm -rf /var/lib/apt/lists/*
 RUN echo "Installing CMake ..." \
         && wget -qO- "https://github.com/Kitware/CMake/releases/download/v3.24.3/cmake-3.24.3-linux-x86_64.tar.gz" | tar --strip-components=1 -xz -C /usr/local
 
-
 RUN echo "Setting up zsh ..." \
         && chsh -s $(which zsh) && $SHELL --version \
     && echo "Installing powerline and powerline-font ..." \
@@ -45,6 +44,9 @@ RUN echo "Setting up zsh ..." \
         && wget -c "https://raw.githubusercontent.com/XuanYang-cn/Stones/master/vim/.vimrc_ubuntu" -O /root/.vimrc \
         && curl -fLo /root/.vim/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+RUN echo "Setting up python work space ..." \
+        && python3 -m pip install --user virtualenv virtualenvwrapper
 
 
 RUN echo "Installing Go ..." \
