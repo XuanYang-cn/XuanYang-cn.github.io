@@ -30,7 +30,7 @@ func formatAtom(v reflect.Value) string {
 		return strconv.Quote(v.String())
 	case reflect.Chan, reflect.Func, reflect.Ptr, reflect.Slice, reflect.Map:
 		return v.Type().String() + " 0x" + strconv.FormatUint(uint64(v.Pointer()), 16)
-	default: // reflect.Array, relect.Struct, relect.Interface
+	default: // reflect.Array, reflect.Struct, relect.Interface
 		return v.Type().String() + " value"
 	}
 }
@@ -50,6 +50,7 @@ func display(path string, v reflect.Value) {
 		}
 	case reflect.Map:
 		for _, key := range v.MapKeys() {
+			display(fmt.Sprintf("%s.%s", path, key.Type().String()), key)
 			display(fmt.Sprintf("%s[%s]", path, formatAtom(key)), v.MapIndex(key))
 		}
 	case reflect.Ptr:
@@ -74,9 +75,14 @@ type Movie struct {
 	Title, Subtitle string
 	Year            int
 	Color           bool
-	Actor           map[string]string
+	Actor           map[Name]string
 	Oscars          []string
 	Sequel          *string
+}
+
+type Name struct {
+	Firstname string
+	LastName  string
 }
 
 func main() {
@@ -85,10 +91,10 @@ func main() {
 		Subtitle: "How I Learned to Stop Worring and Love the Bomb",
 		Year:     1964,
 		Color:    false,
-		Actor: map[string]string{
-			"Dr. Strangelove":            "Peter Sellers",
-			"Grp. Capt. Lionel Mandrake": "Peter Sellers",
-			"Pres. Merkin Muffley":       "Peter Sellers",
+		Actor: map[Name]string{
+			{"a", "b"}: "Peter Sellers",
+			{"a", "c"}: "Peter Sellers",
+			{"b", "c"}: "Peter Sellers",
 		},
 		Oscars: []string{
 			"Best Actor (Nomin.)",
