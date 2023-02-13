@@ -15,21 +15,13 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN echo "Installing Packages ..." \
         && apt-get update \
         && apt-get install -y --no-install-recommends \
-            wget \
-            curl \
-            ca-certificates \
-            build-essential \
-            gnupg2 \
-            lcov libtool m4 autoconf automake libssl-dev zlib1g-dev \
-            libboost-all-dev \
-            libboost-program-options-dev libboost-system-dev libboost-filesystem-dev \
-            libboost-serialization-dev libboost-python-dev libboost-regex-dev \
-            libcurl4-openssl-dev \
-            libtbb-dev libzstd-dev libaio-dev uuid-dev libpulse-dev netcat iputils-ping liblapack3
+            wget curl ca-certificates build-essential gnupg2 lcov libtool m4 autoconf automake libssl-dev zlib1g-dev \
+            libboost-all-dev libboost-program-options-dev libboost-system-dev libboost-filesystem-dev libboost-serialization-dev libboost-python-dev libboost-regex-dev \
+            libcurl4-openssl-dev libtbb-dev libzstd-dev libaio-dev uuid-dev libpulse-dev netcat iputils-ping liblapack3 libblas-dev liblapack-dev
 
 RUN echo "Installing working tools ..." \
         && apt-get update \
-        && apt-get install -y --no-install-recommends g++ gcc gfortran git make ccache python3 python3-dev python3-pip gdb gdbserver htop tig zsh vim language-pack-en xmodmap
+        && apt-get install -y --no-install-recommends g++ gcc gfortran git make ccache python3 python3-dev python3-pip gdb gdbserver htop tig zsh vim language-pack-en xmodmap hugo ripgrep global universal-ctags
 
 RUN update-locale
 
@@ -38,9 +30,11 @@ RUN apt-get remove --purge -y && rm -rf /var/lib/apt/lists/*
 RUN echo "Installing CMake ..." \
         && wget -qO- "https://github.com/Kitware/CMake/releases/download/v3.24.3/cmake-3.24.3-linux-x86_64.tar.gz" | tar --strip-components=1 -xz -C /usr/local
 
-
 RUN echo "Setting up zsh ..." \
         && chsh -s $(which zsh) && $SHELL --version \
+    && echo "Installing powerline and powerline-font ..." \
+        && pip install powerline-status \
+        && git clone https://github.com/powerline/fonts.git --depth=1 && cd fonts && ./install.sh && cd .. && rm -rf fonts \
     && echo "Setting up oh-my-zsh ..." \
         && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
         && wget -c "https://raw.githubusercontent.com/XuanYang-cn/Stones/master/vim/.zshrc_ubuntu" -O /root/.zshrc \
@@ -50,6 +44,9 @@ RUN echo "Setting up zsh ..." \
         && wget -c "https://raw.githubusercontent.com/XuanYang-cn/Stones/master/vim/.vimrc_ubuntu" -O /root/.vimrc \
         && curl -fLo /root/.vim/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+RUN echo "Setting up python work space ..." \
+        && python3 -m pip install --user virtualenv virtualenvwrapper
 
 
 RUN echo "Installing Go ..." \

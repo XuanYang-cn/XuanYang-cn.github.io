@@ -18,7 +18,7 @@
 Trace: Goroutine creation/blocking/unblocking, syscall enter/exit/block, GC-related events, changes of heap size, processor start/stop, etc.
 dlv: Single step debugging
 gdb: Single step debugging
-Basic Usages of Tools 1. GCTRACE gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause.</description>
+Basic Usages of Tools 1. GCTRACE  gctrace: setting gctrace=1 causes the garbage collector to emit a single line to standard error at each collection, summarizing the amount of memory collected and the length of the pause.</description>
     </item>
     
   </channel>

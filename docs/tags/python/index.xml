@@ -15,7 +15,7 @@
       
       <guid>https://xuanyang-cn.github.io/posts/2022/11/python-type-hints/</guid>
       <description>Note The Python runtime does not enforce function and variable type annotations. They can be used by third party tools such as type checkers, IDEs, linters, etc.
-Type hints help document the code Type hints improve IDEs and linters Type hints help you build and maintain a cleaner architecture. Generics denote expected types for container elements.
+  Type hints help document the code Type hints improve IDEs and linters Type hints help you build and maintain a cleaner architecture.  Generics denote expected types for container elements.
 from collections.abc import Sequence from typing import TypeVar T = TypeVar(&amp;#39;T&amp;#39;) # Declare type variable def first(l: Sequence[T]) -&amp;gt; T: # Generic function return l[0] Useful types in typing module typing.</description>
     </item>
     

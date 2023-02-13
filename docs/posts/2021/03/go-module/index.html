@@ -26,7 +26,7 @@ Adding a dependence package hello import &amp;#34;rsc.io/quote&amp;#34; func Hel
 
 
 
-<link rel="stylesheet" href="https://xuanyang-cn.github.io/main.d7bdd8ee18bfbf4c605488a7e5b1b92cd980dfeed2bdaeab4dd5e931a7a78bc0.css">
+<link rel="stylesheet" href="https://xuanyang-cn.github.io/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
 
 
 
@@ -156,36 +156,36 @@ Adding a dependence package hello import &#34;rsc.io/quote&#34; func Hello() str
 
       <div class="post-content">
         <h2 id="creating-a-new-module">Creating a new module</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// hello.go
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">hello</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Hello</span>() <span style="color:#66d9ef">string</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hello, world.&#34;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// hello_test.go
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">hello</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;testing&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestHello</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>){
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">want</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;Hello, world.&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">got</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Hello</span>(); <span style="color:#a6e22e">got</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">want</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;Hello() = %q, want %q, got, want&#34;</span>)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go test
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go mod init example.com/hello
-</span></span></code></pre></div><p><code>go mod init</code> write a <code>go.mod</code> file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// hello.go
+</span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">hello</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Hello</span>() <span style="color:#66d9ef">string</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hello, world.&#34;</span>
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// hello_test.go
+</span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">hello</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;testing&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestHello</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>){
+    <span style="color:#a6e22e">want</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;Hello, world.&#34;</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">got</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Hello</span>(); <span style="color:#a6e22e">got</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">want</span> {
+        <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;Hello() = %q, want %q, got, want&#34;</span>)
+    }
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go test
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go mod init example.com/hello
+</code></pre></div><p><code>go mod init</code> write a <code>go.mod</code> file.</p>
 <h2 id="adding-a-dependence">Adding a dependence</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">hello</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;rsc.io/quote&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Hello</span>() <span style="color:#66d9ef">string</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quote</span>.<span style="color:#a6e22e">Hello</span>()
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go test
-</span></span></code></pre></div><p><code>go list -m</code> lists the current module and all its dependencies</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">hello</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;rsc.io/quote&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Hello</span>() <span style="color:#66d9ef">string</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quote</span>.<span style="color:#a6e22e">Hello</span>()
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go test
+</code></pre></div><p><code>go list -m</code> lists the current module and all its dependencies</p>
 <h2 id="upgrading-dependencies">Upgrading dependencies</h2>
 
       </div>
@@ -340,9 +340,9 @@ Adding a dependence package hello import &#34;rsc.io/quote&#34; func Hello() str
         <div class="pagination__buttons">
             
             <span class="button previous">
-                <a href="https://xuanyang-cn.github.io/posts/2021/04/how-to-configure-vim/">
+                <a href="https://xuanyang-cn.github.io/posts/2022/03/wisckey-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
                     <span class="button__icon">←</span>
-                    <span class="button__text">How To Configure Vim</span>
+                    <span class="button__text">WiscKey 论文阅读笔记</span>
                 </a>
             </span>
             
@@ -380,7 +380,7 @@ Adding a dependence package hello import &#34;rsc.io/quote&#34; func Hello() str
 
 
 
-<script type="text/javascript" src="https://xuanyang-cn.github.io/bundle.min.7a6a38c25a39fb31c138b4d704690318ec99c00bcf71d7b0ee6e9e10a1b145a707e2d5f22871721eef9c0e0ae0b25e251592358305434934f964165b2f9f4c7d.js" integrity="sha512-emo4wlo5&#43;zHBOLTXBGkDGOyZwAvPcdew7m6eEKGxRacH4tXyKHFyHu&#43;cDgrgsl4lFZI1gwVDSTT5ZBZbL59MfQ=="></script>
+<script type="text/javascript" src="https://xuanyang-cn.github.io/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
 
 
 

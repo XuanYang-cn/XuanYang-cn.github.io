@@ -7,15 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 12 Apr 2021 19:34:27 +0800</lastBuildDate><atom:link href="https://xuanyang-cn.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Nov 2022 18:30:27 +0800</lastBuildDate><atom:link href="https://xuanyang-cn.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How To Configure Vim</title>
-      <link>https://xuanyang-cn.github.io/posts/2021/04/how-to-configure-vim/</link>
-      <pubDate>Mon, 12 Apr 2021 19:34:27 +0800</pubDate>
+      <title>How To Build Develop Environment with Vim</title>
+      <link>https://xuanyang-cn.github.io/posts/2022/11/how-to-build-develop-environment-with-vim/</link>
+      <pubDate>Tue, 22 Nov 2022 18:30:27 +0800</pubDate>
       
-      <guid>https://xuanyang-cn.github.io/posts/2021/04/how-to-configure-vim/</guid>
-      <description>This article:
-Assumes you already have some vim experiences. Won&amp;rsquo;t be step-by-step tutorial. Will explain what is happening when you edit ~/.vimrc. Why VIM？ Better understanding of project structures Better understanding of everything Lightweight Multi-language support Addictive All open-source(except some great but awful plugins) Show off Why Not VIM? Learning curve is steep. Lots of shortcuts to remember Lots of plug-ins to learn. If you don&amp;rsquo;t know it thoroughly, you&amp;rsquo;ll make a mess of yourself.</description>
+      <guid>https://xuanyang-cn.github.io/posts/2022/11/how-to-build-develop-environment-with-vim/</guid>
+      <description>This article helps myself to quickly establish a workable environments in Ubuntu with vim for
+ The following languages: Golang, Python, CPP, MarkDown. Auto completion, jump to definition, rename variables, jump to files, jump to greps, auto lint Shell tools: git, rg, hugo, etc.  Just use docker  Download docker Use Dockerfile  I have a really Ubuntu 1. Install essentials Maybe important $ sudp apt update &amp;amp;&amp;amp; apt install wget curl ca-certificates build-essential gnupg2 lcov libtool m4 autoconf automake libssl-dev zlib1g-dev libboost-all-dev libboost-program-options-dev libboost-system-dev libboost-filesystem-dev libboost-serialization-dev libboost-python-dev libboost-regex-dev libcurl4-openssl-dev libtbb-dev libzstd-dev libaio-dev uuid-dev libpulse-dev netcat iputils-ping liblapack3 libblas-dev liblapack-dev Very important $ sudo apt update &amp;amp;&amp;amp; apt install g++ gcc gfortran git make ccache python3 python3-dev python3-pip gdb gdbserver htop tig zsh vim language-pack-en xmodmap hugo ripgrep global universal-ctags terminator $ sudo apt remove --purge -y &amp;amp;&amp;amp; sudo rm -rf /var/lib/apt/lists/* # install CMake $ wget -qO- &amp;#34;https://github.</description>
     </item>
     
   </channel>

@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://xuanyang-cn.github.io/categories/</loc>
-    <lastmod>2022-11-03T13:30:01+08:00</lastmod>
+    <lastmod>2022-11-22T18:30:27+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://xuanyang-cn.github.io/</loc>
-    <lastmod>2022-11-03T13:30:01+08:00</lastmod>
+    <lastmod>2022-11-22T18:30:27+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -28,23 +28,14 @@
                 href="https://xuanyang-cn.github.io/"
                 />
   </url><url>
-    <loc>https://xuanyang-cn.github.io/categories/language/</loc>
-    <lastmod>2022-11-03T13:30:01+08:00</lastmod>
+    <loc>https://xuanyang-cn.github.io/posts/2022/11/how-to-build-develop-environment-with-vim/</loc>
+    <lastmod>2022-11-22T18:30:27+08:00</lastmod>
   </url><url>
     <loc>https://xuanyang-cn.github.io/posts/</loc>
-    <lastmod>2022-11-03T13:30:01+08:00</lastmod>
-  </url><url>
-    <loc>https://xuanyang-cn.github.io/tags/python/</loc>
-    <lastmod>2022-11-03T13:30:01+08:00</lastmod>
-  </url><url>
-    <loc>https://xuanyang-cn.github.io/categories/python/</loc>
-    <lastmod>2022-11-03T13:30:01+08:00</lastmod>
-  </url><url>
-    <loc>https://xuanyang-cn.github.io/posts/2022/11/python-type-hints/</loc>
-    <lastmod>2022-11-03T13:30:01+08:00</lastmod>
+    <lastmod>2022-11-22T18:30:27+08:00</lastmod>
   </url><url>
     <loc>https://xuanyang-cn.github.io/tags/</loc>
-    <lastmod>2022-11-03T13:30:01+08:00</lastmod>
+    <lastmod>2022-11-22T18:30:27+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -55,6 +46,24 @@
                 hreflang="en"
                 href="https://xuanyang-cn.github.io/tags/"
                 />
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/categories/tools/</loc>
+    <lastmod>2022-11-22T18:30:27+08:00</lastmod>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/tags/vim/</loc>
+    <lastmod>2022-11-22T18:30:27+08:00</lastmod>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/categories/language/</loc>
+    <lastmod>2022-11-03T13:30:01+08:00</lastmod>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/tags/python/</loc>
+    <lastmod>2022-11-03T13:30:01+08:00</lastmod>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/categories/python/</loc>
+    <lastmod>2022-11-03T13:30:01+08:00</lastmod>
+  </url><url>
+    <loc>https://xuanyang-cn.github.io/posts/2022/11/python-type-hints/</loc>
+    <lastmod>2022-11-03T13:30:01+08:00</lastmod>
   </url><url>
     <loc>https://xuanyang-cn.github.io/tags/clean-code/</loc>
     <lastmod>2022-03-26T12:35:00+08:00</lastmod>
@@ -73,15 +82,6 @@
   </url><url>
     <loc>https://xuanyang-cn.github.io/posts/2022/03/wisckey-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-03-26T12:30:00+08:00</lastmod>
-  </url><url>
-    <loc>https://xuanyang-cn.github.io/posts/2021/04/how-to-configure-vim/</loc>
-    <lastmod>2021-04-12T19:34:27+08:00</lastmod>
-  </url><url>
-    <loc>https://xuanyang-cn.github.io/categories/tools/</loc>
-    <lastmod>2021-04-12T19:34:27+08:00</lastmod>
-  </url><url>
-    <loc>https://xuanyang-cn.github.io/tags/vim/</loc>
-    <lastmod>2021-04-12T19:34:27+08:00</lastmod>
   </url><url>
     <loc>https://xuanyang-cn.github.io/posts/2021/03/go-module/</loc>
     <lastmod>2021-03-26T14:52:08+08:00</lastmod>

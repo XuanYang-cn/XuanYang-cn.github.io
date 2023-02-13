@@ -20,4 +20,3 @@ int main() {
 |Article|Categories|Draft|
 |:-------|:----------:|:---:|
 |My vim configs|vim|Y|
-|Set work environment in docker|docker|N|
