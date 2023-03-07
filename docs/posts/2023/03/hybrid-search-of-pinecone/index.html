@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Goose ">
+<meta name="description" content="1. Brief A summery of paper An analysis of Fusion Functions for Hybrid Retrieval and the following three articles.
+[1]. Introducing support for sparse-dense embeddings for better search results
+[2]. Sparse-dense embeddings, keyword-aware semantic search, Concepts
+[3]. Ecommerce Hybrid Search, Hybrid Search Case
+[4]. Tao Chen, Mingyang Zhang, Jing Lu, Michael Bendersky, and Marc Najork. 2022. Out-of-Domain Semantics to the Rescue! Zero-Shot Hybrid Retrieval Models. In Advances in Information Retrieval: 44th European Conference on IR Research, ECIR 2022, Stavanger, Norway, April 10-14, 2022, Proceedings, Part I (Stavanger, Norway)." />
+<meta name="keywords" content=", IR" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://xuanyang-cn.github.io/posts/2023/03/hybrid-search-of-pinecone/" />
+
+
+    <title>
+        
+            Hybrid Search of Pinecone :: Hello Friend  — Hello Friend
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://xuanyang-cn.github.io/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://xuanyang-cn.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://xuanyang-cn.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://xuanyang-cn.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://xuanyang-cn.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://xuanyang-cn.github.io/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://xuanyang-cn.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="Hybrid Search of Pinecone">
+<meta itemprop="description" content="1. Brief A summery of paper An analysis of Fusion Functions for Hybrid Retrieval and the following three articles.
+[1]. Introducing support for sparse-dense embeddings for better search results
+[2]. Sparse-dense embeddings, keyword-aware semantic search, Concepts
+[3]. Ecommerce Hybrid Search, Hybrid Search Case
+[4]. Tao Chen, Mingyang Zhang, Jing Lu, Michael Bendersky, and Marc Najork. 2022. Out-of-Domain Semantics to the Rescue! Zero-Shot Hybrid Retrieval Models. In Advances in Information Retrieval: 44th European Conference on IR Research, ECIR 2022, Stavanger, Norway, April 10-14, 2022, Proceedings, Part I (Stavanger, Norway)."><meta itemprop="datePublished" content="2023-03-06T17:46:41+08:00" />
+<meta itemprop="dateModified" content="2023-03-06T17:46:41+08:00" />
+<meta itemprop="wordCount" content="1178"><meta itemprop="image" content="https://xuanyang-cn.github.io"/>
+<meta itemprop="keywords" content="IR," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xuanyang-cn.github.io"/>
+
+<meta name="twitter:title" content="Hybrid Search of Pinecone"/>
+<meta name="twitter:description" content="1. Brief A summery of paper An analysis of Fusion Functions for Hybrid Retrieval and the following three articles.
+[1]. Introducing support for sparse-dense embeddings for better search results
+[2]. Sparse-dense embeddings, keyword-aware semantic search, Concepts
+[3]. Ecommerce Hybrid Search, Hybrid Search Case
+[4]. Tao Chen, Mingyang Zhang, Jing Lu, Michael Bendersky, and Marc Najork. 2022. Out-of-Domain Semantics to the Rescue! Zero-Shot Hybrid Retrieval Models. In Advances in Information Retrieval: 44th European Conference on IR Research, ECIR 2022, Stavanger, Norway, April 10-14, 2022, Proceedings, Part I (Stavanger, Norway)."/>
+
+
+
+
+    <meta property="og:title" content="Hybrid Search of Pinecone" />
+<meta property="og:description" content="1. Brief A summery of paper An analysis of Fusion Functions for Hybrid Retrieval and the following three articles.
+[1]. Introducing support for sparse-dense embeddings for better search results
+[2]. Sparse-dense embeddings, keyword-aware semantic search, Concepts
+[3]. Ecommerce Hybrid Search, Hybrid Search Case
+[4]. Tao Chen, Mingyang Zhang, Jing Lu, Michael Bendersky, and Marc Najork. 2022. Out-of-Domain Semantics to the Rescue! Zero-Shot Hybrid Retrieval Models. In Advances in Information Retrieval: 44th European Conference on IR Research, ECIR 2022, Stavanger, Norway, April 10-14, 2022, Proceedings, Part I (Stavanger, Norway)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xuanyang-cn.github.io/posts/2023/03/hybrid-search-of-pinecone/" /><meta property="og:image" content="https://xuanyang-cn.github.io"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-03-06T17:46:41+08:00" />
+<meta property="article:modified_time" content="2023-03-06T17:46:41+08:00" />
+
+
+
+
+
+    <meta property="article:section" content="information retrieval" />
+
+
+
+    <meta property="article:published_time" content="2023-03-06 17:46:41 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://xuanyang-cn.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd /home/goose</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#e59866;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://xuanyang-cn.github.io/about/">About Me</a></li><li><a href="https://xuanyang-cn.github.io/categories/">Categories</a></li><li><a href="https://xuanyang-cn.github.io/posts/">Posts</a></li><li><a href="https://xuanyang-cn.github.io/tags/">Tags</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        6 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://xuanyang-cn.github.io/posts/2023/03/hybrid-search-of-pinecone/">Hybrid Search of Pinecone</a>
+      </h1>
+
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-brief">1. Brief</a></li>
+    <li><a href="#2-about-the-paper">2. About the paper</a></li>
+    <li><a href="#3-sparse-dense-embeddings-from-theory-to-engineering">3. Sparse-dense embeddings: from theory to engineering</a></li>
+    <li><a href="#references">References</a>
+      <ul>
+        <li><a href="#some-useful-reading-resources-about-splade">Some useful reading resources about SPLADE</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <h2 id="1-brief">1. Brief</h2>
+<p>A summery of paper <a href="https://arxiv.org/abs/2210.11934"><em>An analysis of Fusion Functions for Hybrid Retrieval</em></a> and the following three articles.</p>
+<p>[1]. <a href="https://www.pinecone.io/learn/sparse-dense/">Introducing support for sparse-dense embeddings for better search results</a></p>
+<p>[2]. <a href="https://docs.pinecone.io/docs/hybrid-search">Sparse-dense embeddings, keyword-aware semantic search, Concepts</a></p>
+<p>[3]. <a href="https://docs.pinecone.io/docs/ecommerce-search">Ecommerce Hybrid Search, Hybrid Search Case</a></p>
+<p>[4]. Tao Chen, Mingyang Zhang, Jing Lu, Michael Bendersky, and Marc Najork. 2022. Out-of-Domain Semantics to the
+Rescue! Zero-Shot Hybrid Retrieval Models. In <em>Advances in Information Retrieval: 44th European Conference on IR
+Research, ECIR 2022, Stavanger, Norway, April 10-14, 2022, Proceedings, Part I</em> (Stavanger, Norway). 95-110.</p>
+<p>[5]. Shuai Wang, Shengyao Zhuang, and Guido Zuccon. 2021. BERT-Based Dense Retrievers Require Interpolation with BM25
+for Effective Passage Retrieval. In <em>Proceedings of the 2021 ACM SIGIR International Conference on Theory of Information Retrieval</em>
+(Virtual Event, Canada). 317-324.</p>
+<h2 id="2-about-the-paper">2. About the paper</h2>
+<p><strong>What does the paper contribute?</strong>
+The paper study hybrid search in text retrieval where lexical and semantic search are fused together with the
+intuition that the two are complementary in how they model relevance.</p>
+<p>convex combination(CC) of lexical and semantic scores, as well as the Reciprocal Rank Fusion(RRF) method</p>
+<p><strong>What&rsquo;s retrieval?</strong>
+Retrieval is the first stage in a multi-stage ranking system, where the objetive is to find the top-k set of
+documents, that are the most relevant to a given query q, from a large collection o f documents $D$. There&rsquo;re 2
+major research questions: a)How do we measure the relevance between a query q and a document $d\in{D}$; and b) How
+do we fine the top-k documents according to a given similarity metric efficiently.</p>
+<p><strong>What is lexical search?</strong>
+Early methods model text as a Bag of Words(BoW) and compute the similarity of two pieces of text using a statistical
+measure such as the term frequency-inverse document frequency(TF-IDF) family, with <strong>BM25</strong> being its most promient
+member.</p>
+<p>The paper refers to retrieval with a BoW model as <em>lexical search</em> and the similarity scores computed
+by such a system as <em>lexical scores</em>, also known as key-word matching.</p>
+<p>Actually in the artical [1], pinecone thinks new models like <strong>SPLADE</strong>, <strong>uniCOIL</strong> are better than <strong>BM25</strong>.</p>
+<blockquote>
+<p>Since then, progress continues to be made with alternative sparse models (e.g. SPLADE, uniCOIL),
+leading to even more relevant results than BM25.</p>
+</blockquote>
+<p>Lexical search is simple, efficient, &ldquo;zero-shot&rdquo;, and generally effective, but</p>
+<ul>
+<li>
+<p>Because BM25, like other lexical scoring fucntions, insists on an exact match of terms, even a slight typo chan
+throw the function off. It&rsquo;s susceptible to the vocabulary mismatch problem and,</p>
+</li>
+<li>
+<p>It doesn&rsquo;t take into account the semantic similarity of queries and documents.</p>
+</li>
+</ul>
+<p><strong>What is semantic search?</strong>
+Both the issues of lexical search can be remedied by pre-trained language models such as BERT.
+Semantics are what deep learning moduls excellent at.
+To learn a vector representation of quries and documents from pre-trained language models such as BERT does capture
+their semantics, and thereby, reduc top-k retrieval to the problem of finding k nearest neighbors in the resulting
+vector space.</p>
+<p>The paper refers to this method as <em>semantic search</em> and the similarity scores computed by such a system as
+<em>semantic scores</em>.</p>
+<p>Semantics search has limitations, that when applied to out-of-domian datasets, their performance is often worse than BM25.</p>
+<p><strong>What is hybrid search?</strong>
+Thus it&rsquo;s natural to consider a hybrid approch where lexical and semantic similarities both contribute to the
+makeup of final retrieved list.</p>
+<p>For a query $q$ and ranked lists of documents $R_{LEX}$ and $R_{SEM}$ retrieved separatedly by lexical and semantic
+search systems respectively, the task is to construct a final ranked list $R_{FUSION}$ so as to improve retrieval quality.
+This is often referred to as hybrid search.</p>
+<p>The paper says that hybrid search does lead to meaningful gains in retrieval quality, especially when applied to out-of-domain
+datasets, inreference of papers [4, 5].</p>
+<p>Out-of-domain means settings in which the semantic retrieval component uses a model that was not trained or fine-tuned
+on the target dataset.</p>
+<p><strong>Convex combination</strong>
+One common approach is to linearly combine lexical and semantic scores. If $f_{LEX}(q, d)$ dne  $f_{SEM}(q, d)$ represent
+the lexical and semantic scores of document $d$ with respect to query $q$, then a linear (convex) combination is expressed as:</p>
+<p>$f_{CONVEX} = \alpha f_{SEM} + (1 - \alpha) f_{LEX}$ where $0 \le \alpha \le 1$</p>
+<p>Because lexical scores (such as BM25) and semantic scores (such as dot product) may be unbounded, often they are normalized
+with min-max scaling prior to fushion.</p>
+<p><strong>RRF</strong>
+Reciprocal Rank Fusion is another way to fusion.</p>
+<p><strong>What EXACTLY does this paper do in compare with [4]?</strong>
+[4] addresses how various hybrid methods perform relative to one another in an empirical study.
+This paper re-examine [4]&rsquo;s findings and anyalyze why these methods work and what contributes to their relative performance.</p>
+<p><strong>In summary, this paper in-depth exam the fusion functions and their behaiover, more specificly two functions: CC and
+RRF.</strong></p>
+<p><strong>What&rsquo;s a well-behaved fusion funtion?</strong></p>
+<p>Addressed by the paper:</p>
+<ul>
+<li>Monotonicity</li>
+<li>Homogeneity</li>
+<li>Boundedness</li>
+<li>Lipschitz Continuity</li>
+<li>Interpretability and Sample Efficiency</li>
+</ul>
+<p><strong>What&rsquo;s the conclusion?</strong>
+That convex combination formulation is theoretically sound, empirically effective, sample-effeicient, and robust to domain shift.
+and unlike the parameters in RRF, the parameter(s) of convex function are highly interpretable and, if no training samples
+are available, can be adjusted to incorporate domain knowledge.</p>
+<p>The paper believes that a convex combination with theoretical minimum-maximum normalization (TM2C2) indeed enjoys properties
+that are important in a fusion function. Its parameter can be tuned sample-efficiently or set to a reasonable value
+based on domain knowledge. In the paper&rsquo;s experiments, the range $\alpha \in [0.6, 0.8]$ can consistently lead to improvements</p>
+<h2 id="3-sparse-dense-embeddings-from-theory-to-engineering">3. Sparse-dense embeddings: from theory to engineering</h2>
+<p><strong>Sparse vs. Dense</strong></p>
+<p>Pinecone says in article [1] that vectors generated by BoW models are <strong>sparse vector</strong>, for they have large dimension(e.g. 100,000)
+where only a small fraction of its entries are non-zero, used for texical search.</p>
+<pre tabindex="0"><code>[0.1, 0, 0, 0, 0, 0, ..., 0.3, ..., 0]
+</code></pre><blockquote>
+<p>When used for keywords search, each sparse vector represents a document. The dimensions represent workds from a dictionary, and
+the values represent the importance of these workds in the document. Keyword search algorithms like BM25 algorithm compute
+the relevance of text documents based on the number of keyword matches, their frequency, and other factors.</p>
+</blockquote>
+<p><strong>Sparse vector&rsquo;s distance is calculated by doc product(IP) metric.</strong></p>
+<p>Vectors generated by ML models like SBERT are <strong>dense vector</strong>, they are vectors of fixed dimensions, typically between 100-1000,
+where every entry is almost always non-zero. They may represent the learned semantic meaning of texts, used for semantic search.</p>
+<blockquote>
+<p>In Pinecone, each vector consists of dense vector values and, optionally, sparse vector values as well. Pinecone does not support vectors with only sparse values.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">upsert_response <span style="color:#f92672">=</span> index<span style="color:#f92672">.</span>upsert(
+    vectors<span style="color:#f92672">=</span>[
+        {<span style="color:#e6db74">&#39;id&#39;</span>: <span style="color:#e6db74">&#39;vec2&#39;</span>,
+         <span style="color:#e6db74">&#39;values&#39;</span>: [<span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">0.3</span>, <span style="color:#ae81ff">0.4</span>],
+         <span style="color:#e6db74">&#39;metadata&#39;</span>: {<span style="color:#e6db74">&#39;genre&#39;</span>: <span style="color:#e6db74">&#39;action&#39;</span>},
+         <span style="color:#e6db74">&#39;sparse_values&#39;</span>: {
+             <span style="color:#e6db74">&#39;indices&#39;</span>: [<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">11</span>],
+             <span style="color:#e6db74">&#39;values&#39;</span>: [<span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.2</span>]
+         }}
+    ],
+    namespace<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;example-namespace&#39;</span>
+)
+</code></pre></div><p>So the full flow of operations are:</p>
+
+    <img src="https://xuanyang-cn.github.io/img/sparse-dense-search.png"  class="center"  style="zoom:75%;"  />
+
+
+<h2 id="references">References</h2>
+<h3 id="some-useful-reading-resources-about-splade">Some useful reading resources about SPLADE</h3>
+<p><a href="https://arxiv.org/abs/2107.05720">1</a> T. Formal, B. Piwowarski, S. Clinchant, SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking (2021), SIGIR 21</p>
+<p><a href="https://export.arxiv.org/abs/2109.10086">2</a> T. Formal, C. Lassance, B. Piwowarski, S. Clinchant, SPLADE v2: Sparse Lexical and Expansion Model for Information Retrieval (2021)</p>
+<p><a href="https://www.pinecone.io/learn/splade/">3</a> SPLADE for Sparse Vector Search Explained</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://xuanyang-cn.github.io/tags/ir/">IR</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://xuanyang-cn.github.io/categories/information-retrieval/">information retrieval</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1178 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2023-03-06 17:46
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2023%2f03%2fhybrid-search-of-pinecone%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2023%2f03%2fhybrid-search-of-pinecone%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Hybrid%20Search%20of%20Pinecone&amp;caption=Hybrid%20Search%20of%20Pinecone&amp;canonicalUrl=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2023%2f03%2fhybrid-search-of-pinecone%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=Hybrid%20Search%20of%20Pinecone&amp;body=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2023%2f03%2fhybrid-search-of-pinecone%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2023%2f03%2fhybrid-search-of-pinecone%2f&amp;media=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2023%2f03%2fhybrid-search-of-pinecone%2f;description=Hybrid%20Search%20of%20Pinecone" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2023%2f03%2fhybrid-search-of-pinecone%2f&amp;title=Hybrid%20Search%20of%20Pinecone&amp;summary=Hybrid%20Search%20of%20Pinecone&amp;source=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2023%2f03%2fhybrid-search-of-pinecone%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2023%2f03%2fhybrid-search-of-pinecone%2f&amp;resubmit=true&amp;title=Hybrid%20Search%20of%20Pinecone" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2023%2f03%2fhybrid-search-of-pinecone%2f;title=Hybrid%20Search%20of%20Pinecone" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Hybrid%20Search%20of%20Pinecone%20https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2023%2f03%2fhybrid-search-of-pinecone%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2023%2f03%2fhybrid-search-of-pinecone%2f&amp;t=Hybrid%20Search%20of%20Pinecone" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Hybrid%20Search%20of%20Pinecone&amp;url=https%3a%2f%2fxuanyang-cn.github.io%2fposts%2f2023%2f03%2fhybrid-search-of-pinecone%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://xuanyang-cn.github.io/posts/2022/11/how-to-build-develop-environment-with-vim/">
+                    <span class="button__text">How To Build Develop Environment with Vim</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://xuanyang-cn.github.io/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+
+
+
+    </body>
+</html>

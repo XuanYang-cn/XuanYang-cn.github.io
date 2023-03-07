@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 22 Nov 2022 18:30:27 +0800</lastBuildDate><atom:link href="https://xuanyang-cn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Mar 2023 17:46:41 +0800</lastBuildDate><atom:link href="https://xuanyang-cn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hybrid Search of Pinecone</title>
+      <link>https://xuanyang-cn.github.io/posts/2023/03/hybrid-search-of-pinecone/</link>
+      <pubDate>Mon, 06 Mar 2023 17:46:41 +0800</pubDate>
+      
+      <guid>https://xuanyang-cn.github.io/posts/2023/03/hybrid-search-of-pinecone/</guid>
+      <description>1. Brief A summery of paper An analysis of Fusion Functions for Hybrid Retrieval and the following three articles.
+[1]. Introducing support for sparse-dense embeddings for better search results
+[2]. Sparse-dense embeddings, keyword-aware semantic search, Concepts
+[3]. Ecommerce Hybrid Search, Hybrid Search Case
+[4]. Tao Chen, Mingyang Zhang, Jing Lu, Michael Bendersky, and Marc Najork. 2022. Out-of-Domain Semantics to the Rescue! Zero-Shot Hybrid Retrieval Models. In Advances in Information Retrieval: 44th European Conference on IR Research, ECIR 2022, Stavanger, Norway, April 10-14, 2022, Proceedings, Part I (Stavanger, Norway).</description>
+    </item>
+    
     <item>
       <title>How To Build Develop Environment with Vim</title>
       <link>https://xuanyang-cn.github.io/posts/2022/11/how-to-build-develop-environment-with-vim/</link>
